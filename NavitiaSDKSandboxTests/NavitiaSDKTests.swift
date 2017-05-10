@@ -80,6 +80,7 @@ class NavitiaSDKTests: XCTestCase {
 
         waitForExpectations(timeout: 2)
         Assert.that(resultError!.httpStatusCode).isEqualTo(401)
+        Assert.that(resultError!.message).isEqualTo("Invalid http status code 401")
     }
 
     func testShouldRetrieveFeatureAutoCompleteResultsGivenValidConfiguration() {

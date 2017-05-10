@@ -43,9 +43,11 @@ open class BaseNavitiaRequestBuilder: NSObject {
 
     public struct ResourceRequestError: Error {
         var httpStatusCode:Int
+        var message:String
 
-        init(httpStatusCode: Int) {
+        init(httpStatusCode: Int, message: String) {
             self.httpStatusCode = httpStatusCode
+            self.message = message
         }
     }
 
@@ -68,10 +70,10 @@ open class BaseNavitiaRequestBuilder: NSObject {
                         callback(responseJson)
                     }
                 } catch {
-                    print("Error with Json: \(error)")
+                    errorCallback(ResourceRequestError(httpStatusCode: statusCode, message: "Error with Json: \(error)"))
                 }
             } else {
-                errorCallback(ResourceRequestError(httpStatusCode: statusCode))
+                errorCallback(ResourceRequestError(httpStatusCode: statusCode, message: "Invalid http status code \(statusCode)"))
             }
         }
 
