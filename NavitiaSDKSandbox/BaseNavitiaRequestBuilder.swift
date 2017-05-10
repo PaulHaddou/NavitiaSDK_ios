@@ -33,7 +33,7 @@ open class BaseNavitiaRequestBuilder: NSObject {
         return urlResult
     }
 
-    public func  rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: ((Error) -> (Void))? = nil) {
+    public func  rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (Error) -> (Void)) {
         return self.genericGet(
                 processResponseHandler: { (data: Data) -> [String: AnyObject] in
                     return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
@@ -41,7 +41,7 @@ open class BaseNavitiaRequestBuilder: NSObject {
                 callback: callback, errorCallback: errorCallback)
     }
 
-    func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void), errorCallback: ((Error) -> (Void))? = nil) {
+    func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void), errorCallback: @escaping (Error) -> (Void)) {
         let requestURL: NSURL = NSURL(string: getUrl().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         urlRequest.addValue(self.navitiaConfiguration.token, forHTTPHeaderField: "Authorization")

@@ -37,6 +37,7 @@ class NavitiaSDKTests: XCTestCase {
                     (currentAutocompleteResults: [String: AnyObject]) -> Void in
                     result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
                     expectation.fulfill()
+                }, errorCallback: { (error: Error) -> Void in
                 })
 
         waitForExpectations(timeout: 2)
@@ -55,6 +56,7 @@ class NavitiaSDKTests: XCTestCase {
                     (currentAutocompleteResults: EndpointResponsePlaces) -> Void in
                     result = currentAutocompleteResults.places[0].name
                     expectation.fulfill()
+                }, errorCallback: { (error: Error) -> Void in
                 })
 
         waitForExpectations(timeout: 2)
@@ -73,6 +75,7 @@ class NavitiaSDKTests: XCTestCase {
                     (currentAutocompleteResults: [String: AnyObject]) -> Void in
                     result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
                     expectation.fulfill()
+                }, errorCallback: { (error: Error) -> Void in
                 })
 
         waitForExpectations(timeout: 2)
