@@ -33,7 +33,7 @@ open class BaseNavitiaRequestBuilder: NSObject {
         return urlResult
     }
 
-    public func  rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
+    public func rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
         return self.genericGet(
                 processResponseHandler: { (data: Data) -> [String: AnyObject] in
                     return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
