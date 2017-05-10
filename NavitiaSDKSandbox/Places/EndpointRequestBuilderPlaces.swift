@@ -13,7 +13,7 @@ open class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
     // </ Generated>
 
     // <Generated>
-    public func get(callback: @escaping (EndpointResponsePlaces) -> (Void), errorCallback: @escaping (Error) -> (Void)) {
+    public func get(callback: @escaping (EndpointResponsePlaces) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
         return self.genericGet(processResponseHandler: { (data: Data) -> EndpointResponsePlaces in
             let json: [String: AnyObject] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
 

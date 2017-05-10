@@ -31,6 +31,30 @@ class Assert {
         }
     }
 
+    class AssertionInt {
+        let intToTest:Int
+
+        init(_ stringToTest:Int) {
+            self.intToTest = stringToTest
+        }
+
+        func isEqualTo(_ expectedInt:Int) {
+            XCTAssertTrue(self.intToTest == expectedInt, formatAssertionError(actual: self.intToTest, expected: expectedInt))
+        }
+
+        private func formatAssertionError(actual: Int, expected: Int) -> String {
+            var result:[String] = []
+
+            result.append("####### ACTUAL #######")
+            result.append(actual.description)
+            result.append("###### EXPECTED ######")
+            result.append(expected.description)
+            result.append("######################")
+
+            return result.joined(separator: "\n")
+        }
+    }
+
     class AssertionObject {
         let objectToTest:AnyObject
 
@@ -45,6 +69,10 @@ class Assert {
         func isNull() {
             XCTAssertTrue(self.objectToTest == nil)
         }
+    }
+
+    static func that(_ intToTest:Int) -> AssertionInt {
+        return AssertionInt(intToTest)
     }
 
     static func that(_ stringToTest:String) -> AssertionString {

@@ -33,7 +33,7 @@ open class BaseNavitiaRequestBuilder: NSObject {
         return urlResult
     }
 
-    public func  rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (Error) -> (Void)) {
+    public func  rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
         return self.genericGet(
                 processResponseHandler: { (data: Data) -> [String: AnyObject] in
                     return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
@@ -41,7 +41,15 @@ open class BaseNavitiaRequestBuilder: NSObject {
                 callback: callback, errorCallback: errorCallback)
     }
 
-    func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void), errorCallback: @escaping (Error) -> (Void)) {
+    public struct ResourceRequestError: Error {
+        var httpStatusCode:Int
+
+        init(httpStatusCode: Int) {
+            self.httpStatusCode = httpStatusCode
+        }
+    }
+
+    func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
         let requestURL: NSURL = NSURL(string: getUrl().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         urlRequest.addValue(self.navitiaConfiguration.token, forHTTPHeaderField: "Authorization")
@@ -63,7 +71,7 @@ open class BaseNavitiaRequestBuilder: NSObject {
                     print("Error with Json: \(error)")
                 }
             } else {
-                print(statusCode)
+                errorCallback(ResourceRequestError(httpStatusCode: statusCode))
             }
         }
 

@@ -63,6 +63,25 @@ class NavitiaSDKTests: XCTestCase {
         Assert.that(result).isEqualTo("Garein")
     }
 
+    func testShouldLaunchErrorCallbackGivenInvalidConfiguration() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: ""))
+
+        let expectation = self.expectation(description: "AutoComplete request completed")
+        var resultError: BaseNavitiaRequestBuilder.ResourceRequestError?
+        navitiaSDK
+                .endpoints.places
+                .newRequestBuilder().withQ("gare").withCount(10)
+                .get(callback: {
+                    (currentAutocompleteResults: EndpointResponsePlaces) -> Void in
+                }, errorCallback: { (error: BaseNavitiaRequestBuilder.ResourceRequestError) -> Void in
+                    resultError = error
+                    expectation.fulfill()
+                })
+
+        waitForExpectations(timeout: 2)
+        Assert.that(resultError!.httpStatusCode).isEqualTo(401)
+    }
+
     func testShouldRetrieveFeatureAutoCompleteResultsGivenValidConfiguration() {
         let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 
