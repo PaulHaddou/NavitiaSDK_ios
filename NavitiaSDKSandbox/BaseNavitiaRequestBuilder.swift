@@ -5,6 +5,16 @@
 
 import Foundation
 
+open class ResourceRequestError: NSObject, Error {
+    open let httpStatusCode:Int
+    open let message:String
+    
+    init(httpStatusCode: Int, message: String) {
+        self.httpStatusCode = httpStatusCode
+        self.message = message
+    }
+}
+
 open class BaseNavitiaRequestBuilder: NSObject {
     var navitiaConfiguration: NavitiaConfiguration
     var resourceUri: String
@@ -33,22 +43,12 @@ open class BaseNavitiaRequestBuilder: NSObject {
         return urlResult
     }
 
-    public func rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
+    open func rawGet(callback: @escaping ([String: AnyObject]) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
         return self.genericGet(
                 processResponseHandler: { (data: Data) -> [String: AnyObject] in
                     return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
                 },
                 callback: callback, errorCallback: errorCallback)
-    }
-
-    public struct ResourceRequestError: Error {
-        var httpStatusCode:Int
-        var message:String
-
-        init(httpStatusCode: Int, message: String) {
-            self.httpStatusCode = httpStatusCode
-            self.message = message
-        }
     }
 
     func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void), errorCallback: @escaping (ResourceRequestError) -> (Void)) {
