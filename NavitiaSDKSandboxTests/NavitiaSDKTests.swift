@@ -67,13 +67,13 @@ class NavitiaSDKTests: XCTestCase {
         let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: ""))
 
         let expectation = self.expectation(description: "AutoComplete request completed")
-        var resultError: BaseNavitiaRequestBuilder.ResourceRequestError?
+        var resultError: ResourceRequestError?
         navitiaSDK
                 .endpoints.places
                 .newRequestBuilder().withQ("gare").withCount(10)
                 .get(callback: {
                     (currentAutocompleteResults: EndpointResponsePlaces) -> Void in
-                }, errorCallback: { (error: BaseNavitiaRequestBuilder.ResourceRequestError) -> Void in
+                }, errorCallback: { (error: ResourceRequestError) -> Void in
                     resultError = error
                     expectation.fulfill()
                 })
