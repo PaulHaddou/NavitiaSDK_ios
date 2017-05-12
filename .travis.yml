@@ -1,3 +1,6 @@
 language: swift
-xcode_project: NavitiaSDKSandbox.xcodeproj
-xcode_scheme: NavitiaSDKSandbox
+osx_image: xcode8.3
+xcode_sdk: iphonesimulator10.3
+
+script:
+- xcodebuild test -project NavitiaSDKSandbox.xcodeproj -scheme NavitiaSDKSandbox -destination 'platform=iOS Simulator,name=iPhone 7 Plus'
