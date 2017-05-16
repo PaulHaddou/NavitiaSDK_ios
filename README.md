@@ -1,1 +1,1 @@
-# NavitiaSDK_ios [![Build Status](https://travis-ci.org/CanalTP/NavitiaSDK_ios.svg?branch=master)](https://travis-ci.org/CanalTP/NavitiaSDK_ios)
+# NavitiaSDK_ios [![Build Status](https://travis-ci.org/CanalTP/NavitiaSDK_ios.svg?branch=master)](https://travis-ci.org/CanalTP/NavitiaSDK_ios) [![codebeat badge](https://codebeat.co/badges/eca30799-ae64-43fd-8829-70fec1ee03fe)](https://codebeat.co/projects/github-com-canaltp-navitiasdk_ios-master)
