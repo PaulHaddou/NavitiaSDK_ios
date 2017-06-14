@@ -41,7 +41,7 @@ class NavitiaSDKTests: XCTestCase {
                 })
 
         waitForExpectations(timeout: 2)
-        Assert.that(result).isEqualTo("Garein")
+        Assert.that(result).isEqualTo("Capdenac-Gare")
     }
 
     func testShouldRetrieveEndpointPlacesObjectResultsGivenValidConfiguration() {
@@ -60,7 +60,7 @@ class NavitiaSDKTests: XCTestCase {
                 })
 
         waitForExpectations(timeout: 2)
-        Assert.that(result).isEqualTo("Garein")
+        Assert.that(result).isEqualTo("Capdenac-Gare")
     }
 
     func testShouldLaunchErrorCallbackGivenInvalidConfiguration() {
@@ -99,7 +99,7 @@ class NavitiaSDKTests: XCTestCase {
                 })
 
         waitForExpectations(timeout: 2)
-        Assert.that(result).isEqualTo("Garein")
+        Assert.that(result).isEqualTo("Capdenac-Gare")
     }
 
     func testShouldFormatUrlGivenQueryParametersForEndpointPlaces() {

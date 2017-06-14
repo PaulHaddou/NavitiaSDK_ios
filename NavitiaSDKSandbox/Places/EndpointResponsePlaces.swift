@@ -21,25 +21,28 @@ public struct EndpointResponsePlaces: CreatableFromJSON { // TODO: Rename this s
         self.init(links: links, places: places, warnings: warnings)
     }
     struct Places: CreatableFromJSON { // TODO: Rename this struct
-        let administrativeRegion: AdministrativeRegion
+        let administrativeRegion: AdministrativeRegion?
         let embeddedType: String
         let id: String
         let name: String
+        let poi: Poi?
         let quality: Int
-        init(administrativeRegion: AdministrativeRegion, embeddedType: String, id: String, name: String, quality: Int) {
+        init(administrativeRegion: AdministrativeRegion?, embeddedType: String, id: String, name: String, poi: Poi?, quality: Int) {
             self.administrativeRegion = administrativeRegion
             self.embeddedType = embeddedType
             self.id = id
             self.name = name
+            self.poi = poi
             self.quality = quality
         }
         init?(json: [String: Any]) {
-            guard let administrativeRegion = AdministrativeRegion(json: json, key: "administrative_region") else { return nil }
             guard let embeddedType = json["embedded_type"] as? String else { return nil }
             guard let id = json["id"] as? String else { return nil }
             guard let name = json["name"] as? String else { return nil }
             guard let quality = json["quality"] as? Int else { return nil }
-            self.init(administrativeRegion: administrativeRegion, embeddedType: embeddedType, id: id, name: name, quality: quality)
+            let administrativeRegion = AdministrativeRegion(json: json, key: "administrative_region")
+            let poi = Poi(json: json, key: "poi")
+            self.init(administrativeRegion: administrativeRegion, embeddedType: embeddedType, id: id, name: name, poi: poi, quality: quality)
         }
         struct AdministrativeRegion: CreatableFromJSON { // TODO: Rename this struct
             let administrativeRegions: [Any?]
@@ -82,6 +85,98 @@ public struct EndpointResponsePlaces: CreatableFromJSON { // TODO: Rename this s
                     guard let lat = json["lat"] as? String else { return nil }
                     guard let lon = json["lon"] as? String else { return nil }
                     self.init(lat: lat, lon: lon)
+                }
+            }
+        }
+        struct Poi: CreatableFromJSON { // TODO: Rename this struct
+            let administrativeRegions: [AdministrativeRegions]
+            let coord: Coord
+            let id: String
+            let label: String
+            let name: String
+            let poiType: PoiType
+            init(administrativeRegions: [AdministrativeRegions], coord: Coord, id: String, label: String, name: String, poiType: PoiType) {
+                self.administrativeRegions = administrativeRegions
+                self.coord = coord
+                self.id = id
+                self.label = label
+                self.name = name
+                self.poiType = poiType
+            }
+            init?(json: [String: Any]) {
+                guard let administrativeRegions = AdministrativeRegions.createRequiredInstances(from: json, arrayKey: "administrative_regions") else { return nil }
+                guard let coord = Coord(json: json, key: "coord") else { return nil }
+                guard let id = json["id"] as? String else { return nil }
+                guard let label = json["label"] as? String else { return nil }
+                guard let name = json["name"] as? String else { return nil }
+                guard let poiType = PoiType(json: json, key: "poi_type") else { return nil }
+                self.init(administrativeRegions: administrativeRegions, coord: coord, id: id, label: label, name: name, poiType: poiType)
+            }
+            struct AdministrativeRegions: CreatableFromJSON { // TODO: Rename this struct
+                let coord: Coord
+                let id: String
+                let insee: String
+                let label: String
+                let level: Int
+                let name: String
+                let zipCode: Any?
+                init(coord: Coord, id: String, insee: String, label: String, level: Int, name: String, zipCode: Any?) {
+                    self.coord = coord
+                    self.id = id
+                    self.insee = insee
+                    self.label = label
+                    self.level = level
+                    self.name = name
+                    self.zipCode = zipCode
+                }
+                init?(json: [String: Any]) {
+                    guard let coord = Coord(json: json, key: "coord") else { return nil }
+                    guard let id = json["id"] as? String else { return nil }
+                    guard let insee = json["insee"] as? String else { return nil }
+                    guard let label = json["label"] as? String else { return nil }
+                    guard let level = json["level"] as? Int else { return nil }
+                    guard let name = json["name"] as? String else { return nil }
+                    let zipCode = json["zip_code"] as? Any
+                    self.init(coord: coord, id: id, insee: insee, label: label, level: level, name: name, zipCode: zipCode)
+                }
+                struct Coord: CreatableFromJSON { // TODO: Rename this struct
+                    let lat: String
+                    let lon: String
+                    init(lat: String, lon: String) {
+                        self.lat = lat
+                        self.lon = lon
+                    }
+                    init?(json: [String: Any]) {
+                        guard let lat = json["lat"] as? String else { return nil }
+                        guard let lon = json["lon"] as? String else { return nil }
+                        self.init(lat: lat, lon: lon)
+                    }
+                }
+            }
+            struct Coord: CreatableFromJSON { // TODO: Rename this struct
+                let lat: String
+                let lon: String
+                init(lat: String, lon: String) {
+                    self.lat = lat
+                    self.lon = lon
+                }
+                init?(json: [String: Any]) {
+                    guard let lat = json["lat"] as? String else { return nil }
+                    guard let lon = json["lon"] as? String else { return nil }
+                    self.init(lat: lat, lon: lon)
+                }
+            }
+            struct PoiType: CreatableFromJSON { // TODO: Rename this struct
+                let id: String
+                let name: String
+                init(id: String, name: String) {
+                    self.id = id
+                    self.name = name
+                }
+                init?(json: [String: Any]) {
+                    guard let id = json["id"] as? String else { return nil }
+                    guard let name = json["name"] as? String else { return nil }
+                    self.init(id: id, name: name)
                 }
             }
         }
@@ -158,9 +253,9 @@ extension CreatableFromJSON {
 
 extension Date {
     // Date formatters are cached because they are expensive to create. All cache access is performed on a serial queue.
-    fileprivate static let cacheQueue = DispatchQueue(label: "DateFormatterCacheQueue")
-    fileprivate static var formatterCache = [String: DateFormatter]()
-    fileprivate static func dateFormatter(with format: String) -> DateFormatter {
+    private static let cacheQueue = DispatchQueue(label: "DateFormatterCacheQueue")
+    private static var formatterCache = [String: DateFormatter]()
+    private static func dateFormatter(with format: String) -> DateFormatter {
         if let formatter = formatterCache[format] { return formatter }
         let formatter = DateFormatter()
         formatter.dateFormat = format
