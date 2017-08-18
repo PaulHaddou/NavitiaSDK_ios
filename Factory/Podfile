@@ -1,0 +1,112 @@
+require 'xcodeproj'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'Factory' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pod for Factory
+  target 'FactoryTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'NavitiaSDK', :path => '../'
+  end
+end
+
+################################### GROUP MANIPULATION ###################################
+def get_group_from_project(group_name, project)
+  return project.groups.select do |group|
+    group.display_name == group_name
+  end.first
+end
+
+def get_filepaths_from_group(group)
+  files = group.files.to_a.map do |file|
+    file.real_path.to_s
+  end
+
+  return files
+end
+
+def is_filepath_already_in_group(filepath, group)
+  get_filepaths_from_group(group).select do |fileInGroup|
+    fileInGroup == File.realpath(filepath)
+  end.each do |matchedFile|
+    return true
+  end
+
+  return false
+end
+
+def add_filepath_to_group(filepath, group_name, project)
+  currentGroup = get_group_from_project(group_name, project)
+
+  if !is_filepath_already_in_group(filepath, currentGroup)
+    puts 'Adding file ' + filepath + ' in group ' + group_name
+    currentGroup.new_file(filepath)
+  end
+end
+
+################################### TARGET MANIPULATION ###################################
+def get_target_from_project(targetName, project)
+  return project.targets.select do |target|
+    target.name == targetName
+  end.first
+end
+
+def get_filepaths_from_target(target)
+  files = target.source_build_phase.files.to_a.map do |pbx_build_file|
+    pbx_build_file.file_ref.real_path.to_s
+  end
+
+  return files
+end
+
+def is_filepath_already_in_target(filepath, target)
+  get_filepaths_from_target(target).select do |fileInTarget|
+    fileInTarget == File.realpath(filepath)
+  end.each do |matchedFile|
+    return true
+  end
+
+  return false
+end
+
+def add_filereference_to_target(file_ref, target_name, project)
+  current_target = get_target_from_project(target_name, project)
+
+  if file_ref && !is_filepath_already_in_target(file_ref.real_path, current_target)
+    puts 'Adding file ' + file_ref.real_path.to_s + ' in target ' + target_name
+    current_target.add_file_references([ file_ref ])
+  end
+end
+
+################################### SCRIPT ###################################
+project_path = './Factory.xcodeproj'
+project = Xcodeproj::Project.open(project_path)
+context_name = 'FactoryTests'
+file_to_add = 'NavitiaSDKTests.swift'
+
+puts '#### Handling ' + context_name + ' ####'
+added_file_reference = add_filepath_to_group(File.realpath('./' + context_name + '/' + file_to_add), context_name, project)
+add_filereference_to_target(added_file_reference, context_name, project)
+puts
+
+puts '#### Files in GROUP ' + context_name + ' ####'
+get_filepaths_from_group(get_group_from_project(context_name, project)).each do |file|
+  puts file
+end
+puts
+
+puts '#### Files in TARGET ' + context_name + ' ####'
+get_filepaths_from_target(get_target_from_project(context_name, project)).each do |file|
+  puts file
+end
+puts
+
+puts '#### RECREATE PROJECT SCHEME ####'
+project.recreate_user_schemes(true)
+
+project.save(project_path)
