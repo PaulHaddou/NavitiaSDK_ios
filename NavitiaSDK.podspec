@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavitiaSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Navitia client written in Swift 3'
 
 # This description is used to generate tags and improve search results.
@@ -19,16 +19,23 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 ALPHA - Navitia client
-Partial supported endpoint:
-- places (without coverage)
+Supported endpoints:
+- places
+- journeys
+- departures
+- stop_schedules
+- all public transport objects
                        DESC
 
   s.homepage         = 'https://github.com/CanalTP/NavitiaSDK_ios'
   s.license          = { :type => 'GPLv3', :file => 'LICENSE.md' }
-  s.author           = { 'CanalTP' => 'sdk@kisio.org' }
+  s.author           = { 'Kisio Digital' => 'team.sdk@kisio.org' }
   s.source           = { :git => 'https://github.com/CanalTP/NavitiaSDK_ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'NavitiaSDKSandbox/**/*'
+  s.source_files = 'NavitiaSDK_ios/Classes/**/*.swift'
+
+  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'AlamofireObjectMapper', '~> 4.0'
 end
