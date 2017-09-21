@@ -34,7 +34,7 @@ Supported endpoints:
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'NavitiaSDK_ios/Classes/**/*.swift'
+  s.source_files = 'NavitiaSDK/Classes/**/*.swift'
 
   s.dependency 'Alamofire', '~> 4.0'
   s.dependency 'AlamofireObjectMapper', '~> 4.0'
