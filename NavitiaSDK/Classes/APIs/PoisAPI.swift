@@ -128,7 +128,7 @@ open class CoverageLonLatPoisRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -313,7 +313,7 @@ open class CoverageLonLatPoisIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -508,7 +508,7 @@ open class CoverageLonLatUriPoisRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -705,7 +705,7 @@ open class CoverageLonLatUriPoisIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -894,7 +894,7 @@ open class CoverageRegionPoisRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1067,7 +1067,7 @@ open class CoverageRegionPoisIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1250,7 +1250,7 @@ open class CoverageRegionUriPoisRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1435,7 +1435,7 @@ open class CoverageRegionUriPoisIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 

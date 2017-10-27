@@ -127,7 +127,7 @@ open class CoverageLonLatDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 
@@ -316,7 +316,7 @@ open class CoverageLonLatUriDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 
@@ -499,7 +499,7 @@ open class CoverageRegionDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 
@@ -676,7 +676,7 @@ open class CoverageRegionUriDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 

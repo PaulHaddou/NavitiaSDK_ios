@@ -29,7 +29,7 @@ open class CoverageRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
@@ -99,7 +99,7 @@ open class CoverageLonLatRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
@@ -175,7 +175,7 @@ open class CoverageRegionRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)

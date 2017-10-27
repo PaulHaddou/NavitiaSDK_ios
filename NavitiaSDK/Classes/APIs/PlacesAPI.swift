@@ -76,7 +76,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 
@@ -200,7 +200,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 
@@ -312,7 +312,7 @@ open class PlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 

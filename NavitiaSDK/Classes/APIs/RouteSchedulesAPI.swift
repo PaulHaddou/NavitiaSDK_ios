@@ -133,7 +133,7 @@ open class CoverageLonLatUriRouteSchedulesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 
@@ -322,7 +322,7 @@ open class CoverageRegionUriRouteSchedulesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 
@@ -493,7 +493,7 @@ open class RouteSchedulesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime, 
             "until_datetime": self.untilDatetime, 

@@ -233,7 +233,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime, 
@@ -542,7 +542,7 @@ open class CoverageLonLatUriJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime, 
@@ -845,7 +845,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime, 
@@ -1142,7 +1142,7 @@ open class CoverageRegionUriJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime, 
@@ -1433,7 +1433,7 @@ open class JourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime, 
