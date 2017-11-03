@@ -12,7 +12,7 @@ import ObjectMapper
 open class Severity: JSONEncodable, Mappable {
 
     public var color: String?
-    public var priority: String?
+    public var priority: Int32?
     public var name: String?
     public var effect: String?
 
@@ -33,7 +33,7 @@ open class Severity: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["color"] = self.color
-        nillableDictionary["priority"] = self.priority
+        nillableDictionary["priority"] = self.priority?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["effect"] = self.effect
 

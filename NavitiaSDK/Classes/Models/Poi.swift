@@ -20,6 +20,7 @@ open class Poi: JSONEncodable, Mappable {
     public var address: Address?
     /** Identifier of the object */
     public var id: String?
+    public var properties: [String:String]?
     public var stands: Stands?
 
     public init() {}
@@ -36,6 +37,7 @@ open class Poi: JSONEncodable, Mappable {
         administrativeRegions <- map["administrative_regions"]
         address <- map["address"]
         id <- map["id"]
+        properties <- map["properties"]
         stands <- map["stands"]
     }
 
@@ -49,6 +51,7 @@ open class Poi: JSONEncodable, Mappable {
         nillableDictionary["administrative_regions"] = self.administrativeRegions?.encodeToJSON()
         nillableDictionary["address"] = self.address?.encodeToJSON()
         nillableDictionary["id"] = self.id
+        nillableDictionary["properties"] = self.properties?.encodeToJSON()
         nillableDictionary["stands"] = self.stands?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

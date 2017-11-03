@@ -14,6 +14,7 @@ open class Disruptions: JSONEncodable, Mappable {
     public var disruptions: [Disruption]?
     public var pagination: Pagination?
     public var error: ModelError?
+    public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
 
     public init() {}
@@ -26,6 +27,7 @@ open class Disruptions: JSONEncodable, Mappable {
         disruptions <- map["disruptions"]
         pagination <- map["pagination"]
         error <- map["error"]
+        notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
     }
 
@@ -35,6 +37,7 @@ open class Disruptions: JSONEncodable, Mappable {
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
+        nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

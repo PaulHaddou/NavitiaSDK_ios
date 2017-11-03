@@ -11,6 +11,11 @@ import ObjectMapper
 
 open class Note: JSONEncodable, Mappable {
 
+    public enum Category: String { 
+        case comment = "comment"
+        case terminus = "terminus"
+    }
+    public var category: Category?
     public var type: String?
     public var id: String?
     public var value: String?
@@ -22,6 +27,7 @@ open class Note: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
+        category <- map["category"]
         type <- map["type"]
         id <- map["id"]
         value <- map["value"]
@@ -30,6 +36,7 @@ open class Note: JSONEncodable, Mappable {
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
+        nillableDictionary["category"] = self.category?.rawValue
         nillableDictionary["type"] = self.type
         nillableDictionary["id"] = self.id
         nillableDictionary["value"] = self.value

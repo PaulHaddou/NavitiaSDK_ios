@@ -212,11 +212,42 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Arrivals() : instance as! Arrivals
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.arrivals = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["arrivals"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [Autocomplete]
+        Decoders.addDecoder(clazz: [Autocomplete].self) { (source: AnyObject, instance: AnyObject?) -> [Autocomplete] in
+            return Decoders.decode(clazz: [Autocomplete].self, source: source)
+        }
+        // Decoder for Autocomplete
+        Decoders.addDecoder(clazz: Autocomplete.self) { (source: AnyObject, instance: AnyObject?) -> Autocomplete in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? Autocomplete() : instance as! Autocomplete
+            
+            result._class = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["class"] as AnyObject?)
+            result.timeout = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["timeout"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [BetaEndpoints]
+        Decoders.addDecoder(clazz: [BetaEndpoints].self) { (source: AnyObject, instance: AnyObject?) -> [BetaEndpoints] in
+            return Decoders.decode(clazz: [BetaEndpoints].self, source: source)
+        }
+        // Decoder for BetaEndpoints
+        Decoders.addDecoder(clazz: BetaEndpoints.self) { (source: AnyObject, instance: AnyObject?) -> BetaEndpoints in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? BetaEndpoints() : instance as! BetaEndpoints
+            
+            result.message = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["message"] as AnyObject?)
+            result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
             return result
         }
 
@@ -284,6 +315,57 @@ class Decoders {
         }
 
 
+        // Decoder for [Calendars]
+        Decoders.addDecoder(clazz: [Calendars].self) { (source: AnyObject, instance: AnyObject?) -> [Calendars] in
+            return Decoders.decode(clazz: [Calendars].self, source: source)
+        }
+        // Decoder for Calendars
+        Decoders.addDecoder(clazz: Calendars.self) { (source: AnyObject, instance: AnyObject?) -> Calendars in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? Calendars() : instance as! Calendars
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.calendars = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["calendars"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [CellLatSchema]
+        Decoders.addDecoder(clazz: [CellLatSchema].self) { (source: AnyObject, instance: AnyObject?) -> [CellLatSchema] in
+            return Decoders.decode(clazz: [CellLatSchema].self, source: source)
+        }
+        // Decoder for CellLatSchema
+        Decoders.addDecoder(clazz: CellLatSchema.self) { (source: AnyObject, instance: AnyObject?) -> CellLatSchema in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? CellLatSchema() : instance as! CellLatSchema
+            
+            result.minLat = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["min_lat"] as AnyObject?)
+            result.maxLat = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["max_lat"] as AnyObject?)
+            result.centerLat = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["center_lat"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [CellLonSchema]
+        Decoders.addDecoder(clazz: [CellLonSchema].self) { (source: AnyObject, instance: AnyObject?) -> [CellLonSchema] in
+            return Decoders.decode(clazz: [CellLonSchema].self, source: source)
+        }
+        // Decoder for CellLonSchema
+        Decoders.addDecoder(clazz: CellLonSchema.self) { (source: AnyObject, instance: AnyObject?) -> CellLonSchema in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? CellLonSchema() : instance as! CellLonSchema
+            
+            result.minLon = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["min_lon"] as AnyObject?)
+            result.centerLon = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["center_lon"] as AnyObject?)
+            result.maxLon = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["max_lon"] as AnyObject?)
+            return result
+        }
+
+
         // Decoder for [Channel]
         Decoders.addDecoder(clazz: [Channel].self) { (source: AnyObject, instance: AnyObject?) -> [Channel] in
             return Decoders.decode(clazz: [Channel].self, source: source)
@@ -300,6 +382,22 @@ class Decoders {
             }
             
             result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [CircuitBreaker]
+        Decoders.addDecoder(clazz: [CircuitBreaker].self) { (source: AnyObject, instance: AnyObject?) -> [CircuitBreaker] in
+            return Decoders.decode(clazz: [CircuitBreaker].self, source: source)
+        }
+        // Decoder for CircuitBreaker
+        Decoders.addDecoder(clazz: CircuitBreaker.self) { (source: AnyObject, instance: AnyObject?) -> CircuitBreaker in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? CircuitBreaker() : instance as! CircuitBreaker
+            
+            result.failCounter = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["fail_counter"] as AnyObject?)
+            result.currentState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["current_state"] as AnyObject?)
+            result.resetTimeout = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["reset_timeout"] as AnyObject?)
             return result
         }
 
@@ -358,11 +456,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? CommercialModes() : instance as! CommercialModes
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
             result.commercialModes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["commercial_modes"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -392,11 +491,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Companies() : instance as! Companies
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.companies = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["companies"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -441,11 +541,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Contributors() : instance as! Contributors
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.contributors = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["contributors"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -560,11 +661,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Datasets() : instance as! Datasets
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
             result.datasets = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["datasets"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -580,6 +682,7 @@ class Decoders {
             
             result.dateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["date_time"] as AnyObject?)
             result.additionalInformations = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["additional_informations"] as AnyObject?)
+            result.baseDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["base_date_time"] as AnyObject?)
             result.dataFreshness = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["data_freshness"] as AnyObject?)
             result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
             return result
@@ -595,11 +698,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Departures() : instance as! Departures
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
-            result.departures = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["departures"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.departures = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["departures"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -647,6 +751,7 @@ class Decoders {
             result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
@@ -716,6 +821,93 @@ class Decoders {
         }
 
 
+        // Decoder for [GeoStatus]
+        Decoders.addDecoder(clazz: [GeoStatus].self) { (source: AnyObject, instance: AnyObject?) -> [GeoStatus] in
+            return Decoders.decode(clazz: [GeoStatus].self, source: source)
+        }
+        // Decoder for GeoStatus
+        Decoders.addDecoder(clazz: GeoStatus.self) { (source: AnyObject, instance: AnyObject?) -> GeoStatus in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? GeoStatus() : instance as! GeoStatus
+            
+            result.nbAdminsFromCities = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_admins_from_cities"] as AnyObject?)
+            result.streetNetworkSources = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["street_network_sources"] as AnyObject?)
+            result.poiSources = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["poi_sources"] as AnyObject?)
+            result.nbAddresses = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_addresses"] as AnyObject?)
+            result.nbAdmins = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_admins"] as AnyObject?)
+            result.nbPois = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_pois"] as AnyObject?)
+            result.nbWays = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_ways"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [GeoStatus1]
+        Decoders.addDecoder(clazz: [GeoStatus1].self) { (source: AnyObject, instance: AnyObject?) -> [GeoStatus1] in
+            return Decoders.decode(clazz: [GeoStatus1].self, source: source)
+        }
+        // Decoder for GeoStatus1
+        Decoders.addDecoder(clazz: GeoStatus1.self) { (source: AnyObject, instance: AnyObject?) -> GeoStatus1 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? GeoStatus1() : instance as! GeoStatus1
+            
+            result.geoStatus = Decoders.decodeOptional(clazz: GeoStatus.self, source: sourceDictionary["geo_status"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [GraphicalIsrochone]
+        Decoders.addDecoder(clazz: [GraphicalIsrochone].self) { (source: AnyObject, instance: AnyObject?) -> [GraphicalIsrochone] in
+            return Decoders.decode(clazz: [GraphicalIsrochone].self, source: source)
+        }
+        // Decoder for GraphicalIsrochone
+        Decoders.addDecoder(clazz: GraphicalIsrochone.self) { (source: AnyObject, instance: AnyObject?) -> GraphicalIsrochone in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? GraphicalIsrochone() : instance as! GraphicalIsrochone
+            
+            result.maxDuration = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_duration"] as AnyObject?)
+            result.from = Decoders.decodeOptional(clazz: Place.self, source: sourceDictionary["from"] as AnyObject?)
+            result.geojson = Decoders.decodeOptional(clazz: GraphicalIsrochoneGeojson.self, source: sourceDictionary["geojson"] as AnyObject?)
+            result.minDuration = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_duration"] as AnyObject?)
+            result.minDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["min_date_time"] as AnyObject?)
+            result.to = Decoders.decodeOptional(clazz: Place.self, source: sourceDictionary["to"] as AnyObject?)
+            result.requestedDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["requested_date_time"] as AnyObject?)
+            result.maxDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["max_date_time"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [GraphicalIsrochone1]
+        Decoders.addDecoder(clazz: [GraphicalIsrochone1].self) { (source: AnyObject, instance: AnyObject?) -> [GraphicalIsrochone1] in
+            return Decoders.decode(clazz: [GraphicalIsrochone1].self, source: source)
+        }
+        // Decoder for GraphicalIsrochone1
+        Decoders.addDecoder(clazz: GraphicalIsrochone1.self) { (source: AnyObject, instance: AnyObject?) -> GraphicalIsrochone1 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? GraphicalIsrochone1() : instance as! GraphicalIsrochone1
+            
+            result.isochrones = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["isochrones"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.warnings = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["warnings"] as AnyObject?)
+            result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [GraphicalIsrochoneGeojson]
+        Decoders.addDecoder(clazz: [GraphicalIsrochoneGeojson].self) { (source: AnyObject, instance: AnyObject?) -> [GraphicalIsrochoneGeojson] in
+            return Decoders.decode(clazz: [GraphicalIsrochoneGeojson].self, source: source)
+        }
+        // Decoder for GraphicalIsrochoneGeojson
+        Decoders.addDecoder(clazz: GraphicalIsrochoneGeojson.self) { (source: AnyObject, instance: AnyObject?) -> GraphicalIsrochoneGeojson in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? GraphicalIsrochoneGeojson() : instance as! GraphicalIsrochoneGeojson
+            
+            result.coordinates = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["coordinates"] as AnyObject?)
+            return result
+        }
+
+
         // Decoder for [Header]
         Decoders.addDecoder(clazz: [Header].self) { (source: AnyObject, instance: AnyObject?) -> [Header] in
             return Decoders.decode(clazz: [Header].self, source: source)
@@ -728,6 +920,56 @@ class Decoders {
             result.displayInformations = Decoders.decodeOptional(clazz: VJDisplayInformation.self, source: sourceDictionary["display_informations"] as AnyObject?)
             result.additionalInformations = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["additional_informations"] as AnyObject?)
             result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [HeatMap]
+        Decoders.addDecoder(clazz: [HeatMap].self) { (source: AnyObject, instance: AnyObject?) -> [HeatMap] in
+            return Decoders.decode(clazz: [HeatMap].self, source: source)
+        }
+        // Decoder for HeatMap
+        Decoders.addDecoder(clazz: HeatMap.self) { (source: AnyObject, instance: AnyObject?) -> HeatMap in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? HeatMap() : instance as! HeatMap
+            
+            result.to = Decoders.decodeOptional(clazz: Place.self, source: sourceDictionary["to"] as AnyObject?)
+            result.requestedDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["requested_date_time"] as AnyObject?)
+            result.from = Decoders.decodeOptional(clazz: Place.self, source: sourceDictionary["from"] as AnyObject?)
+            result.heatMatrix = Decoders.decodeOptional(clazz: HeatMatrixSchema.self, source: sourceDictionary["heat_matrix"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [HeatMap1]
+        Decoders.addDecoder(clazz: [HeatMap1].self) { (source: AnyObject, instance: AnyObject?) -> [HeatMap1] in
+            return Decoders.decode(clazz: [HeatMap1].self, source: source)
+        }
+        // Decoder for HeatMap1
+        Decoders.addDecoder(clazz: HeatMap1.self) { (source: AnyObject, instance: AnyObject?) -> HeatMap1 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? HeatMap1() : instance as! HeatMap1
+            
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.warnings = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["warnings"] as AnyObject?)
+            result.heatMaps = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["heat_maps"] as AnyObject?)
+            result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [HeatMatrixSchema]
+        Decoders.addDecoder(clazz: [HeatMatrixSchema].self) { (source: AnyObject, instance: AnyObject?) -> [HeatMatrixSchema] in
+            return Decoders.decode(clazz: [HeatMatrixSchema].self, source: source)
+        }
+        // Decoder for HeatMatrixSchema
+        Decoders.addDecoder(clazz: HeatMatrixSchema.self) { (source: AnyObject, instance: AnyObject?) -> HeatMatrixSchema in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? HeatMatrixSchema() : instance as! HeatMatrixSchema
+            
+            result.lineHeaders = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["line_headers"] as AnyObject?)
+            result.lines = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["lines"] as AnyObject?)
             return result
         }
 
@@ -874,11 +1116,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? JourneyPatternPoints() : instance as! JourneyPatternPoints
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.journeyPatternPoints = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["journey_pattern_points"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -892,11 +1135,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? JourneyPatterns() : instance as! JourneyPatterns
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
-            result.journeyPatterns = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["journey_patterns"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.journeyPatterns = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["journey_patterns"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -981,11 +1225,61 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? LineGroups() : instance as! LineGroups
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.lineGroups = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["line_groups"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [LineHeadersSchema]
+        Decoders.addDecoder(clazz: [LineHeadersSchema].self) { (source: AnyObject, instance: AnyObject?) -> [LineHeadersSchema] in
+            return Decoders.decode(clazz: [LineHeadersSchema].self, source: source)
+        }
+        // Decoder for LineHeadersSchema
+        Decoders.addDecoder(clazz: LineHeadersSchema.self) { (source: AnyObject, instance: AnyObject?) -> LineHeadersSchema in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? LineHeadersSchema() : instance as! LineHeadersSchema
+            
+            result.cellLat = Decoders.decodeOptional(clazz: CellLatSchema.self, source: sourceDictionary["cell_lat"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [LineReport]
+        Decoders.addDecoder(clazz: [LineReport].self) { (source: AnyObject, instance: AnyObject?) -> [LineReport] in
+            return Decoders.decode(clazz: [LineReport].self, source: source)
+        }
+        // Decoder for LineReport
+        Decoders.addDecoder(clazz: LineReport.self) { (source: AnyObject, instance: AnyObject?) -> LineReport in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? LineReport() : instance as! LineReport
+            
+            result.line = Decoders.decodeOptional(clazz: Line.self, source: sourceDictionary["line"] as AnyObject?)
+            result.ptObjects = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["pt_objects"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [LineReports]
+        Decoders.addDecoder(clazz: [LineReports].self) { (source: AnyObject, instance: AnyObject?) -> [LineReports] in
+            return Decoders.decode(clazz: [LineReports].self, source: source)
+        }
+        // Decoder for LineReports
+        Decoders.addDecoder(clazz: LineReports.self) { (source: AnyObject, instance: AnyObject?) -> LineReports in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? LineReports() : instance as! LineReports
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.warnings = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["warnings"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.lineReports = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["line_reports"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -999,11 +1293,27 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Lines() : instance as! Lines
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.lines = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["lines"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [LinesSchema]
+        Decoders.addDecoder(clazz: [LinesSchema].self) { (source: AnyObject, instance: AnyObject?) -> [LinesSchema] in
+            return Decoders.decode(clazz: [LinesSchema].self, source: source)
+        }
+        // Decoder for LinesSchema
+        Decoders.addDecoder(clazz: LinesSchema.self) { (source: AnyObject, instance: AnyObject?) -> LinesSchema in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? LinesSchema() : instance as! LinesSchema
+            
+            result.duration = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["duration"] as AnyObject?)
+            result.cellLon = Decoders.decodeOptional(clazz: CellLonSchema.self, source: sourceDictionary["cell_lon"] as AnyObject?)
             return result
         }
 
@@ -1099,11 +1409,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Networks() : instance as! Networks
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.networks = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["networks"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1116,6 +1427,10 @@ class Decoders {
         Decoders.addDecoder(clazz: Note.self) { (source: AnyObject, instance: AnyObject?) -> Note in
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Note() : instance as! Note
+            
+            if let category = sourceDictionary["category"] as? String { 
+                result.category = Note.Category(rawValue: (category))
+            }
             
             result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
             result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
@@ -1137,6 +1452,48 @@ class Decoders {
             result.itemsOnPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["items_on_page"] as AnyObject?)
             result.itemsPerPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["items_per_page"] as AnyObject?)
             result.totalResult = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total_result"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [Parameters]
+        Decoders.addDecoder(clazz: [Parameters].self) { (source: AnyObject, instance: AnyObject?) -> [Parameters] in
+            return Decoders.decode(clazz: [Parameters].self, source: source)
+        }
+        // Decoder for Parameters
+        Decoders.addDecoder(clazz: Parameters.self) { (source: AnyObject, instance: AnyObject?) -> Parameters in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? Parameters() : instance as! Parameters
+            
+            result.minCar = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_car"] as AnyObject?)
+            result.maxDuration = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_duration"] as AnyObject?)
+            result.journeyOrder = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["journey_order"] as AnyObject?)
+            result.minTcWithBss = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_tc_with_bss"] as AnyObject?)
+            result.maxBssDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_bss_duration_to_pt"] as AnyObject?)
+            result.maxNbTransfers = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_nb_transfers"] as AnyObject?)
+            result.bikeSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["bike_speed"] as AnyObject?)
+            result.walkingTransferPenalty = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["walking_transfer_penalty"] as AnyObject?)
+            result.maxAdditionalConnections = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_additional_connections"] as AnyObject?)
+            result.walkingSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["walking_speed"] as AnyObject?)
+            result.maxDurationFallbackMode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["max_duration_fallback_mode"] as AnyObject?)
+            result.priority = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["priority"] as AnyObject?)
+            result.carSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["car_speed"] as AnyObject?)
+            result.minTcWithCar = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_tc_with_car"] as AnyObject?)
+            result.minTcWithBike = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_tc_with_bike"] as AnyObject?)
+            result.successivePhysicalModeToLimitId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["successive_physical_mode_to_limit_id"] as AnyObject?)
+            result.minBike = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_bike"] as AnyObject?)
+            result.maxWalkingDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_walking_duration_to_pt"] as AnyObject?)
+            result.nightBusFilterBaseFactor = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["night_bus_filter_base_factor"] as AnyObject?)
+            result.maxBikeDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_bike_duration_to_pt"] as AnyObject?)
+            result.maxDurationCriteria = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["max_duration_criteria"] as AnyObject?)
+            result.bssProvider = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["bss_provider"] as AnyObject?)
+            result.scenario = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["scenario"] as AnyObject?)
+            result.maxCarDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_car_duration_to_pt"] as AnyObject?)
+            result.minBss = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_bss"] as AnyObject?)
+            result.minDurationTooLongJourney = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["min_duration_too_long_journey"] as AnyObject?)
+            result.nightBusFilterMaxFactor = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["night_bus_filter_max_factor"] as AnyObject?)
+            result.factorTooLongJourney = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["factor_too_long_journey"] as AnyObject?)
+            result.bssSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["bss_speed"] as AnyObject?)
             return result
         }
 
@@ -1215,11 +1572,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? PhysicalModes() : instance as! PhysicalModes
             
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
             result.physicalModes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["physical_modes"] as AnyObject?)
             result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
-            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -1246,6 +1604,29 @@ class Decoders {
         }
 
 
+        // Decoder for [PlaceNearby]
+        Decoders.addDecoder(clazz: [PlaceNearby].self) { (source: AnyObject, instance: AnyObject?) -> [PlaceNearby] in
+            return Decoders.decode(clazz: [PlaceNearby].self, source: source)
+        }
+        // Decoder for PlaceNearby
+        Decoders.addDecoder(clazz: PlaceNearby.self) { (source: AnyObject, instance: AnyObject?) -> PlaceNearby in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? PlaceNearby() : instance as! PlaceNearby
+            
+            result.embeddedType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["embedded_type"] as AnyObject?)
+            result.stopPoint = Decoders.decodeOptional(clazz: StopPoint.self, source: sourceDictionary["stop_point"] as AnyObject?)
+            result.administrativeRegion = Decoders.decodeOptional(clazz: Admin.self, source: sourceDictionary["administrative_region"] as AnyObject?)
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.distance = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distance"] as AnyObject?)
+            result.address = Decoders.decodeOptional(clazz: Address.self, source: sourceDictionary["address"] as AnyObject?)
+            result.poi = Decoders.decodeOptional(clazz: Poi.self, source: sourceDictionary["poi"] as AnyObject?)
+            result.quality = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["quality"] as AnyObject?)
+            result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result.stopArea = Decoders.decodeOptional(clazz: StopArea.self, source: sourceDictionary["stop_area"] as AnyObject?)
+            return result
+        }
+
+
         // Decoder for [Places]
         Decoders.addDecoder(clazz: [Places].self) { (source: AnyObject, instance: AnyObject?) -> [Places] in
             return Decoders.decode(clazz: [Places].self, source: source)
@@ -1259,6 +1640,25 @@ class Decoders {
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.places = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["places"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [PlacesNearby]
+        Decoders.addDecoder(clazz: [PlacesNearby].self) { (source: AnyObject, instance: AnyObject?) -> [PlacesNearby] in
+            return Decoders.decode(clazz: [PlacesNearby].self, source: source)
+        }
+        // Decoder for PlacesNearby
+        Decoders.addDecoder(clazz: PlacesNearby.self) { (source: AnyObject, instance: AnyObject?) -> PlacesNearby in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? PlacesNearby() : instance as! PlacesNearby
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.placesNearby = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["places_nearby"] as AnyObject?)
             return result
         }
 
@@ -1279,6 +1679,7 @@ class Decoders {
             result.administrativeRegions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["administrative_regions"] as AnyObject?)
             result.address = Decoders.decodeOptional(clazz: Address.self, source: sourceDictionary["address"] as AnyObject?)
             result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result.properties = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["properties"] as AnyObject?)
             result.stands = Decoders.decodeOptional(clazz: Stands.self, source: sourceDictionary["stands"] as AnyObject?)
             return result
         }
@@ -1308,11 +1709,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? PoiTypes() : instance as! PoiTypes
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.poiTypes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["poi_types"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1326,11 +1728,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Pois() : instance as! Pois
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.pois = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["pois"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             return result
         }
 
@@ -1360,7 +1763,8 @@ class Decoders {
             let result = instance == nil ? PtObject() : instance as! PtObject
             
             result.embeddedType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["embedded_type"] as AnyObject?)
-            result.network = Decoders.decodeOptional(clazz: Network.self, source: sourceDictionary["network"] as AnyObject?)
+            result.stopPoint = Decoders.decodeOptional(clazz: StopPoint.self, source: sourceDictionary["stop_point"] as AnyObject?)
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
             result.route = Decoders.decodeOptional(clazz: Route.self, source: sourceDictionary["route"] as AnyObject?)
             result.stopArea = Decoders.decodeOptional(clazz: StopArea.self, source: sourceDictionary["stop_area"] as AnyObject?)
             result.commercialMode = Decoders.decodeOptional(clazz: CommercialMode.self, source: sourceDictionary["commercial_mode"] as AnyObject?)
@@ -1368,7 +1772,24 @@ class Decoders {
             result.line = Decoders.decodeOptional(clazz: Line.self, source: sourceDictionary["line"] as AnyObject?)
             result.quality = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["quality"] as AnyObject?)
             result.trip = Decoders.decodeOptional(clazz: Trip.self, source: sourceDictionary["trip"] as AnyObject?)
-            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.network = Decoders.decodeOptional(clazz: Network.self, source: sourceDictionary["network"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [PtObjects]
+        Decoders.addDecoder(clazz: [PtObjects].self) { (source: AnyObject, instance: AnyObject?) -> [PtObjects] in
+            return Decoders.decode(clazz: [PtObjects].self, source: source)
+        }
+        // Decoder for PtObjects
+        Decoders.addDecoder(clazz: PtObjects.self) { (source: AnyObject, instance: AnyObject?) -> PtObjects in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? PtObjects() : instance as! PtObjects
+            
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.ptObjects = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["pt_objects"] as AnyObject?)
             return result
         }
 
@@ -1447,11 +1868,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? RouteSchedules() : instance as! RouteSchedules
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.routeSchedules = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["route_schedules"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1465,11 +1887,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Routes() : instance as! Routes
             
-            result.routes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["routes"] as AnyObject?)
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.routes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["routes"] as AnyObject?)
             return result
         }
 
@@ -1518,6 +1941,7 @@ class Decoders {
             result.stopDateTimes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["stop_date_times"] as AnyObject?)
             result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
             result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result.dataFreshness = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["data_freshness"] as AnyObject?)
             result.mode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["mode"] as AnyObject?)
             return result
         }
@@ -1548,7 +1972,7 @@ class Decoders {
             let result = instance == nil ? Severity() : instance as! Severity
             
             result.color = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["color"] as AnyObject?)
-            result.priority = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priority"] as AnyObject?)
+            result.priority = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["priority"] as AnyObject?)
             result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
             result.effect = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["effect"] as AnyObject?)
             return result
@@ -1567,6 +1991,54 @@ class Decoders {
             result.availablePlaces = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["available_places"] as AnyObject?)
             result.availableBikes = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["available_bikes"] as AnyObject?)
             result.totalStands = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total_stands"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [Status]
+        Decoders.addDecoder(clazz: [Status].self) { (source: AnyObject, instance: AnyObject?) -> [Status] in
+            return Decoders.decode(clazz: [Status].self, source: source)
+        }
+        // Decoder for Status
+        Decoders.addDecoder(clazz: Status.self) { (source: AnyObject, instance: AnyObject?) -> Status in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? Status() : instance as! Status
+            
+            result.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"] as AnyObject?)
+            result.datasetCreatedAt = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataset_created_at"] as AnyObject?)
+            result.travelerProfiles = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["traveler_profiles"] as AnyObject?)
+            result.isRealtimeLoaded = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_realtime_loaded"] as AnyObject?)
+            result.parameters = Decoders.decodeOptional(clazz: Parameters.self, source: sourceDictionary["parameters"] as AnyObject?)
+            result.krakenVersion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["kraken_version"] as AnyObject?)
+            result.startProductionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["start_production_date"] as AnyObject?)
+            result.isOpenService = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_open_service"] as AnyObject?)
+            result.nbThreads = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["nb_threads"] as AnyObject?)
+            result.isConnectedToRabbitmq = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_connected_to_rabbitmq"] as AnyObject?)
+            result.autocomplete = Decoders.decodeOptional(clazz: Autocomplete.self, source: sourceDictionary["autocomplete"] as AnyObject?)
+            result.dataVersion = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["data_version"] as AnyObject?)
+            result.lastLoadAt = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["last_load_at"] as AnyObject?)
+            result.endProductionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["end_production_date"] as AnyObject?)
+            result.realtimeProxies = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["realtime_proxies"] as AnyObject?)
+            result.publicationDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["publication_date"] as AnyObject?)
+            result.realtimeContributors = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["realtime_contributors"] as AnyObject?)
+            result.streetNetworks = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["street_networks"] as AnyObject?)
+            result.lastLoadStatus = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last_load_status"] as AnyObject?)
+            result.isOpenData = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_open_data"] as AnyObject?)
+            result.lastRtDataLoaded = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["last_rt_data_loaded"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [Status1]
+        Decoders.addDecoder(clazz: [Status1].self) { (source: AnyObject, instance: AnyObject?) -> [Status1] in
+            return Decoders.decode(clazz: [Status1].self, source: source)
+        }
+        // Decoder for Status1
+        Decoders.addDecoder(clazz: Status1.self) { (source: AnyObject, instance: AnyObject?) -> Status1 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? Status1() : instance as! Status1
+            
+            result.status = Decoders.decodeOptional(clazz: Status.self, source: sourceDictionary["status"] as AnyObject?)
             return result
         }
 
@@ -1606,11 +2078,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? StopAreas() : instance as! StopAreas
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.stopAreas = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["stop_areas"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1675,11 +2148,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? StopPoints() : instance as! StopPoints
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.stopPoints = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["stop_points"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1714,9 +2188,10 @@ class Decoders {
             
             result.stopSchedules = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["stop_schedules"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             return result
         }
 
@@ -1735,6 +2210,24 @@ class Decoders {
             result.journeyPatternPoint = Decoders.decodeOptional(clazz: JourneyPatternPoint.self, source: sourceDictionary["journey_pattern_point"] as AnyObject?)
             result.departureTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["departure_time"] as AnyObject?)
             result.arrivalTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["arrival_time"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [StreetNetwork]
+        Decoders.addDecoder(clazz: [StreetNetwork].self) { (source: AnyObject, instance: AnyObject?) -> [StreetNetwork] in
+            return Decoders.decode(clazz: [StreetNetwork].self, source: source)
+        }
+        // Decoder for StreetNetwork
+        Decoders.addDecoder(clazz: StreetNetwork.self) { (source: AnyObject, instance: AnyObject?) -> StreetNetwork in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? StreetNetwork() : instance as! StreetNetwork
+            
+            result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result.modes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["modes"] as AnyObject?)
+            result._class = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["class"] as AnyObject?)
+            result.timeout = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["timeout"] as AnyObject?)
+            result.circuitBreaker = Decoders.decodeOptional(clazz: CircuitBreaker.self, source: sourceDictionary["circuit_breaker"] as AnyObject?)
             return result
         }
 
@@ -1773,6 +2266,68 @@ class Decoders {
         }
 
 
+        // Decoder for [TrafficReport]
+        Decoders.addDecoder(clazz: [TrafficReport].self) { (source: AnyObject, instance: AnyObject?) -> [TrafficReport] in
+            return Decoders.decode(clazz: [TrafficReport].self, source: source)
+        }
+        // Decoder for TrafficReport
+        Decoders.addDecoder(clazz: TrafficReport.self) { (source: AnyObject, instance: AnyObject?) -> TrafficReport in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? TrafficReport() : instance as! TrafficReport
+            
+            result.vehicleJourneys = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["vehicle_journeys"] as AnyObject?)
+            result.lines = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["lines"] as AnyObject?)
+            result.network = Decoders.decodeOptional(clazz: Network.self, source: sourceDictionary["network"] as AnyObject?)
+            result.stopAreas = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["stop_areas"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [TrafficReports]
+        Decoders.addDecoder(clazz: [TrafficReports].self) { (source: AnyObject, instance: AnyObject?) -> [TrafficReports] in
+            return Decoders.decode(clazz: [TrafficReports].self, source: source)
+        }
+        // Decoder for TrafficReports
+        Decoders.addDecoder(clazz: TrafficReports.self) { (source: AnyObject, instance: AnyObject?) -> TrafficReports in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? TrafficReports() : instance as! TrafficReports
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.trafficReports = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["traffic_reports"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            return result
+        }
+
+
+        // Decoder for [TravelerProfiles]
+        Decoders.addDecoder(clazz: [TravelerProfiles].self) { (source: AnyObject, instance: AnyObject?) -> [TravelerProfiles] in
+            return Decoders.decode(clazz: [TravelerProfiles].self, source: source)
+        }
+        // Decoder for TravelerProfiles
+        Decoders.addDecoder(clazz: TravelerProfiles.self) { (source: AnyObject, instance: AnyObject?) -> TravelerProfiles in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? TravelerProfiles() : instance as! TravelerProfiles
+            
+            result.lastSectionMode = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["last_section_mode"] as AnyObject?)
+            result.walkingSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["walking_speed"] as AnyObject?)
+            result.isFromDb = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_from_db"] as AnyObject?)
+            result.travelerType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["traveler_type"] as AnyObject?)
+            result.wheelchair = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["wheelchair"] as AnyObject?)
+            result.maxBssDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_bss_duration_to_pt"] as AnyObject?)
+            result.maxWalkingDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_walking_duration_to_pt"] as AnyObject?)
+            result.firstSectionMode = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["first_section_mode"] as AnyObject?)
+            result.maxBikeDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_bike_duration_to_pt"] as AnyObject?)
+            result.bikeSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["bike_speed"] as AnyObject?)
+            result.carSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["car_speed"] as AnyObject?)
+            result.maxCarDurationToPt = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["max_car_duration_to_pt"] as AnyObject?)
+            result.bssSpeed = Decoders.decodeOptional(clazz: Float.self, source: sourceDictionary["bss_speed"] as AnyObject?)
+            return result
+        }
+
+
         // Decoder for [Trip]
         Decoders.addDecoder(clazz: [Trip].self) { (source: AnyObject, instance: AnyObject?) -> [Trip] in
             return Decoders.decode(clazz: [Trip].self, source: source)
@@ -1797,11 +2352,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? Trips() : instance as! Trips
             
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
+            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
             result.trips = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["trips"] as AnyObject?)
-            result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
             return result
         }
 
@@ -1884,11 +2440,12 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? VehicleJourneys() : instance as! VehicleJourneys
             
-            result.vehicleJourneys = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["vehicle_journeys"] as AnyObject?)
-            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
             result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.disruptions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["disruptions"] as AnyObject?)
+            result.notes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["notes"] as AnyObject?)
             result.feedPublishers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["feed_publishers"] as AnyObject?)
+            result.error = Decoders.decodeOptional(clazz: ModelError.self, source: sourceDictionary["error"] as AnyObject?)
+            result.vehicleJourneys = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["vehicle_journeys"] as AnyObject?)
             return result
         }
 
