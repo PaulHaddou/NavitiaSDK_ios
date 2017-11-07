@@ -16,28 +16,28 @@ open class CoverageLonLatJourneyPatternPointsRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatJourneyPatternPoints: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatJourneyPatternPoints? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -83,12 +83,9 @@ open class CoverageLonLatJourneyPatternPointsRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatJourneyPatternPoints) -> CoverageLonLatJourneyPatternPointsRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatJourneyPatternPointsRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatJourneyPatternPointsRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatJourneyPatternPoints(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatJourneyPatternPointsRequestBuilder {
         self.distance = distance
@@ -118,7 +115,7 @@ open class CoverageLonLatJourneyPatternPointsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -188,28 +185,28 @@ open class CoverageLonLatJourneyPatternPointsIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatJourneyPatternPointsId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatJourneyPatternPointsId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -259,12 +256,9 @@ open class CoverageLonLatJourneyPatternPointsIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatJourneyPatternPointsId) -> CoverageLonLatJourneyPatternPointsIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatJourneyPatternPointsIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatJourneyPatternPointsIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatJourneyPatternPointsId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatJourneyPatternPointsIdRequestBuilder {
         self.distance = distance
@@ -291,7 +285,7 @@ open class CoverageLonLatJourneyPatternPointsIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -366,29 +360,29 @@ open class CoverageLonLatUriJourneyPatternPointsRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatUriJourneyPatternPoints: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatUriJourneyPatternPoints? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -438,12 +432,9 @@ open class CoverageLonLatUriJourneyPatternPointsRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatUriJourneyPatternPoints) -> CoverageLonLatUriJourneyPatternPointsRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatUriJourneyPatternPointsRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatUriJourneyPatternPointsRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatUriJourneyPatternPoints(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatUriJourneyPatternPointsRequestBuilder {
         self.distance = distance
@@ -474,7 +465,7 @@ open class CoverageLonLatUriJourneyPatternPointsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -550,29 +541,29 @@ open class CoverageLonLatUriJourneyPatternPointsIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatUriJourneyPatternPointsId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatUriJourneyPatternPointsId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -626,12 +617,9 @@ open class CoverageLonLatUriJourneyPatternPointsIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatUriJourneyPatternPointsId) -> CoverageLonLatUriJourneyPatternPointsIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatUriJourneyPatternPointsIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatUriJourneyPatternPointsIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatUriJourneyPatternPointsId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatUriJourneyPatternPointsIdRequestBuilder {
         self.distance = distance
@@ -659,7 +647,7 @@ open class CoverageLonLatUriJourneyPatternPointsIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -740,27 +728,27 @@ open class CoverageRegionJourneyPatternPointsRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionJourneyPatternPoints: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionJourneyPatternPoints? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
+    var region:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -802,12 +790,9 @@ open class CoverageRegionJourneyPatternPointsRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionJourneyPatternPoints) -> CoverageRegionJourneyPatternPointsRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionJourneyPatternPointsRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionJourneyPatternPointsRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionJourneyPatternPoints(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionJourneyPatternPointsRequestBuilder {
         self.distance = distance
@@ -836,7 +821,7 @@ open class CoverageRegionJourneyPatternPointsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -900,27 +885,27 @@ open class CoverageRegionJourneyPatternPointsIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionJourneyPatternPointsId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionJourneyPatternPointsId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -966,12 +951,9 @@ open class CoverageRegionJourneyPatternPointsIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionJourneyPatternPointsId) -> CoverageRegionJourneyPatternPointsIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionJourneyPatternPointsIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionJourneyPatternPointsIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionJourneyPatternPointsId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionJourneyPatternPointsIdRequestBuilder {
         self.distance = distance
@@ -997,7 +979,7 @@ open class CoverageRegionJourneyPatternPointsIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1066,28 +1048,28 @@ open class CoverageRegionUriJourneyPatternPointsRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionUriJourneyPatternPoints: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionUriJourneyPatternPoints? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -1133,12 +1115,9 @@ open class CoverageRegionUriJourneyPatternPointsRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionUriJourneyPatternPoints) -> CoverageRegionUriJourneyPatternPointsRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionUriJourneyPatternPointsRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionUriJourneyPatternPointsRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionUriJourneyPatternPoints(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionUriJourneyPatternPointsRequestBuilder {
         self.distance = distance
@@ -1168,7 +1147,7 @@ open class CoverageRegionUriJourneyPatternPointsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1238,28 +1217,28 @@ open class CoverageRegionUriJourneyPatternPointsIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionUriJourneyPatternPointsId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionUriJourneyPatternPointsId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: JourneyPatternPointsApi) {
         self.currentApi = currentApi
@@ -1309,12 +1288,9 @@ open class CoverageRegionUriJourneyPatternPointsIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionUriJourneyPatternPointsId) -> CoverageRegionUriJourneyPatternPointsIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionUriJourneyPatternPointsIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionUriJourneyPatternPointsIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionUriJourneyPatternPointsId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionUriJourneyPatternPointsIdRequestBuilder {
         self.distance = distance
@@ -1341,7 +1317,7 @@ open class CoverageRegionUriJourneyPatternPointsIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 

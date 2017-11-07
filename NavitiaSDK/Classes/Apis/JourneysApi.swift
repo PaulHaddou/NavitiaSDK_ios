@@ -16,14 +16,14 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter datetimeRepresents
     */
-    public enum DatetimeRepresents_getCoverageLonLatJourneys: String { 
+    public enum DatetimeRepresents: String { 
         case arrival = "arrival"
         case departure = "departure"
     }
     /**
     * enum for parameter firstSectionMode
     */
-    public enum FirstSectionMode_getCoverageLonLatJourneys: String { 
+    public enum FirstSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -32,7 +32,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter lastSectionMode
     */
-    public enum LastSectionMode_getCoverageLonLatJourneys: String { 
+    public enum LastSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -41,7 +41,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageLonLatJourneys: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -49,7 +49,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter travelerType
     */
-    public enum TravelerType_getCoverageLonLatJourneys: String { 
+    public enum TravelerType: String { 
         case cyclist = "cyclist"
         case luggage = "luggage"
         case wheelchair = "wheelchair"
@@ -61,7 +61,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter directPath
     */
-    public enum DirectPath_getCoverageLonLatJourneys: String { 
+    public enum DirectPath: String { 
         case indifferent = "indifferent"
         case only = "only"
         case _none = "none"
@@ -69,44 +69,44 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageLonLatJourneys: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var from: String? = nil
-    var to: String? = nil
-    var datetime: Date? = nil
-    var datetimeRepresents: DatetimeRepresents_getCoverageLonLatJourneys? = nil
-    var maxNbTransfers: Int32? = nil
-    var minNbTransfers: Int32? = nil
-    var firstSectionMode: [String]? = nil
-    var lastSectionMode: [String]? = nil
-    var maxDurationToPt: Int32? = nil
-    var maxWalkingDurationToPt: Int32? = nil
-    var maxBikeDurationToPt: Int32? = nil
-    var maxBssDurationToPt: Int32? = nil
-    var maxCarDurationToPt: Int32? = nil
-    var walkingSpeed: Float? = nil
-    var bikeSpeed: Float? = nil
-    var bssSpeed: Float? = nil
-    var carSpeed: Float? = nil
-    var forbiddenUris: [String]? = nil
-    var allowedId: [String]? = nil
-    var disruptionActive: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageLonLatJourneys? = nil
-    var maxDuration: Int32? = nil
-    var wheelchair: Bool? = nil
-    var travelerType: TravelerType_getCoverageLonLatJourneys? = nil
-    var directPath: DirectPath_getCoverageLonLatJourneys? = nil
-    var count: Int32? = nil
-    var isJourneySchedules: Bool? = nil
-    var minNbJourneys: Int32? = nil
-    var maxNbJourneys: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var from:String? = nil
+    var to:String? = nil
+    var datetime:Date? = nil
+    var datetimeRepresents: DatetimeRepresents? = nil
+    var maxNbTransfers:Int32? = nil
+    var minNbTransfers:Int32? = nil
+    var firstSectionMode: [FirstSectionMode]? = nil
+    var lastSectionMode: [LastSectionMode]? = nil
+    var maxDurationToPt:Int32? = nil
+    var maxWalkingDurationToPt:Int32? = nil
+    var maxBikeDurationToPt:Int32? = nil
+    var maxBssDurationToPt:Int32? = nil
+    var maxCarDurationToPt:Int32? = nil
+    var walkingSpeed:Float? = nil
+    var bikeSpeed:Float? = nil
+    var bssSpeed:Float? = nil
+    var carSpeed:Float? = nil
+    var forbiddenUris:[String]? = nil
+    var allowedId:[String]? = nil
+    var disruptionActive:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var maxDuration:Int32? = nil
+    var wheelchair:Bool? = nil
+    var travelerType: TravelerType? = nil
+    var directPath: DirectPath? = nil
+    var count:Int32? = nil
+    var isJourneySchedules:Bool? = nil
+    var minNbJourneys:Int32? = nil
+    var maxNbJourneys:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
 
     public init(currentApi: JourneysApi) {
         self.currentApi = currentApi
@@ -132,12 +132,9 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         self.datetime = datetime
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents_getCoverageLonLatJourneys) -> CoverageLonLatJourneysRequestBuilder {
+    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents) -> CoverageLonLatJourneysRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
         return self
-    }
-    open func withDatetimeRepresents(_ datetimeRepresentsValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withDatetimeRepresents(DatetimeRepresents_getCoverageLonLatJourneys(rawValue: datetimeRepresentsValue)!);
     }
     open func withMaxNbTransfers(_ maxNbTransfers: Int32) -> CoverageLonLatJourneysRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
@@ -147,19 +144,13 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         self.minNbTransfers = minNbTransfers
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [String]) -> CoverageLonLatJourneysRequestBuilder {
+    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]) -> CoverageLonLatJourneysRequestBuilder {
         self.firstSectionMode = firstSectionMode
         return self
     }
-    open func withFirstSectionMode(_ firstSectionModeValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withFirstSectionMode([FirstSectionMode]_getCoverageLonLatJourneys(rawValue: firstSectionModeValue)!);
-    }
-    open func withLastSectionMode(_ lastSectionMode: [String]) -> CoverageLonLatJourneysRequestBuilder {
+    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]) -> CoverageLonLatJourneysRequestBuilder {
         self.lastSectionMode = lastSectionMode
         return self
-    }
-    open func withLastSectionMode(_ lastSectionModeValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withLastSectionMode([LastSectionMode]_getCoverageLonLatJourneys(rawValue: lastSectionModeValue)!);
     }
     open func withMaxDurationToPt(_ maxDurationToPt: Int32) -> CoverageLonLatJourneysRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
@@ -209,12 +200,9 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         self.disruptionActive = disruptionActive
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageLonLatJourneys) -> CoverageLonLatJourneysRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageLonLatJourneysRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageLonLatJourneys(rawValue: dataFreshnessValue)!);
     }
     open func withMaxDuration(_ maxDuration: Int32) -> CoverageLonLatJourneysRequestBuilder {
         self.maxDuration = maxDuration
@@ -224,19 +212,13 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         self.wheelchair = wheelchair
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType_getCoverageLonLatJourneys) -> CoverageLonLatJourneysRequestBuilder {
+    open func withTravelerType(_ travelerType: TravelerType) -> CoverageLonLatJourneysRequestBuilder {
         self.travelerType = travelerType
         return self
     }
-    open func withTravelerType(_ travelerTypeValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withTravelerType(TravelerType_getCoverageLonLatJourneys(rawValue: travelerTypeValue)!);
-    }
-    open func withDirectPath(_ directPath: DirectPath_getCoverageLonLatJourneys) -> CoverageLonLatJourneysRequestBuilder {
+    open func withDirectPath(_ directPath: DirectPath) -> CoverageLonLatJourneysRequestBuilder {
         self.directPath = directPath
         return self
-    }
-    open func withDirectPath(_ directPathValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withDirectPath(DirectPath_getCoverageLonLatJourneys(rawValue: directPathValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageLonLatJourneysRequestBuilder {
         self.count = count
@@ -258,12 +240,9 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageLonLatJourneysRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageLonLatJourneysRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageLonLatJourneysRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageLonLatJourneys(rawValue: addPoiInfosValue)!);
     }
 
     open func makeUrl() -> String {
@@ -273,7 +252,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime?.encodeToJSON(), 
@@ -360,14 +339,14 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter datetimeRepresents
     */
-    public enum DatetimeRepresents_getCoverageRegionJourneys: String { 
+    public enum DatetimeRepresents: String { 
         case arrival = "arrival"
         case departure = "departure"
     }
     /**
     * enum for parameter firstSectionMode
     */
-    public enum FirstSectionMode_getCoverageRegionJourneys: String { 
+    public enum FirstSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -376,7 +355,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter lastSectionMode
     */
-    public enum LastSectionMode_getCoverageRegionJourneys: String { 
+    public enum LastSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -385,7 +364,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageRegionJourneys: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -393,7 +372,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter travelerType
     */
-    public enum TravelerType_getCoverageRegionJourneys: String { 
+    public enum TravelerType: String { 
         case cyclist = "cyclist"
         case luggage = "luggage"
         case wheelchair = "wheelchair"
@@ -405,7 +384,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter directPath
     */
-    public enum DirectPath_getCoverageRegionJourneys: String { 
+    public enum DirectPath: String { 
         case indifferent = "indifferent"
         case only = "only"
         case _none = "none"
@@ -413,43 +392,43 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageRegionJourneys: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var region: String? = nil
-    var from: String? = nil
-    var to: String? = nil
-    var datetime: Date? = nil
-    var datetimeRepresents: DatetimeRepresents_getCoverageRegionJourneys? = nil
-    var maxNbTransfers: Int32? = nil
-    var minNbTransfers: Int32? = nil
-    var firstSectionMode: [String]? = nil
-    var lastSectionMode: [String]? = nil
-    var maxDurationToPt: Int32? = nil
-    var maxWalkingDurationToPt: Int32? = nil
-    var maxBikeDurationToPt: Int32? = nil
-    var maxBssDurationToPt: Int32? = nil
-    var maxCarDurationToPt: Int32? = nil
-    var walkingSpeed: Float? = nil
-    var bikeSpeed: Float? = nil
-    var bssSpeed: Float? = nil
-    var carSpeed: Float? = nil
-    var forbiddenUris: [String]? = nil
-    var allowedId: [String]? = nil
-    var disruptionActive: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageRegionJourneys? = nil
-    var maxDuration: Int32? = nil
-    var wheelchair: Bool? = nil
-    var travelerType: TravelerType_getCoverageRegionJourneys? = nil
-    var directPath: DirectPath_getCoverageRegionJourneys? = nil
-    var count: Int32? = nil
-    var isJourneySchedules: Bool? = nil
-    var minNbJourneys: Int32? = nil
-    var maxNbJourneys: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
+    var region:String? = nil
+    var from:String? = nil
+    var to:String? = nil
+    var datetime:Date? = nil
+    var datetimeRepresents: DatetimeRepresents? = nil
+    var maxNbTransfers:Int32? = nil
+    var minNbTransfers:Int32? = nil
+    var firstSectionMode: [FirstSectionMode]? = nil
+    var lastSectionMode: [LastSectionMode]? = nil
+    var maxDurationToPt:Int32? = nil
+    var maxWalkingDurationToPt:Int32? = nil
+    var maxBikeDurationToPt:Int32? = nil
+    var maxBssDurationToPt:Int32? = nil
+    var maxCarDurationToPt:Int32? = nil
+    var walkingSpeed:Float? = nil
+    var bikeSpeed:Float? = nil
+    var bssSpeed:Float? = nil
+    var carSpeed:Float? = nil
+    var forbiddenUris:[String]? = nil
+    var allowedId:[String]? = nil
+    var disruptionActive:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var maxDuration:Int32? = nil
+    var wheelchair:Bool? = nil
+    var travelerType: TravelerType? = nil
+    var directPath: DirectPath? = nil
+    var count:Int32? = nil
+    var isJourneySchedules:Bool? = nil
+    var minNbJourneys:Int32? = nil
+    var maxNbJourneys:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
 
     public init(currentApi: JourneysApi) {
         self.currentApi = currentApi
@@ -471,12 +450,9 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         self.datetime = datetime
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents_getCoverageRegionJourneys) -> CoverageRegionJourneysRequestBuilder {
+    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents) -> CoverageRegionJourneysRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
         return self
-    }
-    open func withDatetimeRepresents(_ datetimeRepresentsValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withDatetimeRepresents(DatetimeRepresents_getCoverageRegionJourneys(rawValue: datetimeRepresentsValue)!);
     }
     open func withMaxNbTransfers(_ maxNbTransfers: Int32) -> CoverageRegionJourneysRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
@@ -486,19 +462,13 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         self.minNbTransfers = minNbTransfers
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [String]) -> CoverageRegionJourneysRequestBuilder {
+    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]) -> CoverageRegionJourneysRequestBuilder {
         self.firstSectionMode = firstSectionMode
         return self
     }
-    open func withFirstSectionMode(_ firstSectionModeValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withFirstSectionMode([FirstSectionMode]_getCoverageRegionJourneys(rawValue: firstSectionModeValue)!);
-    }
-    open func withLastSectionMode(_ lastSectionMode: [String]) -> CoverageRegionJourneysRequestBuilder {
+    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]) -> CoverageRegionJourneysRequestBuilder {
         self.lastSectionMode = lastSectionMode
         return self
-    }
-    open func withLastSectionMode(_ lastSectionModeValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withLastSectionMode([LastSectionMode]_getCoverageRegionJourneys(rawValue: lastSectionModeValue)!);
     }
     open func withMaxDurationToPt(_ maxDurationToPt: Int32) -> CoverageRegionJourneysRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
@@ -548,12 +518,9 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         self.disruptionActive = disruptionActive
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageRegionJourneys) -> CoverageRegionJourneysRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageRegionJourneysRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageRegionJourneys(rawValue: dataFreshnessValue)!);
     }
     open func withMaxDuration(_ maxDuration: Int32) -> CoverageRegionJourneysRequestBuilder {
         self.maxDuration = maxDuration
@@ -563,19 +530,13 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         self.wheelchair = wheelchair
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType_getCoverageRegionJourneys) -> CoverageRegionJourneysRequestBuilder {
+    open func withTravelerType(_ travelerType: TravelerType) -> CoverageRegionJourneysRequestBuilder {
         self.travelerType = travelerType
         return self
     }
-    open func withTravelerType(_ travelerTypeValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withTravelerType(TravelerType_getCoverageRegionJourneys(rawValue: travelerTypeValue)!);
-    }
-    open func withDirectPath(_ directPath: DirectPath_getCoverageRegionJourneys) -> CoverageRegionJourneysRequestBuilder {
+    open func withDirectPath(_ directPath: DirectPath) -> CoverageRegionJourneysRequestBuilder {
         self.directPath = directPath
         return self
-    }
-    open func withDirectPath(_ directPathValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withDirectPath(DirectPath_getCoverageRegionJourneys(rawValue: directPathValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageRegionJourneysRequestBuilder {
         self.count = count
@@ -597,12 +558,9 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageRegionJourneysRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageRegionJourneysRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageRegionJourneysRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageRegionJourneys(rawValue: addPoiInfosValue)!);
     }
 
     open func makeUrl() -> String {
@@ -611,7 +569,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime?.encodeToJSON(), 
@@ -692,14 +650,14 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter datetimeRepresents
     */
-    public enum DatetimeRepresents_getJourneys: String { 
+    public enum DatetimeRepresents: String { 
         case arrival = "arrival"
         case departure = "departure"
     }
     /**
     * enum for parameter firstSectionMode
     */
-    public enum FirstSectionMode_getJourneys: String { 
+    public enum FirstSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -708,7 +666,7 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter lastSectionMode
     */
-    public enum LastSectionMode_getJourneys: String { 
+    public enum LastSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -717,7 +675,7 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getJourneys: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -725,7 +683,7 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter travelerType
     */
-    public enum TravelerType_getJourneys: String { 
+    public enum TravelerType: String { 
         case cyclist = "cyclist"
         case luggage = "luggage"
         case wheelchair = "wheelchair"
@@ -737,7 +695,7 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter directPath
     */
-    public enum DirectPath_getJourneys: String { 
+    public enum DirectPath: String { 
         case indifferent = "indifferent"
         case only = "only"
         case _none = "none"
@@ -745,42 +703,42 @@ open class JourneysRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getJourneys: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var from: String? = nil
-    var to: String? = nil
-    var datetime: Date? = nil
-    var datetimeRepresents: DatetimeRepresents_getJourneys? = nil
-    var maxNbTransfers: Int32? = nil
-    var minNbTransfers: Int32? = nil
-    var firstSectionMode: [String]? = nil
-    var lastSectionMode: [String]? = nil
-    var maxDurationToPt: Int32? = nil
-    var maxWalkingDurationToPt: Int32? = nil
-    var maxBikeDurationToPt: Int32? = nil
-    var maxBssDurationToPt: Int32? = nil
-    var maxCarDurationToPt: Int32? = nil
-    var walkingSpeed: Float? = nil
-    var bikeSpeed: Float? = nil
-    var bssSpeed: Float? = nil
-    var carSpeed: Float? = nil
-    var forbiddenUris: [String]? = nil
-    var allowedId: [String]? = nil
-    var disruptionActive: Bool? = nil
-    var dataFreshness: DataFreshness_getJourneys? = nil
-    var maxDuration: Int32? = nil
-    var wheelchair: Bool? = nil
-    var travelerType: TravelerType_getJourneys? = nil
-    var directPath: DirectPath_getJourneys? = nil
-    var count: Int32? = nil
-    var isJourneySchedules: Bool? = nil
-    var minNbJourneys: Int32? = nil
-    var maxNbJourneys: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
+    var from:String? = nil
+    var to:String? = nil
+    var datetime:Date? = nil
+    var datetimeRepresents: DatetimeRepresents? = nil
+    var maxNbTransfers:Int32? = nil
+    var minNbTransfers:Int32? = nil
+    var firstSectionMode: [FirstSectionMode]? = nil
+    var lastSectionMode: [LastSectionMode]? = nil
+    var maxDurationToPt:Int32? = nil
+    var maxWalkingDurationToPt:Int32? = nil
+    var maxBikeDurationToPt:Int32? = nil
+    var maxBssDurationToPt:Int32? = nil
+    var maxCarDurationToPt:Int32? = nil
+    var walkingSpeed:Float? = nil
+    var bikeSpeed:Float? = nil
+    var bssSpeed:Float? = nil
+    var carSpeed:Float? = nil
+    var forbiddenUris:[String]? = nil
+    var allowedId:[String]? = nil
+    var disruptionActive:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var maxDuration:Int32? = nil
+    var wheelchair:Bool? = nil
+    var travelerType: TravelerType? = nil
+    var directPath: DirectPath? = nil
+    var count:Int32? = nil
+    var isJourneySchedules:Bool? = nil
+    var minNbJourneys:Int32? = nil
+    var maxNbJourneys:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
 
     public init(currentApi: JourneysApi) {
         self.currentApi = currentApi
@@ -798,12 +756,9 @@ open class JourneysRequestBuilder: NSObject {
         self.datetime = datetime
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents_getJourneys) -> JourneysRequestBuilder {
+    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents) -> JourneysRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
         return self
-    }
-    open func withDatetimeRepresents(_ datetimeRepresentsValue: String) -> JourneysRequestBuilder {
-        return withDatetimeRepresents(DatetimeRepresents_getJourneys(rawValue: datetimeRepresentsValue)!);
     }
     open func withMaxNbTransfers(_ maxNbTransfers: Int32) -> JourneysRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
@@ -813,19 +768,13 @@ open class JourneysRequestBuilder: NSObject {
         self.minNbTransfers = minNbTransfers
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [String]) -> JourneysRequestBuilder {
+    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]) -> JourneysRequestBuilder {
         self.firstSectionMode = firstSectionMode
         return self
     }
-    open func withFirstSectionMode(_ firstSectionModeValue: String) -> JourneysRequestBuilder {
-        return withFirstSectionMode([FirstSectionMode]_getJourneys(rawValue: firstSectionModeValue)!);
-    }
-    open func withLastSectionMode(_ lastSectionMode: [String]) -> JourneysRequestBuilder {
+    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]) -> JourneysRequestBuilder {
         self.lastSectionMode = lastSectionMode
         return self
-    }
-    open func withLastSectionMode(_ lastSectionModeValue: String) -> JourneysRequestBuilder {
-        return withLastSectionMode([LastSectionMode]_getJourneys(rawValue: lastSectionModeValue)!);
     }
     open func withMaxDurationToPt(_ maxDurationToPt: Int32) -> JourneysRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
@@ -875,12 +824,9 @@ open class JourneysRequestBuilder: NSObject {
         self.disruptionActive = disruptionActive
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getJourneys) -> JourneysRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> JourneysRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> JourneysRequestBuilder {
-        return withDataFreshness(DataFreshness_getJourneys(rawValue: dataFreshnessValue)!);
     }
     open func withMaxDuration(_ maxDuration: Int32) -> JourneysRequestBuilder {
         self.maxDuration = maxDuration
@@ -890,19 +836,13 @@ open class JourneysRequestBuilder: NSObject {
         self.wheelchair = wheelchair
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType_getJourneys) -> JourneysRequestBuilder {
+    open func withTravelerType(_ travelerType: TravelerType) -> JourneysRequestBuilder {
         self.travelerType = travelerType
         return self
     }
-    open func withTravelerType(_ travelerTypeValue: String) -> JourneysRequestBuilder {
-        return withTravelerType(TravelerType_getJourneys(rawValue: travelerTypeValue)!);
-    }
-    open func withDirectPath(_ directPath: DirectPath_getJourneys) -> JourneysRequestBuilder {
+    open func withDirectPath(_ directPath: DirectPath) -> JourneysRequestBuilder {
         self.directPath = directPath
         return self
-    }
-    open func withDirectPath(_ directPathValue: String) -> JourneysRequestBuilder {
-        return withDirectPath(DirectPath_getJourneys(rawValue: directPathValue)!);
     }
     open func withCount(_ count: Int32) -> JourneysRequestBuilder {
         self.count = count
@@ -924,12 +864,9 @@ open class JourneysRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> JourneysRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> JourneysRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> JourneysRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getJourneys(rawValue: addPoiInfosValue)!);
     }
 
     open func makeUrl() -> String {
@@ -937,7 +874,7 @@ open class JourneysRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime?.encodeToJSON(), 

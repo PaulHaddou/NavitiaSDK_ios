@@ -16,29 +16,29 @@ open class CoverageLonLatLinesRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatLines: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatLines? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
-    var originalId: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -84,12 +84,9 @@ open class CoverageLonLatLinesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatLines) -> CoverageLonLatLinesRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatLinesRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatLinesRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatLines(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatLinesRequestBuilder {
         self.distance = distance
@@ -123,7 +120,7 @@ open class CoverageLonLatLinesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -194,29 +191,29 @@ open class CoverageLonLatLinesIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatLinesId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatLinesId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var originalId: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -266,12 +263,9 @@ open class CoverageLonLatLinesIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatLinesId) -> CoverageLonLatLinesIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatLinesIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatLinesIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatLinesId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatLinesIdRequestBuilder {
         self.distance = distance
@@ -302,7 +296,7 @@ open class CoverageLonLatLinesIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -378,30 +372,30 @@ open class CoverageLonLatUriLinesRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatUriLines: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatUriLines? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
-    var originalId: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -451,12 +445,9 @@ open class CoverageLonLatUriLinesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatUriLines) -> CoverageLonLatUriLinesRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatUriLinesRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatUriLinesRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatUriLines(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatUriLinesRequestBuilder {
         self.distance = distance
@@ -491,7 +482,7 @@ open class CoverageLonLatUriLinesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -568,30 +559,30 @@ open class CoverageLonLatUriLinesIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageLonLatUriLinesId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageLonLatUriLinesId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var originalId: String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -645,12 +636,9 @@ open class CoverageLonLatUriLinesIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageLonLatUriLinesId) -> CoverageLonLatUriLinesIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageLonLatUriLinesIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageLonLatUriLinesIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageLonLatUriLinesId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageLonLatUriLinesIdRequestBuilder {
         self.distance = distance
@@ -682,7 +670,7 @@ open class CoverageLonLatUriLinesIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -764,28 +752,28 @@ open class CoverageRegionLinesRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionLines: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionLines? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
-    var originalId: String? = nil
+    var region:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -827,12 +815,9 @@ open class CoverageRegionLinesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionLines) -> CoverageRegionLinesRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionLinesRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionLinesRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionLines(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionLinesRequestBuilder {
         self.distance = distance
@@ -865,7 +850,7 @@ open class CoverageRegionLinesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -930,28 +915,28 @@ open class CoverageRegionLinesIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionLinesId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionLinesId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var originalId: String? = nil
+    var region:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -997,12 +982,9 @@ open class CoverageRegionLinesIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionLinesId) -> CoverageRegionLinesIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionLinesIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionLinesIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionLinesId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionLinesIdRequestBuilder {
         self.distance = distance
@@ -1032,7 +1014,7 @@ open class CoverageRegionLinesIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1102,29 +1084,29 @@ open class CoverageRegionUriLinesRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionUriLines: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionUriLines? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
-    var originalId: String? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -1170,12 +1152,9 @@ open class CoverageRegionUriLinesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionUriLines) -> CoverageRegionUriLinesRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionUriLinesRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionUriLinesRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionUriLines(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionUriLinesRequestBuilder {
         self.distance = distance
@@ -1209,7 +1188,7 @@ open class CoverageRegionUriLinesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1280,29 +1259,29 @@ open class CoverageRegionUriLinesIdRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getCoverageRegionUriLinesId: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var id: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var externalCode: String? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getCoverageRegionUriLinesId? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var originalId: String? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var id:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var externalCode:String? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -1352,12 +1331,9 @@ open class CoverageRegionUriLinesIdRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getCoverageRegionUriLinesId) -> CoverageRegionUriLinesIdRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> CoverageRegionUriLinesIdRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> CoverageRegionUriLinesIdRequestBuilder {
-        return withOdtLevel(OdtLevel_getCoverageRegionUriLinesId(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> CoverageRegionUriLinesIdRequestBuilder {
         self.distance = distance
@@ -1388,7 +1364,7 @@ open class CoverageRegionUriLinesIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 
@@ -1464,27 +1440,27 @@ open class LinesRequestBuilder: NSObject {
     /**
     * enum for parameter odtLevel
     */
-    public enum OdtLevel_getLines: String { 
+    public enum OdtLevel: String { 
         case scheduled = "scheduled"
         case all = "all"
         case zonal = "zonal"
         case withStops = "with_stops"
     }
-    var externalCode: String? = nil
-    var startPage: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var headsign: String? = nil
-    var showCodes: Bool? = nil
-    var odtLevel: OdtLevel_getLines? = nil
-    var distance: Int32? = nil
-    var since: Date? = nil
-    var until: Date? = nil
-    var disableGeojson: Bool? = nil
-    var filter: String? = nil
-    var originalId: String? = nil
+    var externalCode:String? = nil
+    var startPage:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var headsign:String? = nil
+    var showCodes:Bool? = nil
+    var odtLevel: OdtLevel? = nil
+    var distance:Int32? = nil
+    var since:Date? = nil
+    var until:Date? = nil
+    var disableGeojson:Bool? = nil
+    var filter:String? = nil
+    var originalId:String? = nil
 
     public init(currentApi: LinesApi) {
         self.currentApi = currentApi
@@ -1522,12 +1498,9 @@ open class LinesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel_getLines) -> LinesRequestBuilder {
+    open func withOdtLevel(_ odtLevel: OdtLevel) -> LinesRequestBuilder {
         self.odtLevel = odtLevel
         return self
-    }
-    open func withOdtLevel(_ odtLevelValue: String) -> LinesRequestBuilder {
-        return withOdtLevel(OdtLevel_getLines(rawValue: odtLevelValue)!);
     }
     open func withDistance(_ distance: Int32) -> LinesRequestBuilder {
         self.distance = distance
@@ -1559,7 +1532,7 @@ open class LinesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "start_page": self.startPage?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "depth": self.depth?.encodeToJSON(), 

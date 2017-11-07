@@ -16,14 +16,14 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
     /**
     * enum for parameter datetimeRepresents
     */
-    public enum DatetimeRepresents_getCoverageRegionHeatMaps: String { 
+    public enum DatetimeRepresents: String { 
         case arrival = "arrival"
         case departure = "departure"
     }
     /**
     * enum for parameter firstSectionMode
     */
-    public enum FirstSectionMode_getCoverageRegionHeatMaps: String { 
+    public enum FirstSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -32,7 +32,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
     /**
     * enum for parameter lastSectionMode
     */
-    public enum LastSectionMode_getCoverageRegionHeatMaps: String { 
+    public enum LastSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -41,7 +41,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageRegionHeatMaps: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -49,7 +49,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
     /**
     * enum for parameter travelerType
     */
-    public enum TravelerType_getCoverageRegionHeatMaps: String { 
+    public enum TravelerType: String { 
         case cyclist = "cyclist"
         case luggage = "luggage"
         case wheelchair = "wheelchair"
@@ -61,38 +61,38 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
     /**
     * enum for parameter directPath
     */
-    public enum DirectPath_getCoverageRegionHeatMaps: String { 
+    public enum DirectPath: String { 
         case indifferent = "indifferent"
         case only = "only"
         case _none = "none"
     }
-    var region: String? = nil
-    var from: String? = nil
-    var to: String? = nil
-    var datetime: Date? = nil
-    var datetimeRepresents: DatetimeRepresents_getCoverageRegionHeatMaps? = nil
-    var maxNbTransfers: Int32? = nil
-    var minNbTransfers: Int32? = nil
-    var firstSectionMode: [String]? = nil
-    var lastSectionMode: [String]? = nil
-    var maxDurationToPt: Int32? = nil
-    var maxWalkingDurationToPt: Int32? = nil
-    var maxBikeDurationToPt: Int32? = nil
-    var maxBssDurationToPt: Int32? = nil
-    var maxCarDurationToPt: Int32? = nil
-    var walkingSpeed: Float? = nil
-    var bikeSpeed: Float? = nil
-    var bssSpeed: Float? = nil
-    var carSpeed: Float? = nil
-    var forbiddenUris: [String]? = nil
-    var allowedId: [String]? = nil
-    var disruptionActive: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageRegionHeatMaps? = nil
-    var maxDuration: Int32? = nil
-    var wheelchair: Bool? = nil
-    var travelerType: TravelerType_getCoverageRegionHeatMaps? = nil
-    var directPath: DirectPath_getCoverageRegionHeatMaps? = nil
-    var resolution: Int32? = nil
+    var region:String? = nil
+    var from:String? = nil
+    var to:String? = nil
+    var datetime:Date? = nil
+    var datetimeRepresents: DatetimeRepresents? = nil
+    var maxNbTransfers:Int32? = nil
+    var minNbTransfers:Int32? = nil
+    var firstSectionMode: [FirstSectionMode]? = nil
+    var lastSectionMode: [LastSectionMode]? = nil
+    var maxDurationToPt:Int32? = nil
+    var maxWalkingDurationToPt:Int32? = nil
+    var maxBikeDurationToPt:Int32? = nil
+    var maxBssDurationToPt:Int32? = nil
+    var maxCarDurationToPt:Int32? = nil
+    var walkingSpeed:Float? = nil
+    var bikeSpeed:Float? = nil
+    var bssSpeed:Float? = nil
+    var carSpeed:Float? = nil
+    var forbiddenUris:[String]? = nil
+    var allowedId:[String]? = nil
+    var disruptionActive:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var maxDuration:Int32? = nil
+    var wheelchair:Bool? = nil
+    var travelerType: TravelerType? = nil
+    var directPath: DirectPath? = nil
+    var resolution:Int32? = nil
 
     public init(currentApi: HeatMapApi) {
         self.currentApi = currentApi
@@ -114,12 +114,9 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         self.datetime = datetime
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents_getCoverageRegionHeatMaps) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents) -> CoverageRegionHeatMapsRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
         return self
-    }
-    open func withDatetimeRepresents(_ datetimeRepresentsValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withDatetimeRepresents(DatetimeRepresents_getCoverageRegionHeatMaps(rawValue: datetimeRepresentsValue)!);
     }
     open func withMaxNbTransfers(_ maxNbTransfers: Int32) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
@@ -129,19 +126,13 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         self.minNbTransfers = minNbTransfers
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [String]) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]) -> CoverageRegionHeatMapsRequestBuilder {
         self.firstSectionMode = firstSectionMode
         return self
     }
-    open func withFirstSectionMode(_ firstSectionModeValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withFirstSectionMode([FirstSectionMode]_getCoverageRegionHeatMaps(rawValue: firstSectionModeValue)!);
-    }
-    open func withLastSectionMode(_ lastSectionMode: [String]) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]) -> CoverageRegionHeatMapsRequestBuilder {
         self.lastSectionMode = lastSectionMode
         return self
-    }
-    open func withLastSectionMode(_ lastSectionModeValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withLastSectionMode([LastSectionMode]_getCoverageRegionHeatMaps(rawValue: lastSectionModeValue)!);
     }
     open func withMaxDurationToPt(_ maxDurationToPt: Int32) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
@@ -191,12 +182,9 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         self.disruptionActive = disruptionActive
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageRegionHeatMaps) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageRegionHeatMapsRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageRegionHeatMaps(rawValue: dataFreshnessValue)!);
     }
     open func withMaxDuration(_ maxDuration: Int32) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxDuration = maxDuration
@@ -206,19 +194,13 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         self.wheelchair = wheelchair
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType_getCoverageRegionHeatMaps) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withTravelerType(_ travelerType: TravelerType) -> CoverageRegionHeatMapsRequestBuilder {
         self.travelerType = travelerType
         return self
     }
-    open func withTravelerType(_ travelerTypeValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withTravelerType(TravelerType_getCoverageRegionHeatMaps(rawValue: travelerTypeValue)!);
-    }
-    open func withDirectPath(_ directPath: DirectPath_getCoverageRegionHeatMaps) -> CoverageRegionHeatMapsRequestBuilder {
+    open func withDirectPath(_ directPath: DirectPath) -> CoverageRegionHeatMapsRequestBuilder {
         self.directPath = directPath
         return self
-    }
-    open func withDirectPath(_ directPathValue: String) -> CoverageRegionHeatMapsRequestBuilder {
-        return withDirectPath(DirectPath_getCoverageRegionHeatMaps(rawValue: directPathValue)!);
     }
     open func withResolution(_ resolution: Int32) -> CoverageRegionHeatMapsRequestBuilder {
         self.resolution = resolution
@@ -231,7 +213,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime?.encodeToJSON(), 

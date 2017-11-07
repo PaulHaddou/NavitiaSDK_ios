@@ -16,7 +16,7 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageLonLatPtObjects: String { 
+    public enum ModelType: String { 
         case network = "network"
         case commercialMode = "commercial_mode"
         case line = "line"
@@ -24,14 +24,14 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
         case route = "route"
         case stopArea = "stop_area"
     }
-    var q: String? = nil
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var type: [String]? = nil
-    var count: Int32? = nil
-    var adminUri: [String]? = nil
-    var depth: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var q:String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var type: [ModelType]? = nil
+    var count:Int32? = nil
+    var adminUri:[String]? = nil
+    var depth:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PtobjectsApi) {
         self.currentApi = currentApi
@@ -49,12 +49,9 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
         self.lon = lon
         return self
     }
-    open func withType(_ type: [String]) -> CoverageLonLatPtObjectsRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageLonLatPtObjectsRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageLonLatPtObjectsRequestBuilder {
-        return withType([ModelType]_getCoverageLonLatPtObjects(rawValue: typeValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageLonLatPtObjectsRequestBuilder {
         self.count = count
@@ -80,7 +77,7 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 
@@ -148,7 +145,7 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageRegionPtObjects: String { 
+    public enum ModelType: String { 
         case network = "network"
         case commercialMode = "commercial_mode"
         case line = "line"
@@ -156,13 +153,13 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
         case route = "route"
         case stopArea = "stop_area"
     }
-    var q: String? = nil
-    var region: String? = nil
-    var type: [String]? = nil
-    var count: Int32? = nil
-    var adminUri: [String]? = nil
-    var depth: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var q:String? = nil
+    var region:String? = nil
+    var type: [ModelType]? = nil
+    var count:Int32? = nil
+    var adminUri:[String]? = nil
+    var depth:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PtobjectsApi) {
         self.currentApi = currentApi
@@ -176,12 +173,9 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
         self.region = region
         return self
     }
-    open func withType(_ type: [String]) -> CoverageRegionPtObjectsRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageRegionPtObjectsRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageRegionPtObjectsRequestBuilder {
-        return withType([ModelType]_getCoverageRegionPtObjects(rawValue: typeValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageRegionPtObjectsRequestBuilder {
         self.count = count
@@ -206,7 +200,7 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 

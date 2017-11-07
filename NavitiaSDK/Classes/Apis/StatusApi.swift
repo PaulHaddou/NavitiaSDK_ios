@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 open class CoverageRegionStatusRequestBuilder: NSObject {
     let currentApi: StatusApi
 
-    var region: String? = nil
+    var region:String? = nil
 
     public init(currentApi: StatusApi) {
         self.currentApi = currentApi

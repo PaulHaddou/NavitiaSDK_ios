@@ -16,23 +16,23 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageLonLatPlaces: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
         case stopArea = "stop_area"
         case address = "address"
     }
-    var q: String? = nil
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var type: [String]? = nil
-    var count: Int32? = nil
-    var adminUri: [String]? = nil
-    var depth: Int32? = nil
-    var disableGeojson: Bool? = nil
-    var from: String? = nil
-    var shape: String? = nil
+    var q:String? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var type: [ModelType]? = nil
+    var count:Int32? = nil
+    var adminUri:[String]? = nil
+    var depth:Int32? = nil
+    var disableGeojson:Bool? = nil
+    var from:String? = nil
+    var shape:String? = nil
 
     public init(currentApi: PlacesApi) {
         self.currentApi = currentApi
@@ -50,12 +50,9 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         self.lon = lon
         return self
     }
-    open func withType(_ type: [String]) -> CoverageLonLatPlacesRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageLonLatPlacesRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageLonLatPlacesRequestBuilder {
-        return withType([ModelType]_getCoverageLonLatPlaces(rawValue: typeValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageLonLatPlacesRequestBuilder {
         self.count = count
@@ -89,7 +86,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 
@@ -159,22 +156,22 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageRegionPlaces: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
         case stopArea = "stop_area"
         case address = "address"
     }
-    var q: String? = nil
-    var region: String? = nil
-    var type: [String]? = nil
-    var count: Int32? = nil
-    var adminUri: [String]? = nil
-    var depth: Int32? = nil
-    var disableGeojson: Bool? = nil
-    var from: String? = nil
-    var shape: String? = nil
+    var q:String? = nil
+    var region:String? = nil
+    var type: [ModelType]? = nil
+    var count:Int32? = nil
+    var adminUri:[String]? = nil
+    var depth:Int32? = nil
+    var disableGeojson:Bool? = nil
+    var from:String? = nil
+    var shape:String? = nil
 
     public init(currentApi: PlacesApi) {
         self.currentApi = currentApi
@@ -188,12 +185,9 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         self.region = region
         return self
     }
-    open func withType(_ type: [String]) -> CoverageRegionPlacesRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageRegionPlacesRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageRegionPlacesRequestBuilder {
-        return withType([ModelType]_getCoverageRegionPlaces(rawValue: typeValue)!);
     }
     open func withCount(_ count: Int32) -> CoverageRegionPlacesRequestBuilder {
         self.count = count
@@ -226,7 +220,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 
@@ -290,21 +284,21 @@ open class PlacesRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getPlaces: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
         case stopArea = "stop_area"
         case address = "address"
     }
-    var q: String? = nil
-    var type: [String]? = nil
-    var count: Int32? = nil
-    var adminUri: [String]? = nil
-    var depth: Int32? = nil
-    var disableGeojson: Bool? = nil
-    var from: String? = nil
-    var shape: String? = nil
+    var q:String? = nil
+    var type: [ModelType]? = nil
+    var count:Int32? = nil
+    var adminUri:[String]? = nil
+    var depth:Int32? = nil
+    var disableGeojson:Bool? = nil
+    var from:String? = nil
+    var shape:String? = nil
 
     public init(currentApi: PlacesApi) {
         self.currentApi = currentApi
@@ -314,12 +308,9 @@ open class PlacesRequestBuilder: NSObject {
         self.q = q
         return self
     }
-    open func withType(_ type: [String]) -> PlacesRequestBuilder {
+    open func withType(_ type: [ModelType]) -> PlacesRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> PlacesRequestBuilder {
-        return withType([ModelType]_getPlaces(rawValue: typeValue)!);
     }
     open func withCount(_ count: Int32) -> PlacesRequestBuilder {
         self.count = count
@@ -351,7 +342,7 @@ open class PlacesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "q": self.q!, 
             "type[]": self.type, 
             "count": self.count?.encodeToJSON(), 

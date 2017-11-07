@@ -13,14 +13,14 @@ import AlamofireObjectMapper
 open class CoverageRegionTrafficReportsRequestBuilder: NSObject {
     let currentApi: TrafficReportApi
 
-    var region: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var distance: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: TrafficReportApi) {
         self.currentApi = currentApi
@@ -65,7 +65,7 @@ open class CoverageRegionTrafficReportsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 
@@ -119,15 +119,15 @@ open class CoverageRegionTrafficReportsRequestBuilder: NSObject {
 open class CoverageRegionUriTrafficReportsRequestBuilder: NSObject {
     let currentApi: TrafficReportApi
 
-    var region: String? = nil
-    var uri: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var distance: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: TrafficReportApi) {
         self.currentApi = currentApi
@@ -177,7 +177,7 @@ open class CoverageRegionUriTrafficReportsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 

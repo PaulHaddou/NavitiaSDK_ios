@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 open class CoverageRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
-    var disableGeojson: Bool? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: CoverageApi) {
         self.currentApi = currentApi
@@ -29,7 +29,7 @@ open class CoverageRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
@@ -71,9 +71,9 @@ open class CoverageRequestBuilder: NSObject {
 open class CoverageLonLatRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: CoverageApi) {
         self.currentApi = currentApi
@@ -99,7 +99,7 @@ open class CoverageLonLatRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
@@ -153,8 +153,8 @@ open class CoverageLonLatRequestBuilder: NSObject {
 open class CoverageRegionRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
-    var region: String? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: CoverageApi) {
         self.currentApi = currentApi
@@ -175,7 +175,7 @@ open class CoverageRegionRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)

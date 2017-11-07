@@ -13,15 +13,15 @@ import AlamofireObjectMapper
 open class CoverageRegionCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
-    var region: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var startDate: String? = nil
-    var endDate: String? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var distance: Int32? = nil
+    var region:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
 
     public init(currentApi: CalendarsApi) {
         self.currentApi = currentApi
@@ -70,7 +70,7 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 
@@ -125,16 +125,16 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
 open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
-    var region: String? = nil
-    var id: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var startDate: String? = nil
-    var endDate: String? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var distance: Int32? = nil
+    var region:String? = nil
+    var id:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
 
     public init(currentApi: CalendarsApi) {
         self.currentApi = currentApi
@@ -188,7 +188,7 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 
@@ -249,16 +249,16 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
 open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
-    var region: String? = nil
-    var uri: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var startDate: String? = nil
-    var endDate: String? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var distance: Int32? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
 
     public init(currentApi: CalendarsApi) {
         self.currentApi = currentApi
@@ -312,7 +312,7 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 

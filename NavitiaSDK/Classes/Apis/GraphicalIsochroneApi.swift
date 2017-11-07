@@ -16,14 +16,14 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     /**
     * enum for parameter datetimeRepresents
     */
-    public enum DatetimeRepresents_getCoverageRegionIsochrones: String { 
+    public enum DatetimeRepresents: String { 
         case arrival = "arrival"
         case departure = "departure"
     }
     /**
     * enum for parameter firstSectionMode
     */
-    public enum FirstSectionMode_getCoverageRegionIsochrones: String { 
+    public enum FirstSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -32,7 +32,7 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     /**
     * enum for parameter lastSectionMode
     */
-    public enum LastSectionMode_getCoverageRegionIsochrones: String { 
+    public enum LastSectionMode: String { 
         case walking = "walking"
         case car = "car"
         case bike = "bike"
@@ -41,7 +41,7 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageRegionIsochrones: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -49,7 +49,7 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     /**
     * enum for parameter travelerType
     */
-    public enum TravelerType_getCoverageRegionIsochrones: String { 
+    public enum TravelerType: String { 
         case cyclist = "cyclist"
         case luggage = "luggage"
         case wheelchair = "wheelchair"
@@ -61,39 +61,39 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     /**
     * enum for parameter directPath
     */
-    public enum DirectPath_getCoverageRegionIsochrones: String { 
+    public enum DirectPath: String { 
         case indifferent = "indifferent"
         case only = "only"
         case _none = "none"
     }
-    var region: String? = nil
-    var from: String? = nil
-    var to: String? = nil
-    var datetime: Date? = nil
-    var datetimeRepresents: DatetimeRepresents_getCoverageRegionIsochrones? = nil
-    var maxNbTransfers: Int32? = nil
-    var minNbTransfers: Int32? = nil
-    var firstSectionMode: [String]? = nil
-    var lastSectionMode: [String]? = nil
-    var maxDurationToPt: Int32? = nil
-    var maxWalkingDurationToPt: Int32? = nil
-    var maxBikeDurationToPt: Int32? = nil
-    var maxBssDurationToPt: Int32? = nil
-    var maxCarDurationToPt: Int32? = nil
-    var walkingSpeed: Float? = nil
-    var bikeSpeed: Float? = nil
-    var bssSpeed: Float? = nil
-    var carSpeed: Float? = nil
-    var forbiddenUris: [String]? = nil
-    var allowedId: [String]? = nil
-    var disruptionActive: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageRegionIsochrones? = nil
-    var maxDuration: Int32? = nil
-    var wheelchair: Bool? = nil
-    var travelerType: TravelerType_getCoverageRegionIsochrones? = nil
-    var directPath: DirectPath_getCoverageRegionIsochrones? = nil
-    var minDuration: Int32? = nil
-    var boundaryDuration: [Int32]? = nil
+    var region:String? = nil
+    var from:String? = nil
+    var to:String? = nil
+    var datetime:Date? = nil
+    var datetimeRepresents: DatetimeRepresents? = nil
+    var maxNbTransfers:Int32? = nil
+    var minNbTransfers:Int32? = nil
+    var firstSectionMode: [FirstSectionMode]? = nil
+    var lastSectionMode: [LastSectionMode]? = nil
+    var maxDurationToPt:Int32? = nil
+    var maxWalkingDurationToPt:Int32? = nil
+    var maxBikeDurationToPt:Int32? = nil
+    var maxBssDurationToPt:Int32? = nil
+    var maxCarDurationToPt:Int32? = nil
+    var walkingSpeed:Float? = nil
+    var bikeSpeed:Float? = nil
+    var bssSpeed:Float? = nil
+    var carSpeed:Float? = nil
+    var forbiddenUris:[String]? = nil
+    var allowedId:[String]? = nil
+    var disruptionActive:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var maxDuration:Int32? = nil
+    var wheelchair:Bool? = nil
+    var travelerType: TravelerType? = nil
+    var directPath: DirectPath? = nil
+    var minDuration:Int32? = nil
+    var boundaryDuration:[Int32]? = nil
 
     public init(currentApi: GraphicalIsochroneApi) {
         self.currentApi = currentApi
@@ -115,12 +115,9 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         self.datetime = datetime
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents_getCoverageRegionIsochrones) -> CoverageRegionIsochronesRequestBuilder {
+    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents) -> CoverageRegionIsochronesRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
         return self
-    }
-    open func withDatetimeRepresents(_ datetimeRepresentsValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withDatetimeRepresents(DatetimeRepresents_getCoverageRegionIsochrones(rawValue: datetimeRepresentsValue)!);
     }
     open func withMaxNbTransfers(_ maxNbTransfers: Int32) -> CoverageRegionIsochronesRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
@@ -130,19 +127,13 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         self.minNbTransfers = minNbTransfers
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [String]) -> CoverageRegionIsochronesRequestBuilder {
+    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]) -> CoverageRegionIsochronesRequestBuilder {
         self.firstSectionMode = firstSectionMode
         return self
     }
-    open func withFirstSectionMode(_ firstSectionModeValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withFirstSectionMode([FirstSectionMode]_getCoverageRegionIsochrones(rawValue: firstSectionModeValue)!);
-    }
-    open func withLastSectionMode(_ lastSectionMode: [String]) -> CoverageRegionIsochronesRequestBuilder {
+    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]) -> CoverageRegionIsochronesRequestBuilder {
         self.lastSectionMode = lastSectionMode
         return self
-    }
-    open func withLastSectionMode(_ lastSectionModeValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withLastSectionMode([LastSectionMode]_getCoverageRegionIsochrones(rawValue: lastSectionModeValue)!);
     }
     open func withMaxDurationToPt(_ maxDurationToPt: Int32) -> CoverageRegionIsochronesRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
@@ -192,12 +183,9 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         self.disruptionActive = disruptionActive
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageRegionIsochrones) -> CoverageRegionIsochronesRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageRegionIsochronesRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageRegionIsochrones(rawValue: dataFreshnessValue)!);
     }
     open func withMaxDuration(_ maxDuration: Int32) -> CoverageRegionIsochronesRequestBuilder {
         self.maxDuration = maxDuration
@@ -207,19 +195,13 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         self.wheelchair = wheelchair
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType_getCoverageRegionIsochrones) -> CoverageRegionIsochronesRequestBuilder {
+    open func withTravelerType(_ travelerType: TravelerType) -> CoverageRegionIsochronesRequestBuilder {
         self.travelerType = travelerType
         return self
     }
-    open func withTravelerType(_ travelerTypeValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withTravelerType(TravelerType_getCoverageRegionIsochrones(rawValue: travelerTypeValue)!);
-    }
-    open func withDirectPath(_ directPath: DirectPath_getCoverageRegionIsochrones) -> CoverageRegionIsochronesRequestBuilder {
+    open func withDirectPath(_ directPath: DirectPath) -> CoverageRegionIsochronesRequestBuilder {
         self.directPath = directPath
         return self
-    }
-    open func withDirectPath(_ directPathValue: String) -> CoverageRegionIsochronesRequestBuilder {
-        return withDirectPath(DirectPath_getCoverageRegionIsochrones(rawValue: directPathValue)!);
     }
     open func withMinDuration(_ minDuration: Int32) -> CoverageRegionIsochronesRequestBuilder {
         self.minDuration = minDuration
@@ -236,7 +218,7 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "from": self.from, 
             "to": self.to, 
             "datetime": self.datetime?.encodeToJSON(), 

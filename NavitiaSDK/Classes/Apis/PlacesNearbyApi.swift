@@ -16,7 +16,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoordLonLatPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -26,22 +26,22 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoordLonLatPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -55,12 +55,9 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
         self.lon = lon
         return self
     }
-    open func withType(_ type: [String]) -> CoordLonLatPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoordLonLatPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoordLonLatPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -86,12 +83,9 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoordLonLatPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoordLonLatPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoordLonLatPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -105,7 +99,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 
@@ -170,7 +164,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoordsLonLatPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -180,22 +174,22 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoordsLonLatPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -209,12 +203,9 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
         self.lon = lon
         return self
     }
-    open func withType(_ type: [String]) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoordsLonLatPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoordsLonLatPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -240,12 +231,9 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoordsLonLatPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoordsLonLatPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -259,7 +247,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 
@@ -324,7 +312,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageLonLatPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -334,22 +322,22 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageLonLatPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -363,12 +351,9 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
         self.lon = lon
         return self
     }
-    open func withType(_ type: [String]) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageLonLatPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoverageLonLatPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -394,12 +379,9 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageLonLatPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageLonLatPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -413,7 +395,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 
@@ -478,7 +460,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageLonLatUriPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -488,23 +470,23 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageLonLatUriPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -522,12 +504,9 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
         self.uri = uri
         return self
     }
-    open func withType(_ type: [String]) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoverageLonLatUriPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -553,12 +532,9 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageLonLatUriPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -573,7 +549,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 
@@ -644,7 +620,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageRegionPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -654,21 +630,21 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageRegionPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var region: String? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -678,12 +654,9 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
         self.region = region
         return self
     }
-    open func withType(_ type: [String]) -> CoverageRegionPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageRegionPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoverageRegionPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -709,12 +682,9 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageRegionPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageRegionPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageRegionPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -727,7 +697,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 
@@ -786,7 +756,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter type
     */
-    public enum ModelType_getCoverageRegionUriPlacesNearby: String { 
+    public enum ModelType: String { 
         case stopPoint = "stop_point"
         case poi = "poi"
         case administrativeRegion = "administrative_region"
@@ -796,22 +766,22 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
     /**
     * enum for parameter addPoiInfos
     */
-    public enum AddPoiInfos_getCoverageRegionUriPlacesNearby: String { 
+    public enum AddPoiInfos: String { 
         case bssStands = "bss_stands"
         case carPark = "car_park"
         case empty = ""
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var type: [String]? = nil
-    var filter: String? = nil
-    var distance: Int32? = nil
-    var count: Int32? = nil
-    var depth: Int32? = nil
-    var startPage: Int32? = nil
-    var bssStands: Bool? = nil
-    var addPoiInfos: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var type: [ModelType]? = nil
+    var filter:String? = nil
+    var distance:Int32? = nil
+    var count:Int32? = nil
+    var depth:Int32? = nil
+    var startPage:Int32? = nil
+    var bssStands:Bool? = nil
+    var addPoiInfos: [AddPoiInfos]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: PlacesNearbyApi) {
         self.currentApi = currentApi
@@ -825,12 +795,9 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
         self.uri = uri
         return self
     }
-    open func withType(_ type: [String]) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    open func withType(_ type: [ModelType]) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.type = type
         return self
-    }
-    open func withType(_ typeValue: String) -> CoverageRegionUriPlacesNearbyRequestBuilder {
-        return withType([ModelType]_getCoverageRegionUriPlacesNearby(rawValue: typeValue)!);
     }
     open func withFilter(_ filter: String) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.filter = filter
@@ -856,12 +823,9 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
         self.bssStands = bssStands
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [String]) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.addPoiInfos = addPoiInfos
         return self
-    }
-    open func withAddPoiInfos(_ addPoiInfosValue: String) -> CoverageRegionUriPlacesNearbyRequestBuilder {
-        return withAddPoiInfos([AddPoiInfos]_getCoverageRegionUriPlacesNearby(rawValue: addPoiInfosValue)!);
     }
     open func withDisableGeojson(_ disableGeojson: Bool) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
@@ -875,7 +839,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "type[]": self.type, 
             "filter": self.filter, 
             "distance": self.distance?.encodeToJSON(), 

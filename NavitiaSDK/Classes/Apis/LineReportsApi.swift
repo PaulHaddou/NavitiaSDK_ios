@@ -13,12 +13,12 @@ import AlamofireObjectMapper
 open class CoverageRegionLineReportsRequestBuilder: NSObject {
     let currentApi: LineReportsApi
 
-    var region: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var forbiddenUris: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var forbiddenUris:[String]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: LineReportsApi) {
         self.currentApi = currentApi
@@ -55,7 +55,7 @@ open class CoverageRegionLineReportsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 
@@ -107,13 +107,13 @@ open class CoverageRegionLineReportsRequestBuilder: NSObject {
 open class CoverageRegionUriLineReportsRequestBuilder: NSObject {
     let currentApi: LineReportsApi
 
-    var region: String? = nil
-    var uri: String? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var forbiddenUris: [String]? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var forbiddenUris:[String]? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: LineReportsApi) {
         self.currentApi = currentApi
@@ -155,7 +155,7 @@ open class CoverageRegionUriLineReportsRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "depth": self.depth?.encodeToJSON(), 
             "count": self.count?.encodeToJSON(), 
             "start_page": self.startPage?.encodeToJSON(), 

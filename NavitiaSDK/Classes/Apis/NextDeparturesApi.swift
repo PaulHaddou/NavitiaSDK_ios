@@ -16,29 +16,29 @@ open class CoverageLonLatDeparturesRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageLonLatDepartures: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var filter: String? = nil
-    var fromDatetime: Date? = nil
-    var untilDatetime: Date? = nil
-    var duration: Int32? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var maxDateTimes: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var calendar: String? = nil
-    var distance: Int32? = nil
-    var showCodes: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageLonLatDepartures? = nil
-    var itemsPerSchedule: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var filter:String? = nil
+    var fromDatetime:Date? = nil
+    var untilDatetime:Date? = nil
+    var duration:Int32? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var maxDateTimes:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var calendar:String? = nil
+    var distance:Int32? = nil
+    var showCodes:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var itemsPerSchedule:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: NextDeparturesApi) {
         self.currentApi = currentApi
@@ -104,12 +104,9 @@ open class CoverageLonLatDeparturesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageLonLatDepartures) -> CoverageLonLatDeparturesRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageLonLatDeparturesRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageLonLatDeparturesRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageLonLatDepartures(rawValue: dataFreshnessValue)!);
     }
     open func withItemsPerSchedule(_ itemsPerSchedule: Int32) -> CoverageLonLatDeparturesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
@@ -127,7 +124,7 @@ open class CoverageLonLatDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime?.encodeToJSON(), 
             "until_datetime": self.untilDatetime?.encodeToJSON(), 
@@ -199,30 +196,30 @@ open class CoverageLonLatUriDeparturesRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageLonLatUriDepartures: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
     }
-    var lat: Double? = nil
-    var lon: Double? = nil
-    var uri: String? = nil
-    var filter: String? = nil
-    var fromDatetime: Date? = nil
-    var untilDatetime: Date? = nil
-    var duration: Int32? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var maxDateTimes: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var calendar: String? = nil
-    var distance: Int32? = nil
-    var showCodes: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageLonLatUriDepartures? = nil
-    var itemsPerSchedule: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var filter:String? = nil
+    var fromDatetime:Date? = nil
+    var untilDatetime:Date? = nil
+    var duration:Int32? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var maxDateTimes:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var calendar:String? = nil
+    var distance:Int32? = nil
+    var showCodes:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var itemsPerSchedule:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: NextDeparturesApi) {
         self.currentApi = currentApi
@@ -292,12 +289,9 @@ open class CoverageLonLatUriDeparturesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageLonLatUriDepartures) -> CoverageLonLatUriDeparturesRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageLonLatUriDeparturesRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageLonLatUriDeparturesRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageLonLatUriDepartures(rawValue: dataFreshnessValue)!);
     }
     open func withItemsPerSchedule(_ itemsPerSchedule: Int32) -> CoverageLonLatUriDeparturesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
@@ -316,7 +310,7 @@ open class CoverageLonLatUriDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime?.encodeToJSON(), 
             "until_datetime": self.untilDatetime?.encodeToJSON(), 
@@ -394,28 +388,28 @@ open class CoverageRegionDeparturesRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageRegionDepartures: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
     }
-    var region: String? = nil
-    var filter: String? = nil
-    var fromDatetime: Date? = nil
-    var untilDatetime: Date? = nil
-    var duration: Int32? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var maxDateTimes: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var calendar: String? = nil
-    var distance: Int32? = nil
-    var showCodes: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageRegionDepartures? = nil
-    var itemsPerSchedule: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var filter:String? = nil
+    var fromDatetime:Date? = nil
+    var untilDatetime:Date? = nil
+    var duration:Int32? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var maxDateTimes:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var calendar:String? = nil
+    var distance:Int32? = nil
+    var showCodes:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var itemsPerSchedule:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: NextDeparturesApi) {
         self.currentApi = currentApi
@@ -477,12 +471,9 @@ open class CoverageRegionDeparturesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageRegionDepartures) -> CoverageRegionDeparturesRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageRegionDeparturesRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageRegionDeparturesRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageRegionDepartures(rawValue: dataFreshnessValue)!);
     }
     open func withItemsPerSchedule(_ itemsPerSchedule: Int32) -> CoverageRegionDeparturesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
@@ -499,7 +490,7 @@ open class CoverageRegionDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime?.encodeToJSON(), 
             "until_datetime": self.untilDatetime?.encodeToJSON(), 
@@ -565,29 +556,29 @@ open class CoverageRegionUriDeparturesRequestBuilder: NSObject {
     /**
     * enum for parameter dataFreshness
     */
-    public enum DataFreshness_getCoverageRegionUriDepartures: String { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
     }
-    var region: String? = nil
-    var uri: String? = nil
-    var filter: String? = nil
-    var fromDatetime: Date? = nil
-    var untilDatetime: Date? = nil
-    var duration: Int32? = nil
-    var depth: Int32? = nil
-    var count: Int32? = nil
-    var startPage: Int32? = nil
-    var maxDateTimes: Int32? = nil
-    var forbiddenId: [String]? = nil
-    var forbiddenUris: [String]? = nil
-    var calendar: String? = nil
-    var distance: Int32? = nil
-    var showCodes: Bool? = nil
-    var dataFreshness: DataFreshness_getCoverageRegionUriDepartures? = nil
-    var itemsPerSchedule: Int32? = nil
-    var disableGeojson: Bool? = nil
+    var region:String? = nil
+    var uri:String? = nil
+    var filter:String? = nil
+    var fromDatetime:Date? = nil
+    var untilDatetime:Date? = nil
+    var duration:Int32? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var maxDateTimes:Int32? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var calendar:String? = nil
+    var distance:Int32? = nil
+    var showCodes:Bool? = nil
+    var dataFreshness: DataFreshness? = nil
+    var itemsPerSchedule:Int32? = nil
+    var disableGeojson:Bool? = nil
 
     public init(currentApi: NextDeparturesApi) {
         self.currentApi = currentApi
@@ -653,12 +644,9 @@ open class CoverageRegionUriDeparturesRequestBuilder: NSObject {
         self.showCodes = showCodes
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness_getCoverageRegionUriDepartures) -> CoverageRegionUriDeparturesRequestBuilder {
+    open func withDataFreshness(_ dataFreshness: DataFreshness) -> CoverageRegionUriDeparturesRequestBuilder {
         self.dataFreshness = dataFreshness
         return self
-    }
-    open func withDataFreshness(_ dataFreshnessValue: String) -> CoverageRegionUriDeparturesRequestBuilder {
-        return withDataFreshness(DataFreshness_getCoverageRegionUriDepartures(rawValue: dataFreshnessValue)!);
     }
     open func withItemsPerSchedule(_ itemsPerSchedule: Int32) -> CoverageRegionUriDeparturesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
@@ -676,7 +664,7 @@ open class CoverageRegionUriDeparturesRequestBuilder: NSObject {
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
-        let paramValues: [String: Any] = [
+        let paramValues: [String: Any?] = [
             "filter": self.filter, 
             "from_datetime": self.fromDatetime?.encodeToJSON(), 
             "until_datetime": self.untilDatetime?.encodeToJSON(), 
