@@ -87,11 +87,12 @@ end
 project_path = './Factory.xcodeproj'
 project = Xcodeproj::Project.open(project_path)
 context_name = 'FactoryTests'
-file_to_add = 'NavitiaSDKTests.swift'
 
 puts '#### Handling ' + context_name + ' ####'
-added_file_reference = add_filepath_to_group(File.realpath('./' + context_name + '/' + file_to_add), context_name, project)
-add_filereference_to_target(added_file_reference, context_name, project)
+Dir.glob(context_name + '/**/*Test.swift').each do |file_to_add|
+  added_file_reference = add_filepath_to_group(File.realpath('./' + file_to_add), context_name, project)
+  add_filereference_to_target(added_file_reference, context_name, project)
+end
 puts
 
 puts '#### Files in GROUP ' + context_name + ' ####'

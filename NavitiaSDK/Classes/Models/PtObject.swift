@@ -12,7 +12,9 @@ import ObjectMapper
 open class PtObject: JSONEncodable, Mappable {
 
     public var embeddedType: String?
-    public var network: Network?
+    public var stopPoint: StopPoint?
+    /** Name of the object */
+    public var name: String?
     public var route: Route?
     public var stopArea: StopArea?
     public var commercialMode: CommercialMode?
@@ -21,8 +23,7 @@ open class PtObject: JSONEncodable, Mappable {
     public var line: Line?
     public var quality: Int32?
     public var trip: Trip?
-    /** Name of the object */
-    public var name: String?
+    public var network: Network?
 
     public init() {}
     required public init?(map: Map) {
@@ -32,7 +33,8 @@ open class PtObject: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         embeddedType <- map["embedded_type"]
-        network <- map["network"]
+        stopPoint <- map["stop_point"]
+        name <- map["name"]
         route <- map["route"]
         stopArea <- map["stop_area"]
         commercialMode <- map["commercial_mode"]
@@ -40,14 +42,15 @@ open class PtObject: JSONEncodable, Mappable {
         line <- map["line"]
         quality <- map["quality"]
         trip <- map["trip"]
-        name <- map["name"]
+        network <- map["network"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["embedded_type"] = self.embeddedType
-        nillableDictionary["network"] = self.network?.encodeToJSON()
+        nillableDictionary["stop_point"] = self.stopPoint?.encodeToJSON()
+        nillableDictionary["name"] = self.name
         nillableDictionary["route"] = self.route?.encodeToJSON()
         nillableDictionary["stop_area"] = self.stopArea?.encodeToJSON()
         nillableDictionary["commercial_mode"] = self.commercialMode?.encodeToJSON()
@@ -55,7 +58,7 @@ open class PtObject: JSONEncodable, Mappable {
         nillableDictionary["line"] = self.line?.encodeToJSON()
         nillableDictionary["quality"] = self.quality?.encodeToJSON()
         nillableDictionary["trip"] = self.trip?.encodeToJSON()
-        nillableDictionary["name"] = self.name
+        nillableDictionary["network"] = self.network?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

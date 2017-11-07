@@ -11,11 +11,12 @@ import ObjectMapper
 
 open class JourneyPatterns: JSONEncodable, Mappable {
 
-    public var disruptions: [Disruption]?
     public var pagination: Pagination?
-    public var error: ModelError?
-    public var journeyPatterns: [JourneyPattern]?
+    public var disruptions: [Disruption]?
+    public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
+    public var journeyPatterns: [JourneyPattern]?
+    public var error: ModelError?
 
     public init() {}
     required public init?(map: Map) {
@@ -24,21 +25,23 @@ open class JourneyPatterns: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        disruptions <- map["disruptions"]
         pagination <- map["pagination"]
-        error <- map["error"]
-        journeyPatterns <- map["journey_patterns"]
+        disruptions <- map["disruptions"]
+        notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
+        journeyPatterns <- map["journey_patterns"]
+        error <- map["error"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
-        nillableDictionary["error"] = self.error?.encodeToJSON()
-        nillableDictionary["journey_patterns"] = self.journeyPatterns?.encodeToJSON()
+        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
+        nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["journey_patterns"] = self.journeyPatterns?.encodeToJSON()
+        nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

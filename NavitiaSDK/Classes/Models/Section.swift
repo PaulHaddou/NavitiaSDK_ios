@@ -42,6 +42,7 @@ open class Section: JSONEncodable, Mappable {
     public var stopDateTimes: [StopDateTime]?
     public var type: String?
     public var id: String?
+    public var dataFreshness: String?
     public var mode: String?
 
     public init() {}
@@ -68,6 +69,7 @@ open class Section: JSONEncodable, Mappable {
         stopDateTimes <- map["stop_date_times"]
         type <- map["type"]
         id <- map["id"]
+        dataFreshness <- map["data_freshness"]
         mode <- map["mode"]
     }
 
@@ -91,6 +93,7 @@ open class Section: JSONEncodable, Mappable {
         nillableDictionary["stop_date_times"] = self.stopDateTimes?.encodeToJSON()
         nillableDictionary["type"] = self.type
         nillableDictionary["id"] = self.id
+        nillableDictionary["data_freshness"] = self.dataFreshness
         nillableDictionary["mode"] = self.mode
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

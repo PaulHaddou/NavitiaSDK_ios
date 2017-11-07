@@ -13,9 +13,10 @@ open class StopSchedules: JSONEncodable, Mappable {
 
     public var stopSchedules: [StopSchedule]?
     public var pagination: Pagination?
+    public var disruptions: [Disruption]?
+    public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
     public var error: ModelError?
-    public var disruptions: [Disruption]?
 
     public init() {}
     required public init?(map: Map) {
@@ -26,9 +27,10 @@ open class StopSchedules: JSONEncodable, Mappable {
     public func mapping(map: Map) {
         stopSchedules <- map["stop_schedules"]
         pagination <- map["pagination"]
+        disruptions <- map["disruptions"]
+        notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
         error <- map["error"]
-        disruptions <- map["disruptions"]
     }
 
     // MARK: JSONEncodable
@@ -36,9 +38,10 @@ open class StopSchedules: JSONEncodable, Mappable {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["stop_schedules"] = self.stopSchedules?.encodeToJSON()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
+        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
+        nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
-        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

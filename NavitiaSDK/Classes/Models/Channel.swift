@@ -20,6 +20,8 @@ open class Channel: JSONEncodable, Mappable {
         case twitter = "twitter"
         case facebook = "facebook"
         case unknownType = "unknown_type"
+        case title = "title"
+        case beacon = "beacon"
     }
     public var contentType: String?
     public var id: String?
