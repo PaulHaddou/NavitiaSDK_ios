@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavitiaSDK'
-  s.version          = '0.3.2'
+  s.version          = '0.3.3'
   s.summary          = 'Navitia client written in Swift 3'
 
 # This description is used to generate tags and improve search results.
