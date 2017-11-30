@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavitiaSDK'
-  s.version          = '0.3.3'
+  s.version          = '1.0.0'
   s.summary          = 'Navitia client written in Swift 3'
 
 # This description is used to generate tags and improve search results.
@@ -18,13 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-ALPHA - Navitia client
-Supported endpoints:
-- places
-- journeys
-- departures
-- stop_schedules
-- all public transport objects
+Navitia API client
+This pod gives you access to every single Navitia transport API.
                        DESC
 
   s.homepage         = 'https://github.com/CanalTP/NavitiaSDK_ios'
