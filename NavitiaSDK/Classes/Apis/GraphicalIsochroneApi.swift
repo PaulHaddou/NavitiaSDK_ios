@@ -214,7 +214,13 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/isochrones"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -248,6 +254,7 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
             "boundary_duration[]": self.boundaryDuration
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }

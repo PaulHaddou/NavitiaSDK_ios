@@ -6,7 +6,7 @@
 
 import Foundation
 
-open class NavitiaSDK_iosAPI {
+open class NavitiaSDKAPI {
     open static var basePath = "https://api.navitia.io/v1"
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
@@ -47,7 +47,7 @@ open class RequestBuilder<T> {
         self.isBody = isBody
         self.headers = headers
         
-        addHeaders(NavitiaSDK_iosAPI.customHeaders)
+        addHeaders(NavitiaSDKAPI.customHeaders)
     }
     
     open func addHeaders(_ aHeaders:[String:String]) {
@@ -66,7 +66,7 @@ open class RequestBuilder<T> {
     }
     
     open func addCredential() -> Self {
-        self.credential = NavitiaSDK_iosAPI.credential
+        self.credential = NavitiaSDKAPI.credential
         return self
     }
 }

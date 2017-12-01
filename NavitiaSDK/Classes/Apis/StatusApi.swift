@@ -26,7 +26,13 @@ open class CoverageRegionStatusRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/status"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 

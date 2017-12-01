@@ -115,8 +115,19 @@ open class CoverageLonLatStopPointsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/stop_points"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -138,6 +149,7 @@ open class CoverageLonLatStopPointsRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -290,9 +302,25 @@ open class CoverageLonLatStopPointsIdRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/stop_points/{id}"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{id}", with: "\(self.id!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -313,6 +341,7 @@ open class CoverageLonLatStopPointsIdRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -476,9 +505,25 @@ open class CoverageLonLatUriStopPointsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/stop_points"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -500,6 +545,7 @@ open class CoverageLonLatUriStopPointsRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -663,10 +709,31 @@ open class CoverageLonLatUriStopPointsIdRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/stop_points/{id}"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{id}", with: "\(self.id!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -687,6 +754,7 @@ open class CoverageLonLatUriStopPointsIdRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -846,7 +914,13 @@ open class CoverageRegionStopPointsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/stop_points"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -868,6 +942,7 @@ open class CoverageRegionStopPointsRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -1009,8 +1084,19 @@ open class CoverageRegionStopPointsIdRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/stop_points/{id}"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{id}", with: "\(self.id!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -1031,6 +1117,7 @@ open class CoverageRegionStopPointsIdRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -1183,8 +1270,19 @@ open class CoverageRegionUriStopPointsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/stop_points"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -1206,6 +1304,7 @@ open class CoverageRegionUriStopPointsRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -1358,9 +1457,25 @@ open class CoverageRegionUriStopPointsIdRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/stop_points/{id}"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{id}", with: "\(self.id!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -1381,6 +1496,7 @@ open class CoverageRegionUriStopPointsIdRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -1529,6 +1645,7 @@ open class StopPointsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         let path = "/stop_points"
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -1550,6 +1667,7 @@ open class StopPointsRequestBuilder: NSObject {
             "original_id": self.originalId
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }

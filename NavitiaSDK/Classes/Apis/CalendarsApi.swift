@@ -66,7 +66,13 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/calendars"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -81,6 +87,7 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
             "distance": self.distance?.encodeToJSON()
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -183,8 +190,19 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/calendars/{id}"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{id}", with: "\(self.id!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -199,6 +217,7 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
             "distance": self.distance?.encodeToJSON()
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -307,8 +326,19 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/calendars"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -323,6 +353,7 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
             "distance": self.distance?.encodeToJSON()
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
