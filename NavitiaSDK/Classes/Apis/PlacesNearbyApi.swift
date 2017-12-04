@@ -94,8 +94,19 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coord/{lon};{lat}/places_nearby"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -111,6 +122,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -242,8 +254,19 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coords/{lon};{lat}/places_nearby"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -259,6 +282,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -390,8 +414,19 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/places_nearby"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -407,6 +442,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -543,9 +579,25 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/places_nearby"
-        path = path.replacingOccurrences(of: "{lat}", with: "\(self.lat!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{lon}", with: "\(self.lon!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -561,6 +613,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -693,7 +746,13 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/places_nearby"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -709,6 +768,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }
@@ -834,8 +894,19 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
 
     open func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/places_nearby"
-        path = path.replacingOccurrences(of: "{region}", with: "\(self.region!)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{uri}", with: "\(self.uri!)", options: .literal, range: nil)
+
+        if (region != nil) {
+            let regionPreEscape: String = "\(region!)"
+            let regionPostEscape: String = regionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{region}", with: regionPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
         let URLString = "https://api.navitia.io/v1" + path
         let url = NSURLComponents(string: URLString)
 
@@ -851,6 +922,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
             "disable_geojson": self.disableGeojson
         ]
         url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
         return (url?.string ?? URLString)
     }

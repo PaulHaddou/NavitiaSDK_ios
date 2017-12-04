@@ -1,7 +1,0 @@
-language: swift
-osx_image: xcode8.3
-xcode_sdk: iphonesimulator10.3
-script:
-- cd Factory
-- pod install
-- xcodebuild test -workspace Factory.xcworkspace -scheme FactoryTests -destination 'platform=iOS Simulator,name=iPhone 7 Plus'
