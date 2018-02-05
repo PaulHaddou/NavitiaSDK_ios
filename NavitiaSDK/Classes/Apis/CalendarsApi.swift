@@ -10,6 +10,448 @@ import Alamofire
 import AlamofireObjectMapper
 
 
+open class CoverageLonLatCalendarsRequestBuilder: NSObject {
+    let currentApi: CalendarsApi
+
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
+
+    public init(currentApi: CalendarsApi) {
+        self.currentApi = currentApi
+    }
+
+    open func withLat(_ lat: Double) -> CoverageLonLatCalendarsRequestBuilder {
+        self.lat = lat
+        return self
+    }
+    open func withLon(_ lon: Double) -> CoverageLonLatCalendarsRequestBuilder {
+        self.lon = lon
+        return self
+    }
+    open func withDepth(_ depth: Int32) -> CoverageLonLatCalendarsRequestBuilder {
+        self.depth = depth
+        return self
+    }
+    open func withCount(_ count: Int32) -> CoverageLonLatCalendarsRequestBuilder {
+        self.count = count
+        return self
+    }
+    open func withStartPage(_ startPage: Int32) -> CoverageLonLatCalendarsRequestBuilder {
+        self.startPage = startPage
+        return self
+    }
+    open func withStartDate(_ startDate: String) -> CoverageLonLatCalendarsRequestBuilder {
+        self.startDate = startDate
+        return self
+    }
+    open func withEndDate(_ endDate: String) -> CoverageLonLatCalendarsRequestBuilder {
+        self.endDate = endDate
+        return self
+    }
+    open func withForbiddenId(_ forbiddenId: [String]) -> CoverageLonLatCalendarsRequestBuilder {
+        self.forbiddenId = forbiddenId
+        return self
+    }
+    open func withForbiddenUris(_ forbiddenUris: [String]) -> CoverageLonLatCalendarsRequestBuilder {
+        self.forbiddenUris = forbiddenUris
+        return self
+    }
+    open func withDistance(_ distance: Int32) -> CoverageLonLatCalendarsRequestBuilder {
+        self.distance = distance
+        return self
+    }
+
+    open func makeUrl() -> String {
+        var path = "/coverage/{lon};{lat}/calendars"
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        let URLString = "https://api.navitia.io/v1" + path
+        let url = NSURLComponents(string: URLString)
+
+        let paramValues: [String: Any?] = [
+            "depth": self.depth?.encodeToJSON(), 
+            "count": self.count?.encodeToJSON(), 
+            "start_page": self.startPage?.encodeToJSON(), 
+            "start_date": self.startDate, 
+            "end_date": self.endDate, 
+            "forbidden_id[]": self.forbiddenId, 
+            "forbidden_uris[]": self.forbiddenUris, 
+            "distance": self.distance?.encodeToJSON()
+        ]
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+
+        return (url?.string ?? URLString)
+    }
+
+    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+        if (self.lat == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+        }
+        if (self.lon == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+        }
+
+        Alamofire.request(self.makeUrl())
+            .authenticate(user: currentApi.token, password: "")
+            .validate()
+            .responseObject{ (response: (DataResponse<Calendars>)) in
+                switch response.result {
+                case .success:
+                    completion(response.result.value, nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+    }
+
+    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    if (self.lat == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+    }
+    if (self.lon == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+    }
+
+    Alamofire.request(self.makeUrl())
+        .authenticate(user: currentApi.token, password: "")
+        .validate()
+        .responseString{ (response: (DataResponse<String>)) in
+            switch response.result {
+            case .success:
+                completion(response.result.value, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+}
+
+open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
+    let currentApi: CalendarsApi
+
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var id:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
+
+    public init(currentApi: CalendarsApi) {
+        self.currentApi = currentApi
+    }
+
+    open func withLat(_ lat: Double) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.lat = lat
+        return self
+    }
+    open func withLon(_ lon: Double) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.lon = lon
+        return self
+    }
+    open func withId(_ id: String) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.id = id
+        return self
+    }
+    open func withDepth(_ depth: Int32) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.depth = depth
+        return self
+    }
+    open func withCount(_ count: Int32) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.count = count
+        return self
+    }
+    open func withStartPage(_ startPage: Int32) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.startPage = startPage
+        return self
+    }
+    open func withStartDate(_ startDate: String) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.startDate = startDate
+        return self
+    }
+    open func withEndDate(_ endDate: String) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.endDate = endDate
+        return self
+    }
+    open func withForbiddenId(_ forbiddenId: [String]) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.forbiddenId = forbiddenId
+        return self
+    }
+    open func withForbiddenUris(_ forbiddenUris: [String]) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.forbiddenUris = forbiddenUris
+        return self
+    }
+    open func withDistance(_ distance: Int32) -> CoverageLonLatCalendarsIdRequestBuilder {
+        self.distance = distance
+        return self
+    }
+
+    open func makeUrl() -> String {
+        var path = "/coverage/{lon};{lat}/calendars/{id}"
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (id != nil) {
+            let idPreEscape: String = "\(id!)"
+            let idPostEscape: String = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        }
+
+        let URLString = "https://api.navitia.io/v1" + path
+        let url = NSURLComponents(string: URLString)
+
+        let paramValues: [String: Any?] = [
+            "depth": self.depth?.encodeToJSON(), 
+            "count": self.count?.encodeToJSON(), 
+            "start_page": self.startPage?.encodeToJSON(), 
+            "start_date": self.startDate, 
+            "end_date": self.endDate, 
+            "forbidden_id[]": self.forbiddenId, 
+            "forbidden_uris[]": self.forbiddenUris, 
+            "distance": self.distance?.encodeToJSON()
+        ]
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+
+        return (url?.string ?? URLString)
+    }
+
+    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+        if (self.lat == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+        }
+        if (self.lon == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+        }
+        if (self.id == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : id"])))
+        }
+
+        Alamofire.request(self.makeUrl())
+            .authenticate(user: currentApi.token, password: "")
+            .validate()
+            .responseObject{ (response: (DataResponse<Calendars>)) in
+                switch response.result {
+                case .success:
+                    completion(response.result.value, nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+    }
+
+    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    if (self.lat == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+    }
+    if (self.lon == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+    }
+    if (self.id == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : id"])))
+    }
+
+    Alamofire.request(self.makeUrl())
+        .authenticate(user: currentApi.token, password: "")
+        .validate()
+        .responseString{ (response: (DataResponse<String>)) in
+            switch response.result {
+            case .success:
+                completion(response.result.value, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+}
+
+open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
+    let currentApi: CalendarsApi
+
+    var lat:Double? = nil
+    var lon:Double? = nil
+    var uri:String? = nil
+    var depth:Int32? = nil
+    var count:Int32? = nil
+    var startPage:Int32? = nil
+    var startDate:String? = nil
+    var endDate:String? = nil
+    var forbiddenId:[String]? = nil
+    var forbiddenUris:[String]? = nil
+    var distance:Int32? = nil
+
+    public init(currentApi: CalendarsApi) {
+        self.currentApi = currentApi
+    }
+
+    open func withLat(_ lat: Double) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.lat = lat
+        return self
+    }
+    open func withLon(_ lon: Double) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.lon = lon
+        return self
+    }
+    open func withUri(_ uri: String) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.uri = uri
+        return self
+    }
+    open func withDepth(_ depth: Int32) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.depth = depth
+        return self
+    }
+    open func withCount(_ count: Int32) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.count = count
+        return self
+    }
+    open func withStartPage(_ startPage: Int32) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.startPage = startPage
+        return self
+    }
+    open func withStartDate(_ startDate: String) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.startDate = startDate
+        return self
+    }
+    open func withEndDate(_ endDate: String) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.endDate = endDate
+        return self
+    }
+    open func withForbiddenId(_ forbiddenId: [String]) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.forbiddenId = forbiddenId
+        return self
+    }
+    open func withForbiddenUris(_ forbiddenUris: [String]) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.forbiddenUris = forbiddenUris
+        return self
+    }
+    open func withDistance(_ distance: Int32) -> CoverageLonLatUriCalendarsRequestBuilder {
+        self.distance = distance
+        return self
+    }
+
+    open func makeUrl() -> String {
+        var path = "/coverage/{lon};{lat}/{uri}/calendars"
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        if (uri != nil) {
+            let uriPreEscape: String = "\(uri!)"
+            let uriPostEscape: String = uriPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{uri}", with: uriPostEscape, options: .literal, range: nil)
+        }
+
+        let URLString = "https://api.navitia.io/v1" + path
+        let url = NSURLComponents(string: URLString)
+
+        let paramValues: [String: Any?] = [
+            "depth": self.depth?.encodeToJSON(), 
+            "count": self.count?.encodeToJSON(), 
+            "start_page": self.startPage?.encodeToJSON(), 
+            "start_date": self.startDate, 
+            "end_date": self.endDate, 
+            "forbidden_id[]": self.forbiddenId, 
+            "forbidden_uris[]": self.forbiddenUris, 
+            "distance": self.distance?.encodeToJSON()
+        ]
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values: paramValues)
+        url?.percentEncodedQuery = url?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+
+        return (url?.string ?? URLString)
+    }
+
+    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+        if (self.lat == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+        }
+        if (self.lon == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+        }
+        if (self.uri == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
+        }
+
+        Alamofire.request(self.makeUrl())
+            .authenticate(user: currentApi.token, password: "")
+            .validate()
+            .responseObject{ (response: (DataResponse<Calendars>)) in
+                switch response.result {
+                case .success:
+                    completion(response.result.value, nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+    }
+
+    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    if (self.lat == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+    }
+    if (self.lon == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+    }
+    if (self.uri == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
+    }
+
+    Alamofire.request(self.makeUrl())
+        .authenticate(user: currentApi.token, password: "")
+        .validate()
+        .responseString{ (response: (DataResponse<String>)) in
+            switch response.result {
+            case .success:
+                completion(response.result.value, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+}
+
 open class CoverageRegionCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
@@ -410,6 +852,15 @@ open class CalendarsApi: APIBase {
         self.token = token
     }
 
+    public func newCoverageLonLatCalendarsRequestBuilder() -> CoverageLonLatCalendarsRequestBuilder {
+        return CoverageLonLatCalendarsRequestBuilder(currentApi: self)
+    }
+    public func newCoverageLonLatCalendarsIdRequestBuilder() -> CoverageLonLatCalendarsIdRequestBuilder {
+        return CoverageLonLatCalendarsIdRequestBuilder(currentApi: self)
+    }
+    public func newCoverageLonLatUriCalendarsRequestBuilder() -> CoverageLonLatUriCalendarsRequestBuilder {
+        return CoverageLonLatUriCalendarsRequestBuilder(currentApi: self)
+    }
     public func newCoverageRegionCalendarsRequestBuilder() -> CoverageRegionCalendarsRequestBuilder {
         return CoverageRegionCalendarsRequestBuilder(currentApi: self)
     }

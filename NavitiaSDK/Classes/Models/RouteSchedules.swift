@@ -15,6 +15,7 @@ open class RouteSchedules: JSONEncodable, Mappable {
     public var disruptions: [Disruption]?
     public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
     public var error: ModelError?
     public var routeSchedules: [RouteSchedule]?
 
@@ -29,6 +30,7 @@ open class RouteSchedules: JSONEncodable, Mappable {
         disruptions <- map["disruptions"]
         notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
         error <- map["error"]
         routeSchedules <- map["route_schedules"]
     }
@@ -40,6 +42,7 @@ open class RouteSchedules: JSONEncodable, Mappable {
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
         nillableDictionary["route_schedules"] = self.routeSchedules?.encodeToJSON()
 

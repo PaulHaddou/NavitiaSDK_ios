@@ -10,6 +10,90 @@ import Alamofire
 import AlamofireObjectMapper
 
 
+open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
+    let currentApi: GeoStatusApi
+
+    var lat:Double? = nil
+    var lon:Double? = nil
+
+    public init(currentApi: GeoStatusApi) {
+        self.currentApi = currentApi
+    }
+
+    open func withLat(_ lat: Double) -> CoverageLonLatGeoStatusRequestBuilder {
+        self.lat = lat
+        return self
+    }
+    open func withLon(_ lon: Double) -> CoverageLonLatGeoStatusRequestBuilder {
+        self.lon = lon
+        return self
+    }
+
+    open func makeUrl() -> String {
+        var path = "/coverage/{lon};{lat}/_geo_status"
+
+        if (lat != nil) {
+            let latPreEscape: String = "\(lat!)"
+            let latPostEscape: String = latPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lat}", with: latPostEscape, options: .literal, range: nil)
+        }
+
+        if (lon != nil) {
+            let lonPreEscape: String = "\(lon!)"
+            let lonPostEscape: String = lonPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            path = path.replacingOccurrences(of: "{lon}", with: lonPostEscape, options: .literal, range: nil)
+        }
+
+        let URLString = "https://api.navitia.io/v1" + path
+        let url = NSURLComponents(string: URLString)
+
+
+        return (url?.string ?? URLString)
+    }
+
+    open func get(completion: @escaping ((_ data: GeoStatus1?,_ error: Error?) -> Void)) {
+        if (self.lat == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+        }
+        if (self.lon == nil) {
+            completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+        }
+
+        Alamofire.request(self.makeUrl())
+            .authenticate(user: currentApi.token, password: "")
+            .validate()
+            .responseObject{ (response: (DataResponse<GeoStatus1>)) in
+                switch response.result {
+                case .success:
+                    completion(response.result.value, nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+    }
+
+    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    if (self.lat == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
+    }
+    if (self.lon == nil) {
+        completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
+    }
+
+    Alamofire.request(self.makeUrl())
+        .authenticate(user: currentApi.token, password: "")
+        .validate()
+        .responseString{ (response: (DataResponse<String>)) in
+            switch response.result {
+            case .success:
+                completion(response.result.value, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+}
+
 open class CoverageRegionGeoStatusRequestBuilder: NSObject {
     let currentApi: GeoStatusApi
 
@@ -86,6 +170,9 @@ open class GeoStatusApi: APIBase {
         self.token = token
     }
 
+    public func newCoverageLonLatGeoStatusRequestBuilder() -> CoverageLonLatGeoStatusRequestBuilder {
+        return CoverageLonLatGeoStatusRequestBuilder(currentApi: self)
+    }
     public func newCoverageRegionGeoStatusRequestBuilder() -> CoverageRegionGeoStatusRequestBuilder {
         return CoverageRegionGeoStatusRequestBuilder(currentApi: self)
     }

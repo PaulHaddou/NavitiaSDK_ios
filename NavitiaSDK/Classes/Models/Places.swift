@@ -13,6 +13,7 @@ open class Places: JSONEncodable, Mappable {
 
     public var disruptions: [Disruption]?
     public var error: ModelError?
+    public var context: Context?
     public var places: [Place]?
     public var feedPublishers: [FeedPublisher]?
 
@@ -25,6 +26,7 @@ open class Places: JSONEncodable, Mappable {
     public func mapping(map: Map) {
         disruptions <- map["disruptions"]
         error <- map["error"]
+        context <- map["context"]
         places <- map["places"]
         feedPublishers <- map["feed_publishers"]
     }
@@ -34,6 +36,7 @@ open class Places: JSONEncodable, Mappable {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["places"] = self.places?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
 

@@ -13,7 +13,7 @@ open class Journey: JSONEncodable, Mappable {
 
     /** Status from the whole journey taking into account the most disturbing information retrieved on every object used (can be \&quot;NO_SERVICE\&quot;, \&quot;SIGNIFICANT_DELAYS\&quot;, ... */
     public var status: String?
-    public var fare: Fare?
+    public var distances: Distances?
     public var from: Place?
     public var tags: [String]?
     /** Number of transfers along the journey */
@@ -26,6 +26,7 @@ open class Journey: JSONEncodable, Mappable {
     public var departureDateTime: String?
     public var to: Place?
     public var requestedDateTime: String?
+    public var fare: Fare?
     public var co2Emission: Amount?
     /** Used to qualify the journey (can be \&quot;best\&quot;, \&quot;comfort\&quot;, \&quot;non_pt_walk\&quot;, ... */
     public var type: String?
@@ -42,7 +43,7 @@ open class Journey: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         status <- map["status"]
-        fare <- map["fare"]
+        distances <- map["distances"]
         from <- map["from"]
         tags <- map["tags"]
         nbTransfers <- map["nb_transfers"]
@@ -52,6 +53,7 @@ open class Journey: JSONEncodable, Mappable {
         departureDateTime <- map["departure_date_time"]
         to <- map["to"]
         requestedDateTime <- map["requested_date_time"]
+        fare <- map["fare"]
         co2Emission <- map["co2_emission"]
         type <- map["type"]
         duration <- map["duration"]
@@ -63,7 +65,7 @@ open class Journey: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["status"] = self.status
-        nillableDictionary["fare"] = self.fare?.encodeToJSON()
+        nillableDictionary["distances"] = self.distances?.encodeToJSON()
         nillableDictionary["from"] = self.from?.encodeToJSON()
         nillableDictionary["tags"] = self.tags?.encodeToJSON()
         nillableDictionary["nb_transfers"] = self.nbTransfers?.encodeToJSON()
@@ -73,6 +75,7 @@ open class Journey: JSONEncodable, Mappable {
         nillableDictionary["departure_date_time"] = self.departureDateTime
         nillableDictionary["to"] = self.to?.encodeToJSON()
         nillableDictionary["requested_date_time"] = self.requestedDateTime
+        nillableDictionary["fare"] = self.fare?.encodeToJSON()
         nillableDictionary["co2_emission"] = self.co2Emission?.encodeToJSON()
         nillableDictionary["type"] = self.type
         nillableDictionary["duration"] = self.duration?.encodeToJSON()

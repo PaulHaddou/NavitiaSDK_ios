@@ -11,10 +11,11 @@ import ObjectMapper
 
 open class HeatMap1: JSONEncodable, Mappable {
 
-    public var feedPublishers: [FeedPublisher]?
+    public var links: [LinkSchema]?
     public var warnings: [BetaEndpoints]?
     public var heatMaps: [HeatMap]?
-    public var links: [LinkSchema]?
+    public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
     public var error: ModelError?
 
     public init() {}
@@ -24,20 +25,22 @@ open class HeatMap1: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        feedPublishers <- map["feed_publishers"]
+        links <- map["links"]
         warnings <- map["warnings"]
         heatMaps <- map["heat_maps"]
-        links <- map["links"]
+        feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
         error <- map["error"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["links"] = self.links?.encodeToJSON()
         nillableDictionary["warnings"] = self.warnings?.encodeToJSON()
         nillableDictionary["heat_maps"] = self.heatMaps?.encodeToJSON()
-        nillableDictionary["links"] = self.links?.encodeToJSON()
+        nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

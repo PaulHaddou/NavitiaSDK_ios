@@ -19,21 +19,23 @@ open class Section: JSONEncodable, Mappable {
         case regular = "REGULAR"
         case stayIn = "STAY_IN"
     }
-    public var transferType: String?
+    public var displayInformations: VJDisplayInformation?
     public var from: Place?
     public var links: [LinkSchema]?
+    public var transferType: String?
     /** Arrival date and time of the section */
     public var arrivalDateTime: String?
     public var additionalInformations: [AdditionalInformations]?
     /** Departure date and time of the section */
     public var departureDateTime: String?
-    public var displayInformations: VJDisplayInformation?
+    public var ridesharingInformations: RidesharingInformation?
     public var to: Place?
     /** Base-schedule arrival date and time of the section */
     public var baseArrivalDateTime: String?
     /** Base-schedule departure date and time of the section */
     public var baseDepartureDateTime: String?
     public var co2Emission: Amount?
+    public var ridesharingJourneys: [Journey]?
     /** GeoJSON of the shape of the section */
     public var geojson: SectionGeoJsonSchema?
     /** Duration of the section (seconds) */
@@ -52,17 +54,19 @@ open class Section: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        transferType <- map["transfer_type"]
+        displayInformations <- map["display_informations"]
         from <- map["from"]
         links <- map["links"]
+        transferType <- map["transfer_type"]
         arrivalDateTime <- map["arrival_date_time"]
         additionalInformations <- map["additional_informations"]
         departureDateTime <- map["departure_date_time"]
-        displayInformations <- map["display_informations"]
+        ridesharingInformations <- map["ridesharing_informations"]
         to <- map["to"]
         baseArrivalDateTime <- map["base_arrival_date_time"]
         baseDepartureDateTime <- map["base_departure_date_time"]
         co2Emission <- map["co2_emission"]
+        ridesharingJourneys <- map["ridesharing_journeys"]
         geojson <- map["geojson"]
         duration <- map["duration"]
         path <- map["path"]
@@ -76,17 +80,19 @@ open class Section: JSONEncodable, Mappable {
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["transfer_type"] = self.transferType
+        nillableDictionary["display_informations"] = self.displayInformations?.encodeToJSON()
         nillableDictionary["from"] = self.from?.encodeToJSON()
         nillableDictionary["links"] = self.links?.encodeToJSON()
+        nillableDictionary["transfer_type"] = self.transferType
         nillableDictionary["arrival_date_time"] = self.arrivalDateTime
         nillableDictionary["additional_informations"] = self.additionalInformations?.map({$0.rawValue}).encodeToJSON()
         nillableDictionary["departure_date_time"] = self.departureDateTime
-        nillableDictionary["display_informations"] = self.displayInformations?.encodeToJSON()
+        nillableDictionary["ridesharing_informations"] = self.ridesharingInformations?.encodeToJSON()
         nillableDictionary["to"] = self.to?.encodeToJSON()
         nillableDictionary["base_arrival_date_time"] = self.baseArrivalDateTime
         nillableDictionary["base_departure_date_time"] = self.baseDepartureDateTime
         nillableDictionary["co2_emission"] = self.co2Emission?.encodeToJSON()
+        nillableDictionary["ridesharing_journeys"] = self.ridesharingJourneys?.encodeToJSON()
         nillableDictionary["geojson"] = self.geojson?.encodeToJSON()
         nillableDictionary["duration"] = self.duration?.encodeToJSON()
         nillableDictionary["path"] = self.path?.encodeToJSON()

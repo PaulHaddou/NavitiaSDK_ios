@@ -12,6 +12,7 @@ import ObjectMapper
 open class SectionGeoJsonSchema: JSONEncodable, Mappable {
 
     public var type: String?
+    public var properties: [Any]?
     public var coordinates: [[Float]]?
 
     public init() {}
@@ -22,6 +23,7 @@ open class SectionGeoJsonSchema: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         type <- map["type"]
+        properties <- map["properties"]
         coordinates <- map["coordinates"]
     }
 
@@ -29,6 +31,7 @@ open class SectionGeoJsonSchema: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["type"] = self.type
+        nillableDictionary["properties"] = self.properties?.encodeToJSON()
         nillableDictionary["coordinates"] = self.coordinates?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
