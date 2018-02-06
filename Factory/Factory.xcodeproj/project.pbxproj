@@ -7,40 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C3B6B01547B218E2D25E62F /* NextArrivalsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A969C5FA95F0B94C7536A39 /* NextArrivalsApiTest.swift */; };
-		14B661D8493AF5F1F5F4876F /* LineReportsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFC06E07BB214E0F69202A /* LineReportsApiTest.swift */; };
-		173D41BEA73E370931AB6660 /* VehicleJourneysApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B02D0A7C1AE4B55CDA348 /* VehicleJourneysApiTest.swift */; };
-		18F47D4A7430205ACB24F177 /* StatusApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D5ADC23E998A1F9076109A /* StatusApiTest.swift */; };
-		1F05F44793CF13D2182598B0 /* StopAreasApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1653BC48F821E103594E8 /* StopAreasApiTest.swift */; };
-		24648F19C6833ABC3A5BFF3F /* LinesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF760BDC39AFB7B210CD285 /* LinesApiTest.swift */; };
-		252804F541242E564DCD9E48 /* NetworksApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFED695BECC0384726CDA9 /* NetworksApiTest.swift */; };
-		28787384B688B60CBFF6B957 /* GeoStatusApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43107937DB3D64C6134F2AC /* GeoStatusApiTest.swift */; };
-		3114BCC67287D54C15D9ED96 /* RoutesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B9A847658DB2631F811C4 /* RoutesApiTest.swift */; };
-		3426B6921C23B0D910E0419E /* JourneyPatternPointsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A07892028C4A1D6C790DCD /* JourneyPatternPointsApiTest.swift */; };
-		35F25800043146BF5063AF54 /* StopPointsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FA8C46CC2260FBCA12C8D6 /* StopPointsApiTest.swift */; };
-		46CBDD5F2C9ACAFBF41DD845 /* PoiTypesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE7AC28A0E4FFF15A5EF56 /* PoiTypesApiTest.swift */; };
-		480AB97591F4496154A0B70B /* CoverageApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344774B274CFC602BDF28ADF /* CoverageApiTest.swift */; };
-		4BF5C674E6C6176CCE81AACF /* HeatMapApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC76BFAE045F00D3E2569F8 /* HeatMapApiTest.swift */; };
-		4C0A1CA076642F15A51C9C45 /* CalendarsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F6E0FF1533E984642306FE /* CalendarsApiTest.swift */; };
-		4FB18511392D954CC2DFD57E /* PoisApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5A0D85F2F44FE715B81291 /* PoisApiTest.swift */; };
-		61F2C0977F5BA46D5646035E /* JourneyPatternsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D052E0EECADABC1A7D9EB95 /* JourneyPatternsApiTest.swift */; };
-		63F74FDC970896FB39986BF6 /* PlacesNearbyApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA74C95D03139EDDE275CA /* PlacesNearbyApiTest.swift */; };
-		6744B87DB16568689BA8BB55 /* PlacesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D4AA41BF696B0C2B9A15D /* PlacesApiTest.swift */; };
-		681147C2EC2A598E4A3777B0 /* TrafficReportApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0560A3373F4C9503C48B3E09 /* TrafficReportApiTest.swift */; };
-		6B2E7442101B8D2C58449ABA /* GraphicalIsochroneApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20304300760369BDB326C /* GraphicalIsochroneApiTest.swift */; };
-		7CA21F9E2CBD261AC0DF0BA5 /* TripsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95ABFD3C07C7785F07FEB11 /* TripsApiTest.swift */; };
-		8034297C7444763E911C981B /* CommercialModesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4D83372C17FF77EDA8ED8C /* CommercialModesApiTest.swift */; };
-		91983B3DCDE76BF7EDAA6C4B /* ContributorsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F36F4E5A758592F63E6922 /* ContributorsApiTest.swift */; };
-		A234D11A97B196707AFA45D2 /* CompaniesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E051A4BC3F086C92846B /* CompaniesApiTest.swift */; };
-		B5ED79A6E164225D6847B59E /* DatasetsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D132C4C2DF5656614639B2 /* DatasetsApiTest.swift */; };
-		B842E9BD8AF6AB6E2BDC5FA8 /* JourneysApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF8AE446A17CAE2AECEB6AC /* JourneysApiTest.swift */; };
-		BBE7A4AEEC3DA5757D4DB7F8 /* PtobjectsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DF1ED49F216D574403EA3 /* PtobjectsApiTest.swift */; };
-		C70F7D62D01A674CFE4C4D0D /* PhysicalModesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55517B768A5B7A176799B9F4 /* PhysicalModesApiTest.swift */; };
-		D37BB43D2AE3CB9C437C5BFD /* NextDeparturesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434FA620AE09CAE254E3DE4B /* NextDeparturesApiTest.swift */; };
-		D414AFC6924343A4F626DC35 /* RouteSchedulesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305A66A379422CA2375CCE1 /* RouteSchedulesApiTest.swift */; };
-		DC11D46E2D97267C60C29CCC /* DisruptionsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3F6001DD332F3F6C824F6 /* DisruptionsApiTest.swift */; };
-		E62762C5093869253E57E879 /* LineGroupsApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08344D9ABE58AD2279F0EBA4 /* LineGroupsApiTest.swift */; };
-		EA809A07848DE4C69DD80372 /* StopSchedulesApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF363B761762808F2F8B23CC /* StopSchedulesApiTest.swift */; };
+		84113D7F3841885A7E6EC246 /* Pods_FactoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5A2749ABF8F4355DF2517F /* Pods_FactoryTests.framework */; };
+		898961398DB51C15377B84E7 /* Pods_Factory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37B0B727E6F38AF324FB4FC /* Pods_Factory.framework */; };
 		FEECE3CB1F2F897F001B941B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEECE3CA1F2F897F001B941B /* AppDelegate.swift */; };
 		FEECE3CD1F2F897F001B941B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEECE3CC1F2F897F001B941B /* ViewController.swift */; };
 		FEECE3D01F2F897F001B941B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEECE3CE1F2F897F001B941B /* Main.storyboard */; };
@@ -59,39 +27,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0560A3373F4C9503C48B3E09 /* TrafficReportApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TrafficReportApiTest.swift; path = Apis/TrafficReportApiTest.swift; sourceTree = "<group>"; };
-		08344D9ABE58AD2279F0EBA4 /* LineGroupsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineGroupsApiTest.swift; path = Apis/LineGroupsApiTest.swift; sourceTree = "<group>"; };
-		0BBFED695BECC0384726CDA9 /* NetworksApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworksApiTest.swift; path = Apis/NetworksApiTest.swift; sourceTree = "<group>"; };
-		18F1E051A4BC3F086C92846B /* CompaniesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompaniesApiTest.swift; path = Apis/CompaniesApiTest.swift; sourceTree = "<group>"; };
-		1D052E0EECADABC1A7D9EB95 /* JourneyPatternsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JourneyPatternsApiTest.swift; path = Apis/JourneyPatternsApiTest.swift; sourceTree = "<group>"; };
-		2305A66A379422CA2375CCE1 /* RouteSchedulesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouteSchedulesApiTest.swift; path = Apis/RouteSchedulesApiTest.swift; sourceTree = "<group>"; };
-		2FF760BDC39AFB7B210CD285 /* LinesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinesApiTest.swift; path = Apis/LinesApiTest.swift; sourceTree = "<group>"; };
-		311B9A847658DB2631F811C4 /* RoutesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutesApiTest.swift; path = Apis/RoutesApiTest.swift; sourceTree = "<group>"; };
-		344774B274CFC602BDF28ADF /* CoverageApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageApiTest.swift; path = Apis/CoverageApiTest.swift; sourceTree = "<group>"; };
-		3BD3F6001DD332F3F6C824F6 /* DisruptionsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisruptionsApiTest.swift; path = Apis/DisruptionsApiTest.swift; sourceTree = "<group>"; };
-		3D0DF1ED49F216D574403EA3 /* PtobjectsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PtobjectsApiTest.swift; path = Apis/PtobjectsApiTest.swift; sourceTree = "<group>"; };
-		40F6E0FF1533E984642306FE /* CalendarsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarsApiTest.swift; path = Apis/CalendarsApiTest.swift; sourceTree = "<group>"; };
-		41EA74C95D03139EDDE275CA /* PlacesNearbyApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlacesNearbyApiTest.swift; path = Apis/PlacesNearbyApiTest.swift; sourceTree = "<group>"; };
-		434FA620AE09CAE254E3DE4B /* NextDeparturesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextDeparturesApiTest.swift; path = Apis/NextDeparturesApiTest.swift; sourceTree = "<group>"; };
-		44D132C4C2DF5656614639B2 /* DatasetsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatasetsApiTest.swift; path = Apis/DatasetsApiTest.swift; sourceTree = "<group>"; };
-		48B1653BC48F821E103594E8 /* StopAreasApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StopAreasApiTest.swift; path = Apis/StopAreasApiTest.swift; sourceTree = "<group>"; };
-		55517B768A5B7A176799B9F4 /* PhysicalModesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhysicalModesApiTest.swift; path = Apis/PhysicalModesApiTest.swift; sourceTree = "<group>"; };
-		657B02D0A7C1AE4B55CDA348 /* VehicleJourneysApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VehicleJourneysApiTest.swift; path = Apis/VehicleJourneysApiTest.swift; sourceTree = "<group>"; };
-		67F36F4E5A758592F63E6922 /* ContributorsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContributorsApiTest.swift; path = Apis/ContributorsApiTest.swift; sourceTree = "<group>"; };
-		6B5A0D85F2F44FE715B81291 /* PoisApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PoisApiTest.swift; path = Apis/PoisApiTest.swift; sourceTree = "<group>"; };
-		6EDFC06E07BB214E0F69202A /* LineReportsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineReportsApiTest.swift; path = Apis/LineReportsApiTest.swift; sourceTree = "<group>"; };
-		793D4AA41BF696B0C2B9A15D /* PlacesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlacesApiTest.swift; path = Apis/PlacesApiTest.swift; sourceTree = "<group>"; };
-		7A969C5FA95F0B94C7536A39 /* NextArrivalsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextArrivalsApiTest.swift; path = Apis/NextArrivalsApiTest.swift; sourceTree = "<group>"; };
-		B2A07892028C4A1D6C790DCD /* JourneyPatternPointsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JourneyPatternPointsApiTest.swift; path = Apis/JourneyPatternPointsApiTest.swift; sourceTree = "<group>"; };
-		B4F20304300760369BDB326C /* GraphicalIsochroneApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GraphicalIsochroneApiTest.swift; path = Apis/GraphicalIsochroneApiTest.swift; sourceTree = "<group>"; };
-		B95ABFD3C07C7785F07FEB11 /* TripsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripsApiTest.swift; path = Apis/TripsApiTest.swift; sourceTree = "<group>"; };
-		B9FA8C46CC2260FBCA12C8D6 /* StopPointsApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StopPointsApiTest.swift; path = Apis/StopPointsApiTest.swift; sourceTree = "<group>"; };
-		BBC76BFAE045F00D3E2569F8 /* HeatMapApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeatMapApiTest.swift; path = Apis/HeatMapApiTest.swift; sourceTree = "<group>"; };
-		C43107937DB3D64C6134F2AC /* GeoStatusApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeoStatusApiTest.swift; path = Apis/GeoStatusApiTest.swift; sourceTree = "<group>"; };
-		D2D5ADC23E998A1F9076109A /* StatusApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatusApiTest.swift; path = Apis/StatusApiTest.swift; sourceTree = "<group>"; };
-		DBF8AE446A17CAE2AECEB6AC /* JourneysApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JourneysApiTest.swift; path = Apis/JourneysApiTest.swift; sourceTree = "<group>"; };
-		DF363B761762808F2F8B23CC /* StopSchedulesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StopSchedulesApiTest.swift; path = Apis/StopSchedulesApiTest.swift; sourceTree = "<group>"; };
-		E3AE7AC28A0E4FFF15A5EF56 /* PoiTypesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PoiTypesApiTest.swift; path = Apis/PoiTypesApiTest.swift; sourceTree = "<group>"; };
+		4A1035CD938B62C114C981FF /* Pods-Factory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Factory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Factory/Pods-Factory.release.xcconfig"; sourceTree = "<group>"; };
+		AB5C12A742F1E49959C10C9F /* Pods-FactoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FactoryTests/Pods-FactoryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD612888C1A2F9F2791E8A8F /* Pods-Factory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Factory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Factory/Pods-Factory.debug.xcconfig"; sourceTree = "<group>"; };
+		DE5A2749ABF8F4355DF2517F /* Pods_FactoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37B0B727E6F38AF324FB4FC /* Pods_Factory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Factory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9735D484B7396B9F18E008D /* Pods-FactoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FactoryTests/Pods-FactoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		FEECE3C71F2F897F001B941B /* Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEECE3CA1F2F897F001B941B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEECE3CC1F2F897F001B941B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +42,6 @@
 		FEECE3D61F2F897F001B941B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEECE3DB1F2F8980001B941B /* FactoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FactoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEECE3E11F2F8980001B941B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		FF4D83372C17FF77EDA8ED8C /* CommercialModesApiTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommercialModesApiTest.swift; path = Apis/CommercialModesApiTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898961398DB51C15377B84E7 /* Pods_Factory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,18 +57,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84113D7F3841885A7E6EC246 /* Pods_FactoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F316DDFE9D2B15090F95D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD612888C1A2F9F2791E8A8F /* Pods-Factory.debug.xcconfig */,
+				4A1035CD938B62C114C981FF /* Pods-Factory.release.xcconfig */,
+				AB5C12A742F1E49959C10C9F /* Pods-FactoryTests.debug.xcconfig */,
+				E9735D484B7396B9F18E008D /* Pods-FactoryTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E7A229D11C20B9C4A8A49EDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E37B0B727E6F38AF324FB4FC /* Pods_Factory.framework */,
+				DE5A2749ABF8F4355DF2517F /* Pods_FactoryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEECE3BE1F2F897F001B941B = {
 			isa = PBXGroup;
 			children = (
 				FEECE3C91F2F897F001B941B /* Factory */,
 				FEECE3DE1F2F8980001B941B /* FactoryTests */,
 				FEECE3C81F2F897F001B941B /* Products */,
+				07F316DDFE9D2B15090F95D2 /* Pods */,
+				E7A229D11C20B9C4A8A49EDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,40 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				FEECE3E11F2F8980001B941B /* Info.plist */,
-				40F6E0FF1533E984642306FE /* CalendarsApiTest.swift */,
-				FF4D83372C17FF77EDA8ED8C /* CommercialModesApiTest.swift */,
-				18F1E051A4BC3F086C92846B /* CompaniesApiTest.swift */,
-				67F36F4E5A758592F63E6922 /* ContributorsApiTest.swift */,
-				344774B274CFC602BDF28ADF /* CoverageApiTest.swift */,
-				44D132C4C2DF5656614639B2 /* DatasetsApiTest.swift */,
-				3BD3F6001DD332F3F6C824F6 /* DisruptionsApiTest.swift */,
-				C43107937DB3D64C6134F2AC /* GeoStatusApiTest.swift */,
-				B4F20304300760369BDB326C /* GraphicalIsochroneApiTest.swift */,
-				BBC76BFAE045F00D3E2569F8 /* HeatMapApiTest.swift */,
-				B2A07892028C4A1D6C790DCD /* JourneyPatternPointsApiTest.swift */,
-				1D052E0EECADABC1A7D9EB95 /* JourneyPatternsApiTest.swift */,
-				DBF8AE446A17CAE2AECEB6AC /* JourneysApiTest.swift */,
-				08344D9ABE58AD2279F0EBA4 /* LineGroupsApiTest.swift */,
-				6EDFC06E07BB214E0F69202A /* LineReportsApiTest.swift */,
-				2FF760BDC39AFB7B210CD285 /* LinesApiTest.swift */,
-				0BBFED695BECC0384726CDA9 /* NetworksApiTest.swift */,
-				7A969C5FA95F0B94C7536A39 /* NextArrivalsApiTest.swift */,
-				434FA620AE09CAE254E3DE4B /* NextDeparturesApiTest.swift */,
-				55517B768A5B7A176799B9F4 /* PhysicalModesApiTest.swift */,
-				793D4AA41BF696B0C2B9A15D /* PlacesApiTest.swift */,
-				41EA74C95D03139EDDE275CA /* PlacesNearbyApiTest.swift */,
-				6B5A0D85F2F44FE715B81291 /* PoisApiTest.swift */,
-				E3AE7AC28A0E4FFF15A5EF56 /* PoiTypesApiTest.swift */,
-				3D0DF1ED49F216D574403EA3 /* PtobjectsApiTest.swift */,
-				311B9A847658DB2631F811C4 /* RoutesApiTest.swift */,
-				2305A66A379422CA2375CCE1 /* RouteSchedulesApiTest.swift */,
-				D2D5ADC23E998A1F9076109A /* StatusApiTest.swift */,
-				48B1653BC48F821E103594E8 /* StopAreasApiTest.swift */,
-				B9FA8C46CC2260FBCA12C8D6 /* StopPointsApiTest.swift */,
-				DF363B761762808F2F8B23CC /* StopSchedulesApiTest.swift */,
-				0560A3373F4C9503C48B3E09 /* TrafficReportApiTest.swift */,
-				B95ABFD3C07C7785F07FEB11 /* TripsApiTest.swift */,
-				657B02D0A7C1AE4B55CDA348 /* VehicleJourneysApiTest.swift */,
 			);
 			path = FactoryTests;
 			sourceTree = "<group>";
@@ -202,9 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEECE3EF1F2F8980001B941B /* Build configuration list for PBXNativeTarget "Factory" */;
 			buildPhases = (
+				E38BED00028E4D1867A844C1 /* [CP] Check Pods Manifest.lock */,
 				FEECE3C31F2F897F001B941B /* Sources */,
 				FEECE3C41F2F897F001B941B /* Frameworks */,
 				FEECE3C51F2F897F001B941B /* Resources */,
+				3A8104C34A9685302B3B68C2 /* [CP] Embed Pods Frameworks */,
+				E26D349BADF0A75F508D9384 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEECE3F21F2F8980001B941B /* Build configuration list for PBXNativeTarget "FactoryTests" */;
 			buildPhases = (
+				419DBC18D8FD9D5BD0AA9E64 /* [CP] Check Pods Manifest.lock */,
 				FEECE3D71F2F8980001B941B /* Sources */,
 				FEECE3D81F2F8980001B941B /* Frameworks */,
 				FEECE3D91F2F8980001B941B /* Resources */,
+				73ABE57A1322D444AF82AE22 /* [CP] Embed Pods Frameworks */,
+				38AE01147F64408BC057A68D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,6 +231,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38AE01147F64408BC057A68D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FactoryTests/Pods-FactoryTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A8104C34A9685302B3B68C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Factory/Pods-Factory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		419DBC18D8FD9D5BD0AA9E64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		73ABE57A1322D444AF82AE22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FactoryTests/Pods-FactoryTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E26D349BADF0A75F508D9384 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Factory/Pods-Factory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E38BED00028E4D1867A844C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FEECE3C31F2F897F001B941B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,40 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C0A1CA076642F15A51C9C45 /* CalendarsApiTest.swift in Sources */,
-				8034297C7444763E911C981B /* CommercialModesApiTest.swift in Sources */,
-				A234D11A97B196707AFA45D2 /* CompaniesApiTest.swift in Sources */,
-				91983B3DCDE76BF7EDAA6C4B /* ContributorsApiTest.swift in Sources */,
-				480AB97591F4496154A0B70B /* CoverageApiTest.swift in Sources */,
-				B5ED79A6E164225D6847B59E /* DatasetsApiTest.swift in Sources */,
-				DC11D46E2D97267C60C29CCC /* DisruptionsApiTest.swift in Sources */,
-				28787384B688B60CBFF6B957 /* GeoStatusApiTest.swift in Sources */,
-				6B2E7442101B8D2C58449ABA /* GraphicalIsochroneApiTest.swift in Sources */,
-				4BF5C674E6C6176CCE81AACF /* HeatMapApiTest.swift in Sources */,
-				3426B6921C23B0D910E0419E /* JourneyPatternPointsApiTest.swift in Sources */,
-				61F2C0977F5BA46D5646035E /* JourneyPatternsApiTest.swift in Sources */,
-				B842E9BD8AF6AB6E2BDC5FA8 /* JourneysApiTest.swift in Sources */,
-				E62762C5093869253E57E879 /* LineGroupsApiTest.swift in Sources */,
-				14B661D8493AF5F1F5F4876F /* LineReportsApiTest.swift in Sources */,
-				24648F19C6833ABC3A5BFF3F /* LinesApiTest.swift in Sources */,
-				252804F541242E564DCD9E48 /* NetworksApiTest.swift in Sources */,
-				0C3B6B01547B218E2D25E62F /* NextArrivalsApiTest.swift in Sources */,
-				D37BB43D2AE3CB9C437C5BFD /* NextDeparturesApiTest.swift in Sources */,
-				C70F7D62D01A674CFE4C4D0D /* PhysicalModesApiTest.swift in Sources */,
-				6744B87DB16568689BA8BB55 /* PlacesApiTest.swift in Sources */,
-				63F74FDC970896FB39986BF6 /* PlacesNearbyApiTest.swift in Sources */,
-				4FB18511392D954CC2DFD57E /* PoisApiTest.swift in Sources */,
-				46CBDD5F2C9ACAFBF41DD845 /* PoiTypesApiTest.swift in Sources */,
-				BBE7A4AEEC3DA5757D4DB7F8 /* PtobjectsApiTest.swift in Sources */,
-				3114BCC67287D54C15D9ED96 /* RoutesApiTest.swift in Sources */,
-				D414AFC6924343A4F626DC35 /* RouteSchedulesApiTest.swift in Sources */,
-				18F47D4A7430205ACB24F177 /* StatusApiTest.swift in Sources */,
-				1F05F44793CF13D2182598B0 /* StopAreasApiTest.swift in Sources */,
-				35F25800043146BF5063AF54 /* StopPointsApiTest.swift in Sources */,
-				EA809A07848DE4C69DD80372 /* StopSchedulesApiTest.swift in Sources */,
-				681147C2EC2A598E4A3777B0 /* TrafficReportApiTest.swift in Sources */,
-				7CA21F9E2CBD261AC0DF0BA5 /* TripsApiTest.swift in Sources */,
-				173D41BEA73E370931AB6660 /* VehicleJourneysApiTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +466,7 @@
 		};
 		FEECE3F01F2F8980001B941B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD612888C1A2F9F2791E8A8F /* Pods-Factory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AK7DPF549M;
@@ -484,6 +480,7 @@
 		};
 		FEECE3F11F2F8980001B941B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A1035CD938B62C114C981FF /* Pods-Factory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AK7DPF549M;
@@ -497,6 +494,7 @@
 		};
 		FEECE3F31F2F8980001B941B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB5C12A742F1E49959C10C9F /* Pods-FactoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +510,7 @@
 		};
 		FEECE3F41F2F8980001B941B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9735D484B7396B9F18E008D /* Pods-FactoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

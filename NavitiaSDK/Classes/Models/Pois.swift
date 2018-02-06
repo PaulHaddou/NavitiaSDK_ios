@@ -16,6 +16,7 @@ open class Pois: JSONEncodable, Mappable {
     public var notes: [Note]?
     public var pois: [Poi]?
     public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
     public var error: ModelError?
 
     public init() {}
@@ -30,6 +31,7 @@ open class Pois: JSONEncodable, Mappable {
         notes <- map["notes"]
         pois <- map["pois"]
         feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
         error <- map["error"]
     }
 
@@ -41,6 +43,7 @@ open class Pois: JSONEncodable, Mappable {
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["pois"] = self.pois?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

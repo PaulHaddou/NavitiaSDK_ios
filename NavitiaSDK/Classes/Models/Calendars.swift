@@ -16,6 +16,7 @@ open class Calendars: JSONEncodable, Mappable {
     public var notes: [Note]?
     public var calendars: [Calendar]?
     public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
     public var error: ModelError?
 
     public init() {}
@@ -30,6 +31,7 @@ open class Calendars: JSONEncodable, Mappable {
         notes <- map["notes"]
         calendars <- map["calendars"]
         feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
         error <- map["error"]
     }
 
@@ -41,6 +43,7 @@ open class Calendars: JSONEncodable, Mappable {
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["calendars"] = self.calendars?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

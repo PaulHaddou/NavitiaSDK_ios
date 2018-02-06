@@ -15,6 +15,7 @@ open class LineGroups: JSONEncodable, Mappable {
     public var disruptions: [Disruption]?
     public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
     public var error: ModelError?
     public var lineGroups: [LineGroup]?
 
@@ -29,6 +30,7 @@ open class LineGroups: JSONEncodable, Mappable {
         disruptions <- map["disruptions"]
         notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
         error <- map["error"]
         lineGroups <- map["line_groups"]
     }
@@ -40,6 +42,7 @@ open class LineGroups: JSONEncodable, Mappable {
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
         nillableDictionary["line_groups"] = self.lineGroups?.encodeToJSON()
 

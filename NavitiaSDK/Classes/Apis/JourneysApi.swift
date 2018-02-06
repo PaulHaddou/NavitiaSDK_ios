@@ -28,6 +28,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter lastSectionMode
@@ -37,6 +38,7 @@ open class CoverageLonLatJourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter dataFreshness
@@ -363,6 +365,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter lastSectionMode
@@ -372,6 +375,7 @@ open class CoverageRegionJourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter dataFreshness
@@ -681,6 +685,7 @@ open class JourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter lastSectionMode
@@ -690,6 +695,7 @@ open class JourneysRequestBuilder: NSObject {
         case car = "car"
         case bike = "bike"
         case bss = "bss"
+        case ridesharing = "ridesharing"
     }
     /**
     * enum for parameter dataFreshness

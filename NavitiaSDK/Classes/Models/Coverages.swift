@@ -12,6 +12,7 @@ import ObjectMapper
 open class Coverages: JSONEncodable, Mappable {
 
     public var regions: [Coverage]?
+    public var context: Context?
 
     public init() {}
     required public init?(map: Map) {
@@ -21,12 +22,14 @@ open class Coverages: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         regions <- map["regions"]
+        context <- map["context"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["regions"] = self.regions?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

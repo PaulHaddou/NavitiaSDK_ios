@@ -11,10 +11,11 @@ import ObjectMapper
 
 open class GraphicalIsrochone1: JSONEncodable, Mappable {
 
-    public var isochrones: [GraphicalIsrochone]?
-    public var feedPublishers: [FeedPublisher]?
-    public var warnings: [BetaEndpoints]?
     public var links: [LinkSchema]?
+    public var warnings: [BetaEndpoints]?
+    public var feedPublishers: [FeedPublisher]?
+    public var isochrones: [GraphicalIsrochone]?
+    public var context: Context?
     public var error: ModelError?
 
     public init() {}
@@ -24,20 +25,22 @@ open class GraphicalIsrochone1: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        isochrones <- map["isochrones"]
-        feedPublishers <- map["feed_publishers"]
-        warnings <- map["warnings"]
         links <- map["links"]
+        warnings <- map["warnings"]
+        feedPublishers <- map["feed_publishers"]
+        isochrones <- map["isochrones"]
+        context <- map["context"]
         error <- map["error"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["isochrones"] = self.isochrones?.encodeToJSON()
-        nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
-        nillableDictionary["warnings"] = self.warnings?.encodeToJSON()
         nillableDictionary["links"] = self.links?.encodeToJSON()
+        nillableDictionary["warnings"] = self.warnings?.encodeToJSON()
+        nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["isochrones"] = self.isochrones?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

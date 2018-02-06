@@ -11,6 +11,7 @@ import ObjectMapper
 
 open class ImpactedSection: JSONEncodable, Mappable {
 
+    public var routes: Route?
     public var to: PtObject?
     public var from: PtObject?
 
@@ -21,6 +22,7 @@ open class ImpactedSection: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
+        routes <- map["routes"]
         to <- map["to"]
         from <- map["from"]
     }
@@ -28,6 +30,7 @@ open class ImpactedSection: JSONEncodable, Mappable {
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
+        nillableDictionary["routes"] = self.routes?.encodeToJSON()
         nillableDictionary["to"] = self.to?.encodeToJSON()
         nillableDictionary["from"] = self.from?.encodeToJSON()
 

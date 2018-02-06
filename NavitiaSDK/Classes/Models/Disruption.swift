@@ -16,21 +16,22 @@ open class Disruption: JSONEncodable, Mappable {
         case active = "active"
         case future = "future"
     }
-    public var disruptionId: String?
     public var status: Status?
+    public var category: String?
     public var severity: Severity?
     public var tags: [String]?
+    public var messages: [Message]?
     public var applicationPeriods: [Period]?
     public var impactId: String?
-    public var messages: [Message]?
+    public var disruptionId: String?
     public var updatedAt: String?
     public var uri: String?
     public var impactedObjects: [Impacted]?
     public var id: String?
-    public var contributor: String?
-    public var category: String?
-    public var cause: String?
     public var disruptionUri: String?
+    public var contributor: String?
+    public var cause: String?
+    public var properties: [DisruptionProperty]?
 
     public init() {}
     required public init?(map: Map) {
@@ -39,41 +40,43 @@ open class Disruption: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        disruptionId <- map["disruption_id"]
         status <- map["status"]
+        category <- map["category"]
         severity <- map["severity"]
         tags <- map["tags"]
+        messages <- map["messages"]
         applicationPeriods <- map["application_periods"]
         impactId <- map["impact_id"]
-        messages <- map["messages"]
+        disruptionId <- map["disruption_id"]
         updatedAt <- map["updated_at"]
         uri <- map["uri"]
         impactedObjects <- map["impacted_objects"]
         id <- map["id"]
-        contributor <- map["contributor"]
-        category <- map["category"]
-        cause <- map["cause"]
         disruptionUri <- map["disruption_uri"]
+        contributor <- map["contributor"]
+        cause <- map["cause"]
+        properties <- map["properties"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["disruption_id"] = self.disruptionId
         nillableDictionary["status"] = self.status?.rawValue
+        nillableDictionary["category"] = self.category
         nillableDictionary["severity"] = self.severity?.encodeToJSON()
         nillableDictionary["tags"] = self.tags?.encodeToJSON()
+        nillableDictionary["messages"] = self.messages?.encodeToJSON()
         nillableDictionary["application_periods"] = self.applicationPeriods?.encodeToJSON()
         nillableDictionary["impact_id"] = self.impactId
-        nillableDictionary["messages"] = self.messages?.encodeToJSON()
+        nillableDictionary["disruption_id"] = self.disruptionId
         nillableDictionary["updated_at"] = self.updatedAt
         nillableDictionary["uri"] = self.uri
         nillableDictionary["impacted_objects"] = self.impactedObjects?.encodeToJSON()
         nillableDictionary["id"] = self.id
-        nillableDictionary["contributor"] = self.contributor
-        nillableDictionary["category"] = self.category
-        nillableDictionary["cause"] = self.cause
         nillableDictionary["disruption_uri"] = self.disruptionUri
+        nillableDictionary["contributor"] = self.contributor
+        nillableDictionary["cause"] = self.cause
+        nillableDictionary["properties"] = self.properties?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
