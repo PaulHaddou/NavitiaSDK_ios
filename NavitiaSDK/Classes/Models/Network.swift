@@ -12,7 +12,6 @@ import ObjectMapper
 open class Network: JSONEncodable, Mappable {
 
     public var codes: [Code]?
-    public var lines: Line?
     /** Identifier of the object */
     public var id: String?
     public var links: [LinkSchema]?
@@ -27,7 +26,6 @@ open class Network: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         codes <- map["codes"]
-        lines <- map["lines"]
         id <- map["id"]
         links <- map["links"]
         name <- map["name"]
@@ -37,7 +35,6 @@ open class Network: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["codes"] = self.codes?.encodeToJSON()
-        nillableDictionary["lines"] = self.lines?.encodeToJSON()
         nillableDictionary["id"] = self.id
         nillableDictionary["links"] = self.links?.encodeToJSON()
         nillableDictionary["name"] = self.name
