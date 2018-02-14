@@ -1406,11 +1406,12 @@ class Decoders {
             let result = instance == nil ? LinkSchema() : instance as! LinkSchema
             
             result.title = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["title"] as AnyObject?)
-            result._internal = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["internal"] as AnyObject?)
+            result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result.href = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["href"] as AnyObject?)
             result.rel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["rel"] as AnyObject?)
             result.templated = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["templated"] as AnyObject?)
             result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
-            result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
+            result._internal = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["internal"] as AnyObject?)
             return result
         }
 
@@ -1470,7 +1471,6 @@ class Decoders {
             let result = instance == nil ? Network() : instance as! Network
             
             result.codes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["codes"] as AnyObject?)
-            result.lines = Decoders.decodeOptional(clazz: Line.self, source: sourceDictionary["lines"] as AnyObject?)
             result.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"] as AnyObject?)
             result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
             result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
@@ -2133,7 +2133,10 @@ class Decoders {
             result.stopPoint = Decoders.decodeOptional(clazz: StopPoint.self, source: sourceDictionary["stop_point"] as AnyObject?)
             result.links = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["links"] as AnyObject?)
             result.arrivalDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["arrival_date_time"] as AnyObject?)
-            result.additionalInformations = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["additional_informations"] as AnyObject?)
+            if let additionalInformations = sourceDictionary["additional_informations"] as? [String] { 
+                result.additionalInformations  = additionalInformations.map ({ StopDateTime.AdditionalInformations(rawValue: $0)! })
+            }
+            
             result.departureDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["departure_date_time"] as AnyObject?)
             result.baseArrivalDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["base_arrival_date_time"] as AnyObject?)
             result.baseDepartureDateTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["base_departure_date_time"] as AnyObject?)
@@ -2241,10 +2244,12 @@ class Decoders {
             let result = instance == nil ? StopTime() : instance as! StopTime
             
             result.stopPoint = Decoders.decodeOptional(clazz: StopPoint.self, source: sourceDictionary["stop_point"] as AnyObject?)
+            result.utcArrivalTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["utc_arrival_time"] as AnyObject?)
+            result.utcDepartureTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["utc_departure_time"] as AnyObject?)
             result.headsign = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["headsign"] as AnyObject?)
+            result.arrivalTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["arrival_time"] as AnyObject?)
             result.journeyPatternPoint = Decoders.decodeOptional(clazz: JourneyPatternPoint.self, source: sourceDictionary["journey_pattern_point"] as AnyObject?)
             result.departureTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["departure_time"] as AnyObject?)
-            result.arrivalTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["arrival_time"] as AnyObject?)
             return result
         }
 

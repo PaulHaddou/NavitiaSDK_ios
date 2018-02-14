@@ -83,10 +83,12 @@ open class CoverageLonLatIsochronesRequestBuilder: NSObject {
     var maxBikeDurationToPt:Int32? = nil
     var maxBssDurationToPt:Int32? = nil
     var maxCarDurationToPt:Int32? = nil
+    var maxRidesharingDurationToPt:Int32? = nil
     var walkingSpeed:Float? = nil
     var bikeSpeed:Float? = nil
     var bssSpeed:Float? = nil
     var carSpeed:Float? = nil
+    var ridesharingSpeed:Float? = nil
     var forbiddenUris:[String]? = nil
     var allowedId:[String]? = nil
     var disruptionActive:Bool? = nil
@@ -162,6 +164,10 @@ open class CoverageLonLatIsochronesRequestBuilder: NSObject {
         self.maxCarDurationToPt = maxCarDurationToPt
         return self
     }
+    open func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32) -> CoverageLonLatIsochronesRequestBuilder {
+        self.maxRidesharingDurationToPt = maxRidesharingDurationToPt
+        return self
+    }
     open func withWalkingSpeed(_ walkingSpeed: Float) -> CoverageLonLatIsochronesRequestBuilder {
         self.walkingSpeed = walkingSpeed
         return self
@@ -176,6 +182,10 @@ open class CoverageLonLatIsochronesRequestBuilder: NSObject {
     }
     open func withCarSpeed(_ carSpeed: Float) -> CoverageLonLatIsochronesRequestBuilder {
         self.carSpeed = carSpeed
+        return self
+    }
+    open func withRidesharingSpeed(_ ridesharingSpeed: Float) -> CoverageLonLatIsochronesRequestBuilder {
+        self.ridesharingSpeed = ridesharingSpeed
         return self
     }
     open func withForbiddenUris(_ forbiddenUris: [String]) -> CoverageLonLatIsochronesRequestBuilder {
@@ -251,10 +261,12 @@ open class CoverageLonLatIsochronesRequestBuilder: NSObject {
             "max_bike_duration_to_pt": self.maxBikeDurationToPt?.encodeToJSON(), 
             "max_bss_duration_to_pt": self.maxBssDurationToPt?.encodeToJSON(), 
             "max_car_duration_to_pt": self.maxCarDurationToPt?.encodeToJSON(), 
+            "max_ridesharing_duration_to_pt": self.maxRidesharingDurationToPt?.encodeToJSON(), 
             "walking_speed": self.walkingSpeed, 
             "bike_speed": self.bikeSpeed, 
             "bss_speed": self.bssSpeed, 
             "car_speed": self.carSpeed, 
+            "ridesharing_speed": self.ridesharingSpeed, 
             "forbidden_uris[]": self.forbiddenUris, 
             "allowed_id[]": self.allowedId, 
             "disruption_active": self.disruptionActive, 
@@ -387,10 +399,12 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     var maxBikeDurationToPt:Int32? = nil
     var maxBssDurationToPt:Int32? = nil
     var maxCarDurationToPt:Int32? = nil
+    var maxRidesharingDurationToPt:Int32? = nil
     var walkingSpeed:Float? = nil
     var bikeSpeed:Float? = nil
     var bssSpeed:Float? = nil
     var carSpeed:Float? = nil
+    var ridesharingSpeed:Float? = nil
     var forbiddenUris:[String]? = nil
     var allowedId:[String]? = nil
     var disruptionActive:Bool? = nil
@@ -462,6 +476,10 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
         self.maxCarDurationToPt = maxCarDurationToPt
         return self
     }
+    open func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32) -> CoverageRegionIsochronesRequestBuilder {
+        self.maxRidesharingDurationToPt = maxRidesharingDurationToPt
+        return self
+    }
     open func withWalkingSpeed(_ walkingSpeed: Float) -> CoverageRegionIsochronesRequestBuilder {
         self.walkingSpeed = walkingSpeed
         return self
@@ -476,6 +494,10 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
     }
     open func withCarSpeed(_ carSpeed: Float) -> CoverageRegionIsochronesRequestBuilder {
         self.carSpeed = carSpeed
+        return self
+    }
+    open func withRidesharingSpeed(_ ridesharingSpeed: Float) -> CoverageRegionIsochronesRequestBuilder {
+        self.ridesharingSpeed = ridesharingSpeed
         return self
     }
     open func withForbiddenUris(_ forbiddenUris: [String]) -> CoverageRegionIsochronesRequestBuilder {
@@ -545,10 +567,12 @@ open class CoverageRegionIsochronesRequestBuilder: NSObject {
             "max_bike_duration_to_pt": self.maxBikeDurationToPt?.encodeToJSON(), 
             "max_bss_duration_to_pt": self.maxBssDurationToPt?.encodeToJSON(), 
             "max_car_duration_to_pt": self.maxCarDurationToPt?.encodeToJSON(), 
+            "max_ridesharing_duration_to_pt": self.maxRidesharingDurationToPt?.encodeToJSON(), 
             "walking_speed": self.walkingSpeed, 
             "bike_speed": self.bikeSpeed, 
             "bss_speed": self.bssSpeed, 
             "car_speed": self.carSpeed, 
+            "ridesharing_speed": self.ridesharingSpeed, 
             "forbidden_uris[]": self.forbiddenUris, 
             "allowed_id[]": self.allowedId, 
             "disruption_active": self.disruptionActive, 

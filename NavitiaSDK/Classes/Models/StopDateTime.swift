@@ -11,10 +11,16 @@ import ObjectMapper
 
 open class StopDateTime: JSONEncodable, Mappable {
 
+    public enum AdditionalInformations: String { 
+        case pickUpOnly = "pick_up_only"
+        case dropOffOnly = "drop_off_only"
+        case onDemandTransport = "on_demand_transport"
+        case dateTimeEstimated = "date_time_estimated"
+    }
     public var stopPoint: StopPoint?
     public var links: [LinkSchema]?
     public var arrivalDateTime: String?
-    public var additionalInformations: [String]?
+    public var additionalInformations: [AdditionalInformations]?
     public var departureDateTime: String?
     public var baseArrivalDateTime: String?
     public var baseDepartureDateTime: String?
@@ -43,7 +49,7 @@ open class StopDateTime: JSONEncodable, Mappable {
         nillableDictionary["stop_point"] = self.stopPoint?.encodeToJSON()
         nillableDictionary["links"] = self.links?.encodeToJSON()
         nillableDictionary["arrival_date_time"] = self.arrivalDateTime
-        nillableDictionary["additional_informations"] = self.additionalInformations?.encodeToJSON()
+        nillableDictionary["additional_informations"] = self.additionalInformations?.map({$0.rawValue}).encodeToJSON()
         nillableDictionary["departure_date_time"] = self.departureDateTime
         nillableDictionary["base_arrival_date_time"] = self.baseArrivalDateTime
         nillableDictionary["base_departure_date_time"] = self.baseDepartureDateTime
