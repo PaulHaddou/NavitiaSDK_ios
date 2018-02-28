@@ -5,7 +5,6 @@
 //
 
 import Foundation
-import Alamofire
 
 class AlamofireRequestBuilderFactory: RequestBuilderFactory {
     func getBuilder<T>() -> RequestBuilder<T>.Type {
@@ -14,7 +13,7 @@ class AlamofireRequestBuilderFactory: RequestBuilderFactory {
 }
 
 // Store manager to retain its reference
-private var managerStore: [String: Alamofire.SessionManager] = [:]
+private var managerStore: [String: SessionManager] = [:]
 
 open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     required public init(method: String, URLString: String, parameters: [String : Any]?, isBody: Bool, headers: [String : String] = [:]) {
@@ -25,10 +24,10 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
      May be overridden by a subclass if you want to control the session
      configuration.
      */
-    open func createSessionManager() -> Alamofire.SessionManager {
+    open func createSessionManager() -> SessionManager {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = buildHeaders()
-        return Alamofire.SessionManager(configuration: configuration)
+        return SessionManager(configuration: configuration)
     }
 
     /**
@@ -58,7 +57,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
 
         let encoding:ParameterEncoding = isBody ? JSONEncoding() : URLEncoding()
 
-        let xMethod = Alamofire.HTTPMethod(rawValue: method)
+        let xMethod = HTTPMethod(rawValue: method)
         let fileKeys = parameters == nil ? [] : parameters!.filter { $1 is NSURL }
                                                            .map { $0.0 }
 

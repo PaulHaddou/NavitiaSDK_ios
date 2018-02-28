@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 open class ModelError: JSONEncodable, Mappable {
 

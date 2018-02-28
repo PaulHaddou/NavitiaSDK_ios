@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'NavitiaSDK'
-  s.version = '1.1.1'
+  s.version = '1.1.2'
   s.summary = 'Navitia client written in Swift 3'
   s.description = 'Navitia client'
 
@@ -10,9 +10,5 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/CanalTP/NavitiaSDK_ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'NavitiaSDK/Classes/**/*.swift'
-
-  s.dependency 'Alamofire', '~> 4.0'
-  s.dependency 'AlamofireObjectMapper', '~> 4.0'
+  s.source_files = 'NavitiaSDK/Classes/**/*.swift', 'NavitiaSDK/Classes/**/*.h'
 end

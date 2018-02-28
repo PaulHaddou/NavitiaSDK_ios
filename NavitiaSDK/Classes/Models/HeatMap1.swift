@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 open class HeatMap1: JSONEncodable, Mappable {
 
