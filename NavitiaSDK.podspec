@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/CanalTP/NavitiaSDK_ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'NavitiaSDK/Classes/**/*.swift'
+  s.source_files = 'NavitiaSDK/Classes/**/*.swift', 'NavitiaSDK/Classes/**/*.h'
 end
