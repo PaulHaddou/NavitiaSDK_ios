@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
-
 
 open class CoverageLonLatUriRouteSchedulesRequestBuilder: NSObject {
     let currentApi: RouteSchedulesApi
@@ -181,7 +178,7 @@ open class CoverageLonLatUriRouteSchedulesRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<RouteSchedules>)) in
@@ -205,7 +202,7 @@ open class CoverageLonLatUriRouteSchedulesRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -376,7 +373,7 @@ open class CoverageRegionUriRouteSchedulesRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<RouteSchedules>)) in
@@ -397,7 +394,7 @@ open class CoverageRegionUriRouteSchedulesRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -540,7 +537,7 @@ open class RouteSchedulesRequestBuilder: NSObject {
 
     open func get(completion: @escaping ((_ data: RouteSchedules?,_ error: Error?) -> Void)) {
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<RouteSchedules>)) in
@@ -555,7 +552,7 @@ open class RouteSchedulesRequestBuilder: NSObject {
 
     open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in

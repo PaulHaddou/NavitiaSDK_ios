@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
-
 
 open class CoverageLonLatTrafficReportsRequestBuilder: NSObject {
     let currentApi: TrafficReportApi
@@ -105,7 +102,7 @@ open class CoverageLonLatTrafficReportsRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<TrafficReports>)) in
@@ -126,7 +123,7 @@ open class CoverageLonLatTrafficReportsRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -249,7 +246,7 @@ open class CoverageLonLatUriTrafficReportsRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<TrafficReports>)) in
@@ -273,7 +270,7 @@ open class CoverageLonLatUriTrafficReportsRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -368,7 +365,7 @@ open class CoverageRegionTrafficReportsRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<TrafficReports>)) in
@@ -386,7 +383,7 @@ open class CoverageRegionTrafficReportsRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -495,7 +492,7 @@ open class CoverageRegionUriTrafficReportsRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<TrafficReports>)) in
@@ -516,7 +513,7 @@ open class CoverageRegionUriTrafficReportsRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : uri"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in

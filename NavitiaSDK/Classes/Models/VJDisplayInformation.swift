@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 open class VJDisplayInformation: JSONEncodable, Mappable {
 

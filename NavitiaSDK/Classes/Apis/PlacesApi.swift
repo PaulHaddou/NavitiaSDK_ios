@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
-
 
 open class CoverageLonLatPlacesRequestBuilder: NSObject {
     let currentApi: PlacesApi
@@ -124,7 +121,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<Places>)) in
@@ -148,7 +145,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lon"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -262,7 +259,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<Places>)) in
@@ -283,7 +280,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in
@@ -383,7 +380,7 @@ open class PlacesRequestBuilder: NSObject {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
 
-        Alamofire.request(self.makeUrl())
+        request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
             .validate()
             .responseObject{ (response: (DataResponse<Places>)) in
@@ -401,7 +398,7 @@ open class PlacesRequestBuilder: NSObject {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
 
-    Alamofire.request(self.makeUrl())
+    request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
         .validate()
         .responseString{ (response: (DataResponse<String>)) in

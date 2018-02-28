@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 open class Trip: JSONEncodable, Mappable {
 
