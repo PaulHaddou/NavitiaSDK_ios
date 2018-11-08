@@ -1,0 +1,16 @@
+PODS:
+  - NavitiaSDK (1.3.0)
+
+DEPENDENCIES:
+  - NavitiaSDK (from `../`)
+
+EXTERNAL SOURCES:
+  NavitiaSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NavitiaSDK: 9ec4c93eb9409db19eee031ccb16d565ce48b009
+
+PODFILE CHECKSUM: ff85acb32729a8574c0b8c424cad449e49b08571
+
+COCOAPODS: 1.5.3
