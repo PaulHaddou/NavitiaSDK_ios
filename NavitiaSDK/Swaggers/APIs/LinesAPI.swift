@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 open class LinesAPI {
     public enum OdtLevel_getCoverageLonLatLines: String { 
         case scheduled = "scheduled"

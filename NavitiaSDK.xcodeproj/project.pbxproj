@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04E429DF1F73A3BA004B23A3 /* NavitiaSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E429DD1F73A3BA004B23A3 /* NavitiaSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A29E631AA6B07F86A3B683D /* Pods_NavitiaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E8CF8F4641CBD28142DFD6 /* Pods_NavitiaSDK.framework */; };
 		F64C99F42201E24800878A3D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99452201E24600878A3D /* Models.swift */; };
 		F64C99F52201E24800878A3D /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99462201E24600878A3D /* APIHelper.swift */; };
 		F64C99F62201E24800878A3D /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99472201E24600878A3D /* JSONEncodableEncoding.swift */; };
@@ -178,15 +177,30 @@
 		F64C9A9E2201E24800878A3D /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99F12201E24700878A3D /* AlamofireImplementations.swift */; };
 		F64C9A9F2201E24800878A3D /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99F22201E24700878A3D /* CodableHelper.swift */; };
 		F64C9AA02201E24800878A3D /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99F32201E24700878A3D /* APIs.swift */; };
+		F656716C22045348007A8E6E /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715A22045348007A8E6E /* TaskDelegate.swift */; };
+		F656716D22045348007A8E6E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715B22045348007A8E6E /* MultipartFormData.swift */; };
+		F656716E22045348007A8E6E /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715C22045348007A8E6E /* NetworkReachabilityManager.swift */; };
+		F656716F22045348007A8E6E /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715D22045348007A8E6E /* Timeline.swift */; };
+		F656717022045348007A8E6E /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715E22045348007A8E6E /* DispatchQueue+Alamofire.swift */; };
+		F656717122045348007A8E6E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656715F22045348007A8E6E /* Result.swift */; };
+		F656717222045348007A8E6E /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716022045348007A8E6E /* ParameterEncoding.swift */; };
+		F656717322045348007A8E6E /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716122045348007A8E6E /* AFError.swift */; };
+		F656717422045348007A8E6E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716222045348007A8E6E /* Validation.swift */; };
+		F656717522045348007A8E6E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716322045348007A8E6E /* Notifications.swift */; };
+		F656717622045348007A8E6E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716422045348007A8E6E /* Response.swift */; };
+		F656717722045348007A8E6E /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716522045348007A8E6E /* Alamofire.swift */; };
+		F656717822045348007A8E6E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716622045348007A8E6E /* Request.swift */; };
+		F656717922045348007A8E6E /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716722045348007A8E6E /* SessionManager.swift */; };
+		F656717A22045348007A8E6E /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716822045348007A8E6E /* ResponseSerialization.swift */; };
+		F656717B22045348007A8E6E /* Alamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = F656716922045348007A8E6E /* Alamofire.h */; };
+		F656717C22045348007A8E6E /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716A22045348007A8E6E /* ServerTrustPolicy.swift */; };
+		F656717D22045348007A8E6E /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656716B22045348007A8E6E /* SessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04E429DA1F73A3BA004B23A3 /* NavitiaSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavitiaSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E429DD1F73A3BA004B23A3 /* NavitiaSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavitiaSDK.h; sourceTree = "<group>"; };
 		04E429DE1F73A3BA004B23A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DB9083DAA65BCF2B9710642 /* Pods-NavitiaSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavitiaSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NavitiaSDK/Pods-NavitiaSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		A7E8CF8F4641CBD28142DFD6 /* Pods_NavitiaSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavitiaSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB99263B0A6899B6601CF4E6 /* Pods-NavitiaSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavitiaSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavitiaSDK/Pods-NavitiaSDK.release.xcconfig"; sourceTree = "<group>"; };
 		F64C99452201E24600878A3D /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F64C99462201E24600878A3D /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		F64C99472201E24600878A3D /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
@@ -356,6 +370,24 @@
 		F64C99F12201E24700878A3D /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		F64C99F22201E24700878A3D /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
 		F64C99F32201E24700878A3D /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		F656715A22045348007A8E6E /* TaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDelegate.swift; sourceTree = "<group>"; };
+		F656715B22045348007A8E6E /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		F656715C22045348007A8E6E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		F656715D22045348007A8E6E /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		F656715E22045348007A8E6E /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		F656715F22045348007A8E6E /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F656716022045348007A8E6E /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		F656716122045348007A8E6E /* AFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
+		F656716222045348007A8E6E /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		F656716322045348007A8E6E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		F656716422045348007A8E6E /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		F656716522045348007A8E6E /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		F656716622045348007A8E6E /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F656716722045348007A8E6E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		F656716822045348007A8E6E /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		F656716922045348007A8E6E /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		F656716A22045348007A8E6E /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		F656716B22045348007A8E6E /* SessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,7 +395,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A29E631AA6B07F86A3B683D /* Pods_NavitiaSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,8 +406,6 @@
 			children = (
 				04E429DC1F73A3BA004B23A3 /* NavitiaSDK */,
 				04E429DB1F73A3BA004B23A3 /* Products */,
-				8E68AB09AEE3D3BF7B978ACC /* Pods */,
-				2E0989DFE88AC3D094DFD03B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -391,6 +420,7 @@
 		04E429DC1F73A3BA004B23A3 /* NavitiaSDK */ = {
 			isa = PBXGroup;
 			children = (
+				F656715922045348007A8E6E /* Alamofire */,
 				F64C99442201E1D900878A3D /* Swaggers */,
 				04E429DD1F73A3BA004B23A3 /* NavitiaSDK.h */,
 				04E429DE1F73A3BA004B23A3 /* Info.plist */,
@@ -398,36 +428,19 @@
 			path = NavitiaSDK;
 			sourceTree = "<group>";
 		};
-		2E0989DFE88AC3D094DFD03B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A7E8CF8F4641CBD28142DFD6 /* Pods_NavitiaSDK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8E68AB09AEE3D3BF7B978ACC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6DB9083DAA65BCF2B9710642 /* Pods-NavitiaSDK.debug.xcconfig */,
-				CB99263B0A6899B6601CF4E6 /* Pods-NavitiaSDK.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F64C99442201E1D900878A3D /* Swaggers */ = {
 			isa = PBXGroup;
 			children = (
+				F64C99CB2201E24700878A3D /* APIs */,
+				F64C994B2201E24700878A3D /* Models */,
 				F64C99F12201E24700878A3D /* AlamofireImplementations.swift */,
 				F64C99462201E24600878A3D /* APIHelper.swift */,
-				F64C99CB2201E24700878A3D /* APIs */,
 				F64C99F32201E24700878A3D /* APIs.swift */,
 				F64C99F22201E24700878A3D /* CodableHelper.swift */,
 				F64C994A2201E24600878A3D /* Configuration.swift */,
 				F64C99482201E24600878A3D /* Extensions.swift */,
 				F64C99472201E24600878A3D /* JSONEncodableEncoding.swift */,
 				F64C99492201E24600878A3D /* JSONEncodingHelper.swift */,
-				F64C994B2201E24700878A3D /* Models */,
 				F64C99452201E24600878A3D /* Models.swift */,
 			);
 			path = Swaggers;
@@ -607,6 +620,31 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		F656715922045348007A8E6E /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				F656715A22045348007A8E6E /* TaskDelegate.swift */,
+				F656715B22045348007A8E6E /* MultipartFormData.swift */,
+				F656715C22045348007A8E6E /* NetworkReachabilityManager.swift */,
+				F656715D22045348007A8E6E /* Timeline.swift */,
+				F656715E22045348007A8E6E /* DispatchQueue+Alamofire.swift */,
+				F656715F22045348007A8E6E /* Result.swift */,
+				F656716022045348007A8E6E /* ParameterEncoding.swift */,
+				F656716122045348007A8E6E /* AFError.swift */,
+				F656716222045348007A8E6E /* Validation.swift */,
+				F656716322045348007A8E6E /* Notifications.swift */,
+				F656716422045348007A8E6E /* Response.swift */,
+				F656716522045348007A8E6E /* Alamofire.swift */,
+				F656716622045348007A8E6E /* Request.swift */,
+				F656716722045348007A8E6E /* SessionManager.swift */,
+				F656716822045348007A8E6E /* ResponseSerialization.swift */,
+				F656716922045348007A8E6E /* Alamofire.h */,
+				F656716A22045348007A8E6E /* ServerTrustPolicy.swift */,
+				F656716B22045348007A8E6E /* SessionDelegate.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -615,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E429DF1F73A3BA004B23A3 /* NavitiaSDK.h in Headers */,
+				F656717B22045348007A8E6E /* Alamofire.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +664,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E429E21F73A3BA004B23A3 /* Build configuration list for PBXNativeTarget "NavitiaSDK" */;
 			buildPhases = (
-				4736878E3F33E767F18F8219 /* [CP] Check Pods Manifest.lock */,
 				04E429D51F73A3BA004B23A3 /* Sources */,
 				04E429D61F73A3BA004B23A3 /* Frameworks */,
 				04E429D71F73A3BA004B23A3 /* Headers */,
@@ -683,27 +721,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4736878E3F33E767F18F8219 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NavitiaSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		04E429D51F73A3BA004B23A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -711,7 +728,9 @@
 			files = (
 				F64C9A482201E24800878A3D /* Section.swift in Sources */,
 				F64C9A912201E24800878A3D /* AddressesAPI.swift in Sources */,
+				F656717322045348007A8E6E /* AFError.swift in Sources */,
 				F64C9A112201E24800878A3D /* ValidityPattern.swift in Sources */,
+				F656717622045348007A8E6E /* Response.swift in Sources */,
 				F64C9A5B2201E24800878A3D /* StopPoint.swift in Sources */,
 				F64C9A8B2201E24800878A3D /* StopPointsAPI.swift in Sources */,
 				F64C9A7B2201E24800878A3D /* PlaceUriAPI.swift in Sources */,
@@ -726,6 +745,7 @@
 				F64C9A772201E24800878A3D /* LineHeadersSchema.swift in Sources */,
 				F64C9A382201E24800878A3D /* Code.swift in Sources */,
 				F64C9A072201E24800878A3D /* JourneyPatternPoint.swift in Sources */,
+				F656717A22045348007A8E6E /* ResponseSerialization.swift in Sources */,
 				F64C99FC2201E24800878A3D /* DisruptionProperty.swift in Sources */,
 				F64C9A842201E24800878A3D /* CoverageAPI.swift in Sources */,
 				F64C9A592201E24800878A3D /* HeatMatrixSchema.swift in Sources */,
@@ -733,13 +753,18 @@
 				F64C9A422201E24800878A3D /* IndividualRating.swift in Sources */,
 				F64C9A952201E24800878A3D /* PlacesAPI.swift in Sources */,
 				F64C9A662201E24800878A3D /* StopAreas.swift in Sources */,
+				F656717022045348007A8E6E /* DispatchQueue+Alamofire.swift in Sources */,
+				F656717722045348007A8E6E /* Alamofire.swift in Sources */,
 				F64C9A9E2201E24800878A3D /* AlamofireImplementations.swift in Sources */,
 				F64C9A4C2201E24800878A3D /* WeekPattern.swift in Sources */,
+				F656717422045348007A8E6E /* Validation.swift in Sources */,
 				F64C9A2F2201E24800878A3D /* Table.swift in Sources */,
 				F64C9A932201E24800878A3D /* StopAreasAPI.swift in Sources */,
 				F64C9A302201E24800878A3D /* PoiType.swift in Sources */,
 				F64C9A1C2201E24800878A3D /* ImpactedStop.swift in Sources */,
+				F656716E22045348007A8E6E /* NetworkReachabilityManager.swift in Sources */,
 				F64C9A252201E24800878A3D /* Message.swift in Sources */,
+				F656716F22045348007A8E6E /* Timeline.swift in Sources */,
 				F64C9A0A2201E24800878A3D /* Severity.swift in Sources */,
 				F64C9A692201E24800878A3D /* Fare.swift in Sources */,
 				F64C9A862201E24800878A3D /* StopSchedulesAPI.swift in Sources */,
@@ -748,6 +773,7 @@
 				F64C9A3F2201E24800878A3D /* Path.swift in Sources */,
 				F64C99F92201E24800878A3D /* Configuration.swift in Sources */,
 				F64C9A8E2201E24800878A3D /* JourneyPatternPointsAPI.swift in Sources */,
+				F656717C22045348007A8E6E /* ServerTrustPolicy.swift in Sources */,
 				F64C9A0F2201E24800878A3D /* Address.swift in Sources */,
 				F64C9A0D2201E24800878A3D /* Property.swift in Sources */,
 				F64C9A632201E24800878A3D /* CalendarException.swift in Sources */,
@@ -755,7 +781,9 @@
 				F64C9A162201E24800878A3D /* Journeys.swift in Sources */,
 				F64C9A452201E24800878A3D /* CalendarPeriod.swift in Sources */,
 				F64C9A732201E24800878A3D /* Datasets.swift in Sources */,
+				F656717822045348007A8E6E /* Request.swift in Sources */,
 				F64C9A022201E24800878A3D /* FareZone.swift in Sources */,
+				F656717D22045348007A8E6E /* SessionDelegate.swift in Sources */,
 				F64C9A7A2201E24800878A3D /* TrafficReportAPI.swift in Sources */,
 				F64C9A7D2201E24800878A3D /* NextArrivalsAPI.swift in Sources */,
 				F64C99FE2201E24800878A3D /* CommercialModes.swift in Sources */,
@@ -787,6 +815,7 @@
 				F64C9A102201E24800878A3D /* PhysicalMode.swift in Sources */,
 				F64C99F62201E24800878A3D /* JSONEncodableEncoding.swift in Sources */,
 				F64C9A1F2201E24800878A3D /* StopPoints.swift in Sources */,
+				F656717122045348007A8E6E /* Result.swift in Sources */,
 				F64C9A062201E24800878A3D /* SeatsDescription.swift in Sources */,
 				F64C9A9B2201E24800878A3D /* PhysicalModesAPI.swift in Sources */,
 				F64C9A972201E24800878A3D /* LineReportsAPI.swift in Sources */,
@@ -795,6 +824,7 @@
 				F64C9A142201E24800878A3D /* Companies.swift in Sources */,
 				F64C9A412201E24800878A3D /* Header.swift in Sources */,
 				F64C9A752201E24800878A3D /* Cost.swift in Sources */,
+				F656717922045348007A8E6E /* SessionManager.swift in Sources */,
 				F64C9A3B2201E24800878A3D /* RidesharingInformation.swift in Sources */,
 				F64C9A982201E24800878A3D /* CommercialModesAPI.swift in Sources */,
 				F64C9A8C2201E24800878A3D /* PtobjectsAPI.swift in Sources */,
@@ -824,6 +854,7 @@
 				F64C9A6A2201E24800878A3D /* IndividualInformation.swift in Sources */,
 				F64C9A0E2201E24800878A3D /* RouteDisplayInformation.swift in Sources */,
 				F64C99FD2201E24800878A3D /* Amount.swift in Sources */,
+				F656716C22045348007A8E6E /* TaskDelegate.swift in Sources */,
 				F64C99F42201E24800878A3D /* Models.swift in Sources */,
 				F64C9A462201E24800878A3D /* Disruption.swift in Sources */,
 				F64C9A312201E24800878A3D /* BetaEndpoints.swift in Sources */,
@@ -847,8 +878,10 @@
 				F64C9A832201E24800878A3D /* NetworksAPI.swift in Sources */,
 				F64C99F72201E24800878A3D /* Extensions.swift in Sources */,
 				F64C9A792201E24800878A3D /* LinesAPI.swift in Sources */,
+				F656717522045348007A8E6E /* Notifications.swift in Sources */,
 				F64C9AA02201E24800878A3D /* APIs.swift in Sources */,
 				F64C9A002201E24800878A3D /* CoverageError.swift in Sources */,
+				F656716D22045348007A8E6E /* MultipartFormData.swift in Sources */,
 				F64C9A272201E24800878A3D /* Contributor.swift in Sources */,
 				F64C9A672201E24800878A3D /* RouteSchedule.swift in Sources */,
 				F64C9A892201E24800878A3D /* CoordAPI.swift in Sources */,
@@ -873,6 +906,7 @@
 				F64C9A432201E24800878A3D /* Note.swift in Sources */,
 				F64C9A2D2201E24800878A3D /* PlacesNearby.swift in Sources */,
 				F64C9A5D2201E24800878A3D /* Poi.swift in Sources */,
+				F656717222045348007A8E6E /* ParameterEncoding.swift in Sources */,
 				F64C9A202201E24800878A3D /* HeatMap1.swift in Sources */,
 				F64C9A282201E24800878A3D /* Channel.swift in Sources */,
 				F64C9A1E2201E24800878A3D /* Disruptions.swift in Sources */,
@@ -1003,7 +1037,6 @@
 		};
 		04E429E31F73A3BA004B23A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DB9083DAA65BCF2B9710642 /* Pods-NavitiaSDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1011,7 +1044,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = NavitiaSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1026,7 +1059,6 @@
 		};
 		04E429E41F73A3BA004B23A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB99263B0A6899B6601CF4E6 /* Pods-NavitiaSDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1034,7 +1066,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = NavitiaSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
