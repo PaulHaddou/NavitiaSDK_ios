@@ -149,7 +149,7 @@ open class SessionManager {
     /// `nil` by default.
     open var backgroundCompletionHandler: (() -> Void)?
 
-    let queue = DispatchQueue(label: "org. session-manager." + UUID().uuidString)
+    let queue = DispatchQueue(label: "org.alamofire.session-manager." + UUID().uuidString)
 
     // MARK: - Lifecycle
 
@@ -680,7 +680,7 @@ open class SessionManager {
                 } else {
                     let fileManager = FileManager.default
                     let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory())
-                    let directoryURL = tempDirectoryURL.appendingPathComponent("org. manager/multipart.form.data")
+                    let directoryURL = tempDirectoryURL.appendingPathComponent("org.alamofire.manager/multipart.form.data")
                     let fileName = UUID().uuidString
                     let fileURL = directoryURL.appendingPathComponent(fileName)
 
