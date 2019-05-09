@@ -816,6 +816,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 04E429D01F73A3BA004B23A3;
@@ -1194,7 +1195,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.NavitiaSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1214,7 +1215,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.NavitiaSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
