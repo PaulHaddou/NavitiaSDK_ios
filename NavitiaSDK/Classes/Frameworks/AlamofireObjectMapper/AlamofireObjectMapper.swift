@@ -105,7 +105,6 @@ extension DataRequest {
                 let mapper = Mapper<T>(context: context, shouldIncludeNilValues: false)
                 do {
                     let parsedObject = try mapper.map(JSONObject: currentJSONObject)
-                    // if parsedObject != nil { // if let parsedObject = parsedObject {
                     return .success(parsedObject)
                 } catch {}
             }
@@ -166,7 +165,6 @@ extension DataRequest {
                 let mapper = Mapper<T>(context: context, shouldIncludeNilValues: false)
                 do {
                     let parsedObject = try mapper.mapArray(JSONObject: currentJSONObject)
-                    // if parsedObject != nil { // if let parsedObject = parsedObject {
                     return .success(parsedObject)
                 } catch {}
             }
