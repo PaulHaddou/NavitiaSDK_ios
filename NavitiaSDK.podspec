@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'NavitiaSDK'
-  s.version = '1.3.1'
-  s.summary = 'Navitia client written in Swift 4.2'
+  s.version = '1.3.2'
+  s.summary = 'Navitia client written in Swift 5'
   s.description = 'Navitia client'
 
   s.homepage = 'https://github.com/CanalTP/NavitiaSDK_ios'
