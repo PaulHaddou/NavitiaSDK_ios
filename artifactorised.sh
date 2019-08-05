@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Build and archive the framework
-#carthage build --no-skip-current
-#carthage archive
+carthage build --no-skip-current
+carthage archive
 
 # Recover the credentials
 netrcFile=~/.netrc
