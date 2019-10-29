@@ -7,9 +7,14 @@
 
 import Foundation
 
-open class PlaceNearby: JSONEncodable, Mappable {
+open class PlaceNearby: JSONEncodable, Mappable, Codable {
 
-    public enum EmbeddedType: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case embeddedType, stopPoint, administrativeRegion, name, distance, poi, address, quality, id, stopArea, unknown
+    }
+
+    public enum EmbeddedType: String, Codable { 
         case line = "line"
         case journeyPattern = "journey_pattern"
         case vehicleJourney = "vehicle_journey"
@@ -38,13 +43,43 @@ open class PlaceNearby: JSONEncodable, Mappable {
     public var administrativeRegion: Admin?
     /** Name of the object */
     public var name: String?
+    /** Distance to the object in meters */
     public var distance: String?
-    public var address: Address?
     public var poi: Poi?
+    public var address: Address?
     public var quality: Int32?
     /** Identifier of the object */
     public var id: String?
     public var stopArea: StopArea?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        embeddedType = try container.decode(EmbeddedType.self, forKey: .embeddedType)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        administrativeRegion = try container.decode(Admin.self, forKey: .administrativeRegion)
+        name = try container.decode(String.self, forKey: .name)
+        distance = try container.decode(String.self, forKey: .distance)
+        poi = try container.decode(Poi.self, forKey: .poi)
+        address = try container.decode(Address.self, forKey: .address)
+        quality = try container.decode(Int32.self, forKey: .quality)
+        id = try container.decode(String.self, forKey: .id)
+        stopArea = try container.decode(StopArea.self, forKey: .stopArea)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(embeddedType, forKey: .embeddedType)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(administrativeRegion, forKey: .administrativeRegion)
+        try container.encode(name, forKey: .name)
+        try container.encode(distance, forKey: .distance)
+        try container.encode(poi, forKey: .poi)
+        try container.encode(address, forKey: .address)
+        try container.encode(quality, forKey: .quality)
+        try container.encode(id, forKey: .id)
+        try container.encode(stopArea, forKey: .stopArea)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -58,8 +93,8 @@ open class PlaceNearby: JSONEncodable, Mappable {
         administrativeRegion <- map["administrative_region"]
         name <- map["name"]
         distance <- map["distance"]
-        address <- map["address"]
         poi <- map["poi"]
+        address <- map["address"]
         quality <- map["quality"]
         id <- map["id"]
         stopArea <- map["stop_area"]
@@ -73,8 +108,8 @@ open class PlaceNearby: JSONEncodable, Mappable {
         nillableDictionary["administrative_region"] = self.administrativeRegion?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["distance"] = self.distance
-        nillableDictionary["address"] = self.address?.encodeToJSON()
         nillableDictionary["poi"] = self.poi?.encodeToJSON()
+        nillableDictionary["address"] = self.address?.encodeToJSON()
         nillableDictionary["quality"] = self.quality?.encodeToJSON()
         nillableDictionary["id"] = self.id
         nillableDictionary["stop_area"] = self.stopArea?.encodeToJSON()

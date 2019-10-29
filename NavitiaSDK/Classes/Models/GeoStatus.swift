@@ -7,7 +7,12 @@
 
 import Foundation
 
-open class GeoStatus: JSONEncodable, Mappable {
+open class GeoStatus: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case nbAdminsFromCities, streetNetworkSources, poiSources, nbAddresses, nbAdmins, nbPois, nbWays, unknown
+    }
 
     public var nbAdminsFromCities: Int32?
     public var streetNetworkSources: [String]?
@@ -16,6 +21,29 @@ open class GeoStatus: JSONEncodable, Mappable {
     public var nbAdmins: Int32?
     public var nbPois: Int32?
     public var nbWays: Int32?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        nbAdminsFromCities = try container.decode(Int32.self, forKey: .nbAdminsFromCities)
+        streetNetworkSources = try container.decode([String].self, forKey: .streetNetworkSources)
+        poiSources = try container.decode([String].self, forKey: .poiSources)
+        nbAddresses = try container.decode(Int32.self, forKey: .nbAddresses)
+        nbAdmins = try container.decode(Int32.self, forKey: .nbAdmins)
+        nbPois = try container.decode(Int32.self, forKey: .nbPois)
+        nbWays = try container.decode(Int32.self, forKey: .nbWays)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(nbAdminsFromCities, forKey: .nbAdminsFromCities)
+        try container.encode(streetNetworkSources, forKey: .streetNetworkSources)
+        try container.encode(poiSources, forKey: .poiSources)
+        try container.encode(nbAddresses, forKey: .nbAddresses)
+        try container.encode(nbAdmins, forKey: .nbAdmins)
+        try container.encode(nbPois, forKey: .nbPois)
+        try container.encode(nbWays, forKey: .nbWays)
+    }
 
     public init() {}
     required public init?(map: Map) {

@@ -7,18 +7,46 @@
 
 import Foundation
 
-open class Durations: JSONEncodable, Mappable {
+open class Durations: JSONEncodable, Mappable, Codable {
 
-    /** Total duration by car of the journey (seconds) */
-    public var car: Int32?
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case taxi, walking, car, ridesharing, bike, total, unknown
+    }
+
+    /** Total duration by taxi of the journey (seconds) */
+    public var taxi: Int32?
     /** Total walking duration of the journey (seconds) */
     public var walking: Int32?
-    /** Total duration of the journey (seconds) */
-    public var total: Int32?
+    /** Total duration by car of the journey (seconds) */
+    public var car: Int32?
     /** Total duration by ridesharing of the journey (seconds) */
     public var ridesharing: Int32?
     /** Total duration by bike of the journey (seconds) */
     public var bike: Int32?
+    /** Total duration of the journey (seconds) */
+    public var total: Int32?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        taxi = try container.decode(Int32.self, forKey: .taxi)
+        walking = try container.decode(Int32.self, forKey: .walking)
+        car = try container.decode(Int32.self, forKey: .car)
+        ridesharing = try container.decode(Int32.self, forKey: .ridesharing)
+        bike = try container.decode(Int32.self, forKey: .bike)
+        total = try container.decode(Int32.self, forKey: .total)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(taxi, forKey: .taxi)
+        try container.encode(walking, forKey: .walking)
+        try container.encode(car, forKey: .car)
+        try container.encode(ridesharing, forKey: .ridesharing)
+        try container.encode(bike, forKey: .bike)
+        try container.encode(total, forKey: .total)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -27,21 +55,23 @@ open class Durations: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        car <- map["car"]
+        taxi <- map["taxi"]
         walking <- map["walking"]
-        total <- map["total"]
+        car <- map["car"]
         ridesharing <- map["ridesharing"]
         bike <- map["bike"]
+        total <- map["total"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["car"] = self.car?.encodeToJSON()
+        nillableDictionary["taxi"] = self.taxi?.encodeToJSON()
         nillableDictionary["walking"] = self.walking?.encodeToJSON()
-        nillableDictionary["total"] = self.total?.encodeToJSON()
+        nillableDictionary["car"] = self.car?.encodeToJSON()
         nillableDictionary["ridesharing"] = self.ridesharing?.encodeToJSON()
         nillableDictionary["bike"] = self.bike?.encodeToJSON()
+        nillableDictionary["total"] = self.total?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

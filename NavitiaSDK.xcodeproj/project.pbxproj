@@ -223,6 +223,17 @@
 		847F490521AE90DA00CAC506 /* Alamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = 847F48F321AE90DA00CAC506 /* Alamofire.h */; };
 		847F490621AE90DA00CAC506 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F48F421AE90DA00CAC506 /* ServerTrustPolicy.swift */; };
 		847F490721AE90DA00CAC506 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F48F521AE90DA00CAC506 /* SessionDelegate.swift */; };
+		AC52EBD123674C0200B96CAB /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; fileRef = AC52EBD023674C0200B96CAB /* ObjectMapper */; };
+		AC52EBD323674C0C00B96CAB /* AlamofireObjectMapper in Frameworks */ = {isa = PBXBuildFile; fileRef = AC52EBD223674C0C00B96CAB /* AlamofireObjectMapper */; };
+		AC52EBD523674C1300B96CAB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; fileRef = AC52EBD423674C1300B96CAB /* Alamofire */; };
+		ACBB6C91236747CD000C39E4 /* EquipmentReportsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C90236747CD000C39E4 /* EquipmentReportsApi.swift */; };
+		ACBB6C99236747FE000C39E4 /* CurrentAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C92236747FD000C39E4 /* CurrentAvailability.swift */; };
+		ACBB6C9A236747FE000C39E4 /* EquipmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C93236747FD000C39E4 /* EquipmentDetails.swift */; };
+		ACBB6C9B236747FE000C39E4 /* EquipmentReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C94236747FD000C39E4 /* EquipmentReport.swift */; };
+		ACBB6C9C236747FE000C39E4 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C95236747FD000C39E4 /* Cause.swift */; };
+		ACBB6C9D236747FE000C39E4 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C96236747FD000C39E4 /* Effect.swift */; };
+		ACBB6C9E236747FE000C39E4 /* EquipmentReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C97236747FE000C39E4 /* EquipmentReports.swift */; };
+		ACBB6C9F236747FE000C39E4 /* StopAreaEquipments.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB6C98236747FE000C39E4 /* StopAreaEquipments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -444,6 +455,17 @@
 		847F48F321AE90DA00CAC506 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		847F48F421AE90DA00CAC506 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		847F48F521AE90DA00CAC506 /* SessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
+		AC52EBD023674C0200B96CAB /* ObjectMapper */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ObjectMapper; path = NavitiaSDK/Classes/Frameworks/ObjectMapper; sourceTree = "<group>"; };
+		AC52EBD223674C0C00B96CAB /* AlamofireObjectMapper */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AlamofireObjectMapper; path = NavitiaSDK/Classes/Frameworks/AlamofireObjectMapper; sourceTree = "<group>"; };
+		AC52EBD423674C1300B96CAB /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = NavitiaSDK/Classes/Frameworks/Alamofire; sourceTree = "<group>"; };
+		ACBB6C90236747CD000C39E4 /* EquipmentReportsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentReportsApi.swift; sourceTree = "<group>"; };
+		ACBB6C92236747FD000C39E4 /* CurrentAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentAvailability.swift; sourceTree = "<group>"; };
+		ACBB6C93236747FD000C39E4 /* EquipmentDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentDetails.swift; sourceTree = "<group>"; };
+		ACBB6C94236747FD000C39E4 /* EquipmentReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentReport.swift; sourceTree = "<group>"; };
+		ACBB6C95236747FD000C39E4 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
+		ACBB6C96236747FD000C39E4 /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		ACBB6C97236747FE000C39E4 /* EquipmentReports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentReports.swift; sourceTree = "<group>"; };
+		ACBB6C98236747FE000C39E4 /* StopAreaEquipments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopAreaEquipments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +473,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC52EBD523674C1300B96CAB /* Alamofire in Frameworks */,
+				AC52EBD323674C0C00B96CAB /* AlamofireObjectMapper in Frameworks */,
+				AC52EBD123674C0200B96CAB /* ObjectMapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +487,7 @@
 			children = (
 				04E429DC1F73A3BA004B23A3 /* NavitiaSDK */,
 				04E429DB1F73A3BA004B23A3 /* Products */,
+				AC52EBCF23674C0200B96CAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,6 +544,13 @@
 		8473AECB2178BC3200767E79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACBB6C95236747FD000C39E4 /* Cause.swift */,
+				ACBB6C92236747FD000C39E4 /* CurrentAvailability.swift */,
+				ACBB6C96236747FD000C39E4 /* Effect.swift */,
+				ACBB6C93236747FD000C39E4 /* EquipmentDetails.swift */,
+				ACBB6C94236747FD000C39E4 /* EquipmentReport.swift */,
+				ACBB6C97236747FE000C39E4 /* EquipmentReports.swift */,
+				ACBB6C98236747FE000C39E4 /* StopAreaEquipments.swift */,
 				8473AECC2178BC3200767E79 /* Passage.swift */,
 				8473AECD2178BC3200767E79 /* Impacted.swift */,
 				8473AECE2178BC3200767E79 /* DisruptionProperty.swift */,
@@ -664,6 +697,7 @@
 		8473AF532178BC3300767E79 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
+				ACBB6C90236747CD000C39E4 /* EquipmentReportsApi.swift */,
 				8473AF542178BC3300767E79 /* LinesApi.swift */,
 				8473AF552178BC3300767E79 /* TrafficReportApi.swift */,
 				8473AF562178BC3300767E79 /* PlaceUriApi.swift */,
@@ -759,6 +793,16 @@
 				847F48F521AE90DA00CAC506 /* SessionDelegate.swift */,
 			);
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		AC52EBCF23674C0200B96CAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC52EBD423674C1300B96CAB /* Alamofire */,
+				AC52EBD223674C0C00B96CAB /* AlamofireObjectMapper */,
+				AC52EBD023674C0200B96CAB /* ObjectMapper */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -864,6 +908,8 @@
 				8473AFF52178BC3300767E79 /* Pois.swift in Sources */,
 				847F48D421AE90BD00CAC506 /* EnumTransform.swift in Sources */,
 				8473AFAB2178BC3300767E79 /* Admin.swift in Sources */,
+				ACBB6C9B236747FE000C39E4 /* EquipmentReport.swift in Sources */,
+				ACBB6C91236747CD000C39E4 /* EquipmentReportsApi.swift in Sources */,
 				8473AF7F2178BC3300767E79 /* CoverageError.swift in Sources */,
 				847F48D021AE90BD00CAC506 /* URLTransform.swift in Sources */,
 				847F48E221AE90BE00CAC506 /* TransformOf.swift in Sources */,
@@ -915,7 +961,9 @@
 				847F48D721AE90BD00CAC506 /* Map.swift in Sources */,
 				8473AF842178BC3300767E79 /* Coverages.swift in Sources */,
 				847F490121AE90DA00CAC506 /* Alamofire.swift in Sources */,
+				ACBB6C9F236747FE000C39E4 /* StopAreaEquipments.swift in Sources */,
 				8473AFC12178BC3300767E79 /* IndividualRating.swift in Sources */,
+				ACBB6C9D236747FE000C39E4 /* Effect.swift in Sources */,
 				8473AFDB2178BC3300767E79 /* PtObjects.swift in Sources */,
 				8473AFA92178BC3300767E79 /* LineReport.swift in Sources */,
 				8473AFEF2178BC3300767E79 /* Route.swift in Sources */,
@@ -971,12 +1019,14 @@
 				8473B0222178BC3300767E79 /* CompaniesApi.swift in Sources */,
 				8473B0052178BC3300767E79 /* PoisApi.swift in Sources */,
 				8473B0092178BC3300767E79 /* NetworksApi.swift in Sources */,
+				ACBB6C9A236747FE000C39E4 /* EquipmentDetails.swift in Sources */,
 				8473AF9E2178BC3300767E79 /* StopPoints.swift in Sources */,
 				8473B01E2178BC3300767E79 /* CommercialModesApi.swift in Sources */,
 				847F490621AE90DA00CAC506 /* ServerTrustPolicy.swift in Sources */,
 				8473AF862178BC3300767E79 /* JourneyPatternPoint.swift in Sources */,
 				8473B0162178BC3300767E79 /* RoutesApi.swift in Sources */,
 				8473AFED2178BC3300767E79 /* Networks.swift in Sources */,
+				ACBB6C99236747FE000C39E4 /* CurrentAvailability.swift in Sources */,
 				8473AFFF2178BC3300767E79 /* LinesApi.swift in Sources */,
 				847F490021AE90DA00CAC506 /* Response.swift in Sources */,
 				8473AFF62178BC3300767E79 /* LineHeadersSchema.swift in Sources */,
@@ -988,10 +1038,12 @@
 				8473B0022178BC3300767E79 /* GraphicalIsochroneApi.swift in Sources */,
 				8473B00E2178BC3300767E79 /* VehicleJourneysApi.swift in Sources */,
 				8473AFA72178BC3300767E79 /* Channel.swift in Sources */,
+				ACBB6C9E236747FE000C39E4 /* EquipmentReports.swift in Sources */,
 				8473AFDE2178BC3300767E79 /* Row.swift in Sources */,
 				8473AF992178BC3300767E79 /* SectionGeoJsonSchema.swift in Sources */,
 				847F48DF21AE90BE00CAC506 /* DateTransform.swift in Sources */,
 				8473AF822178BC3300767E79 /* LineGroup.swift in Sources */,
+				ACBB6C9C236747FE000C39E4 /* Cause.swift in Sources */,
 				8473B0172178BC3300767E79 /* AddressesApi.swift in Sources */,
 				8473AF832178BC3300767E79 /* Journey.swift in Sources */,
 				847F48D521AE90BD00CAC506 /* DataTransform.swift in Sources */,
@@ -1187,7 +1239,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/NavitiaSDK/Classes/Frameworks/ObjectMapper/**";
 				INFOPLIST_FILE = NavitiaSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1207,7 +1259,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/NavitiaSDK/Classes/Frameworks/ObjectMapper/**";
 				INFOPLIST_FILE = NavitiaSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

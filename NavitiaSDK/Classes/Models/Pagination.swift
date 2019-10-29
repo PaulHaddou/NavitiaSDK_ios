@@ -7,12 +7,34 @@
 
 import Foundation
 
-open class Pagination: JSONEncodable, Mappable {
+open class Pagination: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case startPage, itemsOnPage, itemsPerPage, totalResult, unknown
+    }
 
     public var startPage: Int32?
     public var itemsOnPage: Int32?
     public var itemsPerPage: Int32?
     public var totalResult: Int32?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        startPage = try container.decode(Int32.self, forKey: .startPage)
+        itemsOnPage = try container.decode(Int32.self, forKey: .itemsOnPage)
+        itemsPerPage = try container.decode(Int32.self, forKey: .itemsPerPage)
+        totalResult = try container.decode(Int32.self, forKey: .totalResult)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(startPage, forKey: .startPage)
+        try container.encode(itemsOnPage, forKey: .itemsOnPage)
+        try container.encode(itemsPerPage, forKey: .itemsPerPage)
+        try container.encode(totalResult, forKey: .totalResult)
+    }
 
     public init() {}
     required public init?(map: Map) {

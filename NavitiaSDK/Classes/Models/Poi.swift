@@ -7,11 +7,17 @@
 
 import Foundation
 
-open class Poi: JSONEncodable, Mappable {
+open class Poi: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case poiType, name, carPark, coord, label, administrativeRegions, address, id, properties, stands, unknown
+    }
 
     public var poiType: PoiType?
     /** Name of the object */
     public var name: String?
+    public var carPark: CarPark?
     public var coord: Coord?
     public var label: String?
     public var administrativeRegions: [Admin]?
@@ -20,7 +26,35 @@ open class Poi: JSONEncodable, Mappable {
     public var id: String?
     public var properties: [String:String]?
     public var stands: Stands?
-    public var carPark: CarPark?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        poiType = try container.decode(PoiType.self, forKey: .poiType)
+        name = try container.decode(String.self, forKey: .name)
+        carPark = try container.decode(CarPark.self, forKey: .carPark)
+        coord = try container.decode(Coord.self, forKey: .coord)
+        label = try container.decode(String.self, forKey: .label)
+        administrativeRegions = try container.decode([Admin].self, forKey: .administrativeRegions)
+        address = try container.decode(Address.self, forKey: .address)
+        id = try container.decode(String.self, forKey: .id)
+        properties = try container.decode([String:String].self, forKey: .properties)
+        stands = try container.decode(Stands.self, forKey: .stands)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(poiType, forKey: .poiType)
+        try container.encode(name, forKey: .name)
+        try container.encode(carPark, forKey: .carPark)
+        try container.encode(coord, forKey: .coord)
+        try container.encode(label, forKey: .label)
+        try container.encode(administrativeRegions, forKey: .administrativeRegions)
+        try container.encode(address, forKey: .address)
+        try container.encode(id, forKey: .id)
+        try container.encode(properties, forKey: .properties)
+        try container.encode(stands, forKey: .stands)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -31,6 +65,7 @@ open class Poi: JSONEncodable, Mappable {
     public func mapping(map: Map) {
         poiType <- map["poi_type"]
         name <- map["name"]
+        carPark <- map["car_park"]
         coord <- map["coord"]
         label <- map["label"]
         administrativeRegions <- map["administrative_regions"]
@@ -38,7 +73,6 @@ open class Poi: JSONEncodable, Mappable {
         id <- map["id"]
         properties <- map["properties"]
         stands <- map["stands"]
-        carPark <- map["car_park"]
     }
 
     // MARK: JSONEncodable
@@ -46,6 +80,7 @@ open class Poi: JSONEncodable, Mappable {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["poi_type"] = self.poiType?.encodeToJSON()
         nillableDictionary["name"] = self.name
+        nillableDictionary["car_park"] = self.carPark?.encodeToJSON()
         nillableDictionary["coord"] = self.coord?.encodeToJSON()
         nillableDictionary["label"] = self.label
         nillableDictionary["administrative_regions"] = self.administrativeRegions?.encodeToJSON()
@@ -53,7 +88,6 @@ open class Poi: JSONEncodable, Mappable {
         nillableDictionary["id"] = self.id
         nillableDictionary["properties"] = self.properties?.encodeToJSON()
         nillableDictionary["stands"] = self.stands?.encodeToJSON()
-        nillableDictionary["car_park"] = self.carPark?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
