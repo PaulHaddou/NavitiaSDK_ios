@@ -7,13 +7,40 @@
 
 import Foundation
 
-open class Places: JSONEncodable, Mappable {
+open class Places: JSONEncodable, Mappable, Codable {
 
-    public var disruptions: [Disruption]?
-    public var error: ModelError?
-    public var context: Context?
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case places, links, disruptions, feedPublishers, context, error, unknown
+    }
+
     public var places: [Place]?
+    public var links: [LinkSchema]?
+    public var disruptions: [Disruption]?
     public var feedPublishers: [FeedPublisher]?
+    public var context: Context?
+    public var error: ModelError?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        places = try container.decode([Place].self, forKey: .places)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
+        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
+        context = try container.decode(Context.self, forKey: .context)
+        error = try container.decode(ModelError.self, forKey: .error)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(places, forKey: .places)
+        try container.encode(links, forKey: .links)
+        try container.encode(disruptions, forKey: .disruptions)
+        try container.encode(feedPublishers, forKey: .feedPublishers)
+        try container.encode(context, forKey: .context)
+        try container.encode(error, forKey: .error)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -22,21 +49,23 @@ open class Places: JSONEncodable, Mappable {
 
 
     public func mapping(map: Map) {
-        disruptions <- map["disruptions"]
-        error <- map["error"]
-        context <- map["context"]
         places <- map["places"]
+        links <- map["links"]
+        disruptions <- map["disruptions"]
         feedPublishers <- map["feed_publishers"]
+        context <- map["context"]
+        error <- map["error"]
     }
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
-        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
-        nillableDictionary["error"] = self.error?.encodeToJSON()
-        nillableDictionary["context"] = self.context?.encodeToJSON()
         nillableDictionary["places"] = self.places?.encodeToJSON()
+        nillableDictionary["links"] = self.links?.encodeToJSON()
+        nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
+        nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

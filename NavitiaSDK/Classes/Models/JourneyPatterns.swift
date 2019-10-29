@@ -7,15 +7,46 @@
 
 import Foundation
 
-open class JourneyPatterns: JSONEncodable, Mappable {
+open class JourneyPatterns: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case pagination, context, links, disruptions, notes, feedPublishers, journeyPatterns, error, unknown
+    }
 
     public var pagination: Pagination?
-    public var journeyPatterns: [JourneyPattern]?
+    public var context: Context?
+    public var links: [LinkSchema]?
     public var disruptions: [Disruption]?
     public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
-    public var context: Context?
+    public var journeyPatterns: [JourneyPattern]?
     public var error: ModelError?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        pagination = try container.decode(Pagination.self, forKey: .pagination)
+        context = try container.decode(Context.self, forKey: .context)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
+        notes = try container.decode([Note].self, forKey: .notes)
+        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
+        journeyPatterns = try container.decode([JourneyPattern].self, forKey: .journeyPatterns)
+        error = try container.decode(ModelError.self, forKey: .error)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pagination, forKey: .pagination)
+        try container.encode(context, forKey: .context)
+        try container.encode(links, forKey: .links)
+        try container.encode(disruptions, forKey: .disruptions)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(feedPublishers, forKey: .feedPublishers)
+        try container.encode(journeyPatterns, forKey: .journeyPatterns)
+        try container.encode(error, forKey: .error)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -25,11 +56,12 @@ open class JourneyPatterns: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         pagination <- map["pagination"]
-        journeyPatterns <- map["journey_patterns"]
+        context <- map["context"]
+        links <- map["links"]
         disruptions <- map["disruptions"]
         notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
-        context <- map["context"]
+        journeyPatterns <- map["journey_patterns"]
         error <- map["error"]
     }
 
@@ -37,11 +69,12 @@ open class JourneyPatterns: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
-        nillableDictionary["journey_patterns"] = self.journeyPatterns?.encodeToJSON()
+        nillableDictionary["context"] = self.context?.encodeToJSON()
+        nillableDictionary["links"] = self.links?.encodeToJSON()
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()
-        nillableDictionary["context"] = self.context?.encodeToJSON()
+        nillableDictionary["journey_patterns"] = self.journeyPatterns?.encodeToJSON()
         nillableDictionary["error"] = self.error?.encodeToJSON()
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]

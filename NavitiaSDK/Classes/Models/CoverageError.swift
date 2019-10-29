@@ -7,10 +7,28 @@
 
 import Foundation
 
-open class CoverageError: JSONEncodable, Mappable {
+open class CoverageError: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case code, value, unknown
+    }
 
     public var code: String?
     public var value: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        code = try container.decode(String.self, forKey: .code)
+        value = try container.decode(String.self, forKey: .value)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(code, forKey: .code)
+        try container.encode(value, forKey: .value)
+    }
 
     public init() {}
     required public init?(map: Map) {

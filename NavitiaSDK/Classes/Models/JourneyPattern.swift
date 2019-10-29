@@ -7,7 +7,12 @@
 
 import Foundation
 
-open class JourneyPattern: JSONEncodable, Mappable {
+open class JourneyPattern: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case route, journeyPatternPoints, name, id, unknown
+    }
 
     public var route: Route?
     public var journeyPatternPoints: [JourneyPatternPoint]?
@@ -15,6 +20,23 @@ open class JourneyPattern: JSONEncodable, Mappable {
     public var name: String?
     /** Identifier of the object */
     public var id: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        route = try container.decode(Route.self, forKey: .route)
+        journeyPatternPoints = try container.decode([JourneyPatternPoint].self, forKey: .journeyPatternPoints)
+        name = try container.decode(String.self, forKey: .name)
+        id = try container.decode(String.self, forKey: .id)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(route, forKey: .route)
+        try container.encode(journeyPatternPoints, forKey: .journeyPatternPoints)
+        try container.encode(name, forKey: .name)
+        try container.encode(id, forKey: .id)
+    }
 
     public init() {}
     required public init?(map: Map) {

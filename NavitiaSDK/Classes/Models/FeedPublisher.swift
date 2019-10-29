@@ -7,12 +7,34 @@
 
 import Foundation
 
-open class FeedPublisher: JSONEncodable, Mappable {
+open class FeedPublisher: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case url, id, license, name, unknown
+    }
 
     public var url: String?
     public var id: String?
     public var license: String?
     public var name: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        url = try container.decode(String.self, forKey: .url)
+        id = try container.decode(String.self, forKey: .id)
+        license = try container.decode(String.self, forKey: .license)
+        name = try container.decode(String.self, forKey: .name)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(url, forKey: .url)
+        try container.encode(id, forKey: .id)
+        try container.encode(license, forKey: .license)
+        try container.encode(name, forKey: .name)
+    }
 
     public init() {}
     required public init?(map: Map) {

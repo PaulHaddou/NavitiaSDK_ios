@@ -7,7 +7,12 @@
 
 import Foundation
 
-open class Network: JSONEncodable, Mappable {
+open class Network: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case codes, id, links, name, unknown
+    }
 
     public var codes: [Code]?
     /** Identifier of the object */
@@ -15,6 +20,23 @@ open class Network: JSONEncodable, Mappable {
     public var links: [LinkSchema]?
     /** Name of the object */
     public var name: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        codes = try container.decode([Code].self, forKey: .codes)
+        id = try container.decode(String.self, forKey: .id)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        name = try container.decode(String.self, forKey: .name)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(codes, forKey: .codes)
+        try container.encode(id, forKey: .id)
+        try container.encode(links, forKey: .links)
+        try container.encode(name, forKey: .name)
+    }
 
     public init() {}
     required public init?(map: Map) {

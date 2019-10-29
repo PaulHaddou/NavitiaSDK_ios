@@ -7,15 +7,46 @@
 
 import Foundation
 
-open class TrafficReports: JSONEncodable, Mappable {
+open class TrafficReports: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case pagination, links, disruptions, notes, feedPublishers, trafficReports, context, error, unknown
+    }
 
     public var pagination: Pagination?
+    public var links: [LinkSchema]?
     public var disruptions: [Disruption]?
     public var notes: [Note]?
     public var feedPublishers: [FeedPublisher]?
     public var trafficReports: [TrafficReport]?
     public var context: Context?
     public var error: ModelError?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        pagination = try container.decode(Pagination.self, forKey: .pagination)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
+        notes = try container.decode([Note].self, forKey: .notes)
+        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
+        trafficReports = try container.decode([TrafficReport].self, forKey: .trafficReports)
+        context = try container.decode(Context.self, forKey: .context)
+        error = try container.decode(ModelError.self, forKey: .error)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pagination, forKey: .pagination)
+        try container.encode(links, forKey: .links)
+        try container.encode(disruptions, forKey: .disruptions)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(feedPublishers, forKey: .feedPublishers)
+        try container.encode(trafficReports, forKey: .trafficReports)
+        try container.encode(context, forKey: .context)
+        try container.encode(error, forKey: .error)
+    }
 
     public init() {}
     required public init?(map: Map) {
@@ -25,6 +56,7 @@ open class TrafficReports: JSONEncodable, Mappable {
 
     public func mapping(map: Map) {
         pagination <- map["pagination"]
+        links <- map["links"]
         disruptions <- map["disruptions"]
         notes <- map["notes"]
         feedPublishers <- map["feed_publishers"]
@@ -37,6 +69,7 @@ open class TrafficReports: JSONEncodable, Mappable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
+        nillableDictionary["links"] = self.links?.encodeToJSON()
         nillableDictionary["disruptions"] = self.disruptions?.encodeToJSON()
         nillableDictionary["notes"] = self.notes?.encodeToJSON()
         nillableDictionary["feed_publishers"] = self.feedPublishers?.encodeToJSON()

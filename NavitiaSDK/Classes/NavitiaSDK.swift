@@ -11,6 +11,7 @@ open class NavitiaSDK: NSObject {
     public let coverageApi: CoverageApi
     public let datasetsApi: DatasetsApi
     public let disruptionsApi: DisruptionsApi
+    public let equipmentReportsApi: EquipmentReportsApi
     public let geoStatusApi: GeoStatusApi
     public let graphicalIsochroneApi: GraphicalIsochroneApi
     public let heatMapApi: HeatMapApi
@@ -50,6 +51,7 @@ open class NavitiaSDK: NSObject {
         self.coverageApi = CoverageApi(token: configuration.token);
         self.datasetsApi = DatasetsApi(token: configuration.token);
         self.disruptionsApi = DisruptionsApi(token: configuration.token);
+        self.equipmentReportsApi = EquipmentReportsApi(token: configuration.token);
         self.geoStatusApi = GeoStatusApi(token: configuration.token);
         self.graphicalIsochroneApi = GraphicalIsochroneApi(token: configuration.token);
         self.heatMapApi = HeatMapApi(token: configuration.token);
