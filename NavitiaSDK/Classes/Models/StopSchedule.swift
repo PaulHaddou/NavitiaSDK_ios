@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class StopSchedule: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */

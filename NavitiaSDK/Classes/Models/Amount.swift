@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class Amount: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */

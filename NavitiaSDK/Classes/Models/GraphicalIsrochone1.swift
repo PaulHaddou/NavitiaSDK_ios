@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class GraphicalIsrochone1: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */

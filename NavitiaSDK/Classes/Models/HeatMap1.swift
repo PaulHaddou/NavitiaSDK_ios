@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class HeatMap1: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class StopPoints: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */

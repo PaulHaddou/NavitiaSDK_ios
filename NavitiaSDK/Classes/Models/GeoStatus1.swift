@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 open class GeoStatus1: JSONEncodable, Mappable, Codable {
 
 /** Coding keys for Codable protocol */
