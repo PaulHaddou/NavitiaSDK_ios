@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Line: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case comment, properties, code, network, links, color, routes, geojson, textColor, physicalModes, codes, comments, closingTime, openingTime, commercialMode, id, lineGroups, name, unknown
-    }
+open class Line: JSONEncodable, Mappable {
 
     public var comment: String?
     public var properties: [Property]?
@@ -34,51 +30,6 @@ open class Line: JSONEncodable, Mappable, Codable {
     public var lineGroups: [LineGroup]?
     /** Name of the object */
     public var name: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        comment = try container.decode(String.self, forKey: .comment)
-        properties = try container.decode([Property].self, forKey: .properties)
-        code = try container.decode(String.self, forKey: .code)
-        network = try container.decode(Network.self, forKey: .network)
-        links = try container.decode([LinkSchema].self, forKey: .links)
-        color = try container.decode(String.self, forKey: .color)
-        routes = try container.decode([Route].self, forKey: .routes)
-        geojson = try container.decode(MultiLineStringSchema.self, forKey: .geojson)
-        textColor = try container.decode(String.self, forKey: .textColor)
-        physicalModes = try container.decode([PhysicalMode].self, forKey: .physicalModes)
-        codes = try container.decode([Code].self, forKey: .codes)
-        comments = try container.decode([Comment].self, forKey: .comments)
-        closingTime = try container.decode(String.self, forKey: .closingTime)
-        openingTime = try container.decode(String.self, forKey: .openingTime)
-        commercialMode = try container.decode(CommercialMode.self, forKey: .commercialMode)
-        id = try container.decode(String.self, forKey: .id)
-        lineGroups = try container.decode([LineGroup].self, forKey: .lineGroups)
-        name = try container.decode(String.self, forKey: .name)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(comment, forKey: .comment)
-        try container.encode(properties, forKey: .properties)
-        try container.encode(code, forKey: .code)
-        try container.encode(network, forKey: .network)
-        try container.encode(links, forKey: .links)
-        try container.encode(color, forKey: .color)
-        try container.encode(routes, forKey: .routes)
-        try container.encode(geojson, forKey: .geojson)
-        try container.encode(textColor, forKey: .textColor)
-        try container.encode(physicalModes, forKey: .physicalModes)
-        try container.encode(codes, forKey: .codes)
-        try container.encode(comments, forKey: .comments)
-        try container.encode(closingTime, forKey: .closingTime)
-        try container.encode(openingTime, forKey: .openingTime)
-        try container.encode(commercialMode, forKey: .commercialMode)
-        try container.encode(id, forKey: .id)
-        try container.encode(lineGroups, forKey: .lineGroups)
-        try container.encode(name, forKey: .name)
-    }
 
     public init() {}
     required public init?(map: Map) {

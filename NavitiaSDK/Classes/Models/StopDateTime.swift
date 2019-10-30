@@ -7,20 +7,16 @@
 
 import Foundation
 
-open class StopDateTime: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case stopPoint, links, arrivalDateTime, additionalInformations, departureDateTime, baseArrivalDateTime, baseDepartureDateTime, dataFreshness, unknown
-    }
+open class StopDateTime: JSONEncodable, Mappable {
 
-    public enum AdditionalInformations: String, Codable { 
+    public enum AdditionalInformations: String { 
         case pickUpOnly = "pick_up_only"
         case dropOffOnly = "drop_off_only"
         case onDemandTransport = "on_demand_transport"
         case dateTimeEstimated = "date_time_estimated"
     }
-    public enum DataFreshness: String, Codable { 
+    public enum DataFreshness: String { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
@@ -33,31 +29,6 @@ open class StopDateTime: JSONEncodable, Mappable, Codable {
     public var baseArrivalDateTime: String?
     public var baseDepartureDateTime: String?
     public var dataFreshness: DataFreshness?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
-        links = try container.decode([LinkSchema].self, forKey: .links)
-        arrivalDateTime = try container.decode(String.self, forKey: .arrivalDateTime)
-        additionalInformations = try container.decode([AdditionalInformations].self, forKey: .additionalInformations)
-        departureDateTime = try container.decode(String.self, forKey: .departureDateTime)
-        baseArrivalDateTime = try container.decode(String.self, forKey: .baseArrivalDateTime)
-        baseDepartureDateTime = try container.decode(String.self, forKey: .baseDepartureDateTime)
-        dataFreshness = try container.decode(DataFreshness.self, forKey: .dataFreshness)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(stopPoint, forKey: .stopPoint)
-        try container.encode(links, forKey: .links)
-        try container.encode(arrivalDateTime, forKey: .arrivalDateTime)
-        try container.encode(additionalInformations, forKey: .additionalInformations)
-        try container.encode(departureDateTime, forKey: .departureDateTime)
-        try container.encode(baseArrivalDateTime, forKey: .baseArrivalDateTime)
-        try container.encode(baseDepartureDateTime, forKey: .baseDepartureDateTime)
-        try container.encode(dataFreshness, forKey: .dataFreshness)
-    }
 
     public init() {}
     required public init?(map: Map) {

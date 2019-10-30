@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class GraphicalIsrochone: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case maxDuration, from, geojson, minDuration, minDateTime, to, requestedDateTime, maxDateTime, unknown
-    }
+open class GraphicalIsrochone: JSONEncodable, Mappable {
 
     public var maxDuration: Int32?
     public var from: Place?
@@ -22,31 +18,6 @@ open class GraphicalIsrochone: JSONEncodable, Mappable, Codable {
     public var to: Place?
     public var requestedDateTime: String?
     public var maxDateTime: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        maxDuration = try container.decode(Int32.self, forKey: .maxDuration)
-        from = try container.decode(Place.self, forKey: .from)
-        geojson = try container.decode(GraphicalIsrochoneGeojson.self, forKey: .geojson)
-        minDuration = try container.decode(Int32.self, forKey: .minDuration)
-        minDateTime = try container.decode(String.self, forKey: .minDateTime)
-        to = try container.decode(Place.self, forKey: .to)
-        requestedDateTime = try container.decode(String.self, forKey: .requestedDateTime)
-        maxDateTime = try container.decode(String.self, forKey: .maxDateTime)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(maxDuration, forKey: .maxDuration)
-        try container.encode(from, forKey: .from)
-        try container.encode(geojson, forKey: .geojson)
-        try container.encode(minDuration, forKey: .minDuration)
-        try container.encode(minDateTime, forKey: .minDateTime)
-        try container.encode(to, forKey: .to)
-        try container.encode(requestedDateTime, forKey: .requestedDateTime)
-        try container.encode(maxDateTime, forKey: .maxDateTime)
-    }
 
     public init() {}
     required public init?(map: Map) {

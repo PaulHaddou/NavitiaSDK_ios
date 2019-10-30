@@ -7,28 +7,11 @@
 
 import Foundation
 
-open class CalendarPeriod: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case begin, end, unknown
-    }
+open class CalendarPeriod: JSONEncodable, Mappable {
 
     public var begin: String?
     public var end: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        begin = try container.decode(String.self, forKey: .begin)
-        end = try container.decode(String.self, forKey: .end)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(begin, forKey: .begin)
-        try container.encode(end, forKey: .end)
-    }
 
     public init() {}
     required public init?(map: Map) {

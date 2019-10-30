@@ -7,14 +7,10 @@
 
 import Foundation
 
-open class Channel: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case contentType, id, types, name, unknown
-    }
+open class Channel: JSONEncodable, Mappable {
 
-    public enum Types: String, Codable { 
+    public enum Types: String { 
         case web = "web"
         case sms = "sms"
         case email = "email"
@@ -30,23 +26,6 @@ open class Channel: JSONEncodable, Mappable, Codable {
     public var id: String?
     public var types: [Types]?
     public var name: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        contentType = try container.decode(String.self, forKey: .contentType)
-        id = try container.decode(String.self, forKey: .id)
-        types = try container.decode([Types].self, forKey: .types)
-        name = try container.decode(String.self, forKey: .name)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(contentType, forKey: .contentType)
-        try container.encode(id, forKey: .id)
-        try container.encode(types, forKey: .types)
-        try container.encode(name, forKey: .name)
-    }
 
     public init() {}
     required public init?(map: Map) {

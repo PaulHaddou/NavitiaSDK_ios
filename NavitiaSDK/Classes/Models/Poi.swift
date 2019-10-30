@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Poi: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case poiType, name, carPark, coord, label, administrativeRegions, address, id, properties, stands, unknown
-    }
+open class Poi: JSONEncodable, Mappable {
 
     public var poiType: PoiType?
     /** Name of the object */
@@ -26,35 +22,6 @@ open class Poi: JSONEncodable, Mappable, Codable {
     public var id: String?
     public var properties: [String:String]?
     public var stands: Stands?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        poiType = try container.decode(PoiType.self, forKey: .poiType)
-        name = try container.decode(String.self, forKey: .name)
-        carPark = try container.decode(CarPark.self, forKey: .carPark)
-        coord = try container.decode(Coord.self, forKey: .coord)
-        label = try container.decode(String.self, forKey: .label)
-        administrativeRegions = try container.decode([Admin].self, forKey: .administrativeRegions)
-        address = try container.decode(Address.self, forKey: .address)
-        id = try container.decode(String.self, forKey: .id)
-        properties = try container.decode([String:String].self, forKey: .properties)
-        stands = try container.decode(Stands.self, forKey: .stands)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(poiType, forKey: .poiType)
-        try container.encode(name, forKey: .name)
-        try container.encode(carPark, forKey: .carPark)
-        try container.encode(coord, forKey: .coord)
-        try container.encode(label, forKey: .label)
-        try container.encode(administrativeRegions, forKey: .administrativeRegions)
-        try container.encode(address, forKey: .address)
-        try container.encode(id, forKey: .id)
-        try container.encode(properties, forKey: .properties)
-        try container.encode(stands, forKey: .stands)
-    }
 
     public init() {}
     required public init?(map: Map) {

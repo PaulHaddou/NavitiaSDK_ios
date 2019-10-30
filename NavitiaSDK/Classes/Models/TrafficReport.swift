@@ -7,34 +7,13 @@
 
 import Foundation
 
-open class TrafficReport: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case vehicleJourneys, lines, network, stopAreas, unknown
-    }
+open class TrafficReport: JSONEncodable, Mappable {
 
     public var vehicleJourneys: [VehicleJourney]?
     public var lines: [Line]?
     public var network: Network?
     public var stopAreas: [StopArea]?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        vehicleJourneys = try container.decode([VehicleJourney].self, forKey: .vehicleJourneys)
-        lines = try container.decode([Line].self, forKey: .lines)
-        network = try container.decode(Network.self, forKey: .network)
-        stopAreas = try container.decode([StopArea].self, forKey: .stopAreas)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(vehicleJourneys, forKey: .vehicleJourneys)
-        try container.encode(lines, forKey: .lines)
-        try container.encode(network, forKey: .network)
-        try container.encode(stopAreas, forKey: .stopAreas)
-    }
 
     public init() {}
     required public init?(map: Map) {

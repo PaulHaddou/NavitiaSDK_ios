@@ -7,14 +7,10 @@
 
 import Foundation
 
-open class CurrentAvailability: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case status, effect, cause, periods, updatedAt, unknown
-    }
+open class CurrentAvailability: JSONEncodable, Mappable {
 
-    public enum Status: String, Codable { 
+    public enum Status: String { 
         case unknown = "unknown"
         case available = "available"
         case unavailable = "unavailable"
@@ -24,25 +20,6 @@ open class CurrentAvailability: JSONEncodable, Mappable, Codable {
     public var cause: Cause?
     public var periods: [Period]?
     public var updatedAt: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        status = try container.decode(Status.self, forKey: .status)
-        effect = try container.decode(Effect.self, forKey: .effect)
-        cause = try container.decode(Cause.self, forKey: .cause)
-        periods = try container.decode([Period].self, forKey: .periods)
-        updatedAt = try container.decode(String.self, forKey: .updatedAt)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(status, forKey: .status)
-        try container.encode(effect, forKey: .effect)
-        try container.encode(cause, forKey: .cause)
-        try container.encode(periods, forKey: .periods)
-        try container.encode(updatedAt, forKey: .updatedAt)
-    }
 
     public init() {}
     required public init?(map: Map) {

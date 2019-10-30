@@ -7,14 +7,10 @@
 
 import Foundation
 
-open class Route: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case direction, codes, name, links, physicalModes, isFrequence, comments, directionType, geojson, stopPoints, line, id, unknown
-    }
+open class Route: JSONEncodable, Mappable {
 
-    public enum IsFrequence: String, Codable { 
+    public enum IsFrequence: String { 
         case _false = "False"
     }
     public var direction: Place?
@@ -31,39 +27,6 @@ open class Route: JSONEncodable, Mappable, Codable {
     public var line: Line?
     /** Identifier of the object */
     public var id: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        direction = try container.decode(Place.self, forKey: .direction)
-        codes = try container.decode([Code].self, forKey: .codes)
-        name = try container.decode(String.self, forKey: .name)
-        links = try container.decode([LinkSchema].self, forKey: .links)
-        physicalModes = try container.decode([PhysicalMode].self, forKey: .physicalModes)
-        isFrequence = try container.decode(IsFrequence.self, forKey: .isFrequence)
-        comments = try container.decode([Comment].self, forKey: .comments)
-        directionType = try container.decode(String.self, forKey: .directionType)
-        geojson = try container.decode(MultiLineStringSchema.self, forKey: .geojson)
-        stopPoints = try container.decode([StopPoint].self, forKey: .stopPoints)
-        line = try container.decode(Line.self, forKey: .line)
-        id = try container.decode(String.self, forKey: .id)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(direction, forKey: .direction)
-        try container.encode(codes, forKey: .codes)
-        try container.encode(name, forKey: .name)
-        try container.encode(links, forKey: .links)
-        try container.encode(physicalModes, forKey: .physicalModes)
-        try container.encode(isFrequence, forKey: .isFrequence)
-        try container.encode(comments, forKey: .comments)
-        try container.encode(directionType, forKey: .directionType)
-        try container.encode(geojson, forKey: .geojson)
-        try container.encode(stopPoints, forKey: .stopPoints)
-        try container.encode(line, forKey: .line)
-        try container.encode(id, forKey: .id)
-    }
 
     public init() {}
     required public init?(map: Map) {

@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class VehicleJourney: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case comment, codes, name, journeyPattern, disruptions, startTime, headwaySecs, stopTimes, comments, validityPattern, endTime, id, trip, calendars, unknown
-    }
+open class VehicleJourney: JSONEncodable, Mappable {
 
     public var comment: String?
     public var codes: [Code]?
@@ -30,43 +26,6 @@ open class VehicleJourney: JSONEncodable, Mappable, Codable {
     public var id: String?
     public var trip: Trip?
     public var calendars: [Calendar]?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        comment = try container.decode(String.self, forKey: .comment)
-        codes = try container.decode([Code].self, forKey: .codes)
-        name = try container.decode(String.self, forKey: .name)
-        journeyPattern = try container.decode(JourneyPattern.self, forKey: .journeyPattern)
-        disruptions = try container.decode([LinkSchema].self, forKey: .disruptions)
-        startTime = try container.decode(String.self, forKey: .startTime)
-        headwaySecs = try container.decode(Int32.self, forKey: .headwaySecs)
-        stopTimes = try container.decode([StopTime].self, forKey: .stopTimes)
-        comments = try container.decode([Comment].self, forKey: .comments)
-        validityPattern = try container.decode(ValidityPattern.self, forKey: .validityPattern)
-        endTime = try container.decode(String.self, forKey: .endTime)
-        id = try container.decode(String.self, forKey: .id)
-        trip = try container.decode(Trip.self, forKey: .trip)
-        calendars = try container.decode([Calendar].self, forKey: .calendars)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(comment, forKey: .comment)
-        try container.encode(codes, forKey: .codes)
-        try container.encode(name, forKey: .name)
-        try container.encode(journeyPattern, forKey: .journeyPattern)
-        try container.encode(disruptions, forKey: .disruptions)
-        try container.encode(startTime, forKey: .startTime)
-        try container.encode(headwaySecs, forKey: .headwaySecs)
-        try container.encode(stopTimes, forKey: .stopTimes)
-        try container.encode(comments, forKey: .comments)
-        try container.encode(validityPattern, forKey: .validityPattern)
-        try container.encode(endTime, forKey: .endTime)
-        try container.encode(id, forKey: .id)
-        try container.encode(trip, forKey: .trip)
-        try container.encode(calendars, forKey: .calendars)
-    }
 
     public init() {}
     required public init?(map: Map) {

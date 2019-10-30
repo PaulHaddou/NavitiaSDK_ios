@@ -7,14 +7,10 @@
 
 import Foundation
 
-open class Stands: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case status, availablePlaces, availableBikes, totalStands, unknown
-    }
+open class Stands: JSONEncodable, Mappable {
 
-    public enum Status: String, Codable { 
+    public enum Status: String { 
         case unavailable = "unavailable"
         case closed = "closed"
         case open = "open"
@@ -23,23 +19,6 @@ open class Stands: JSONEncodable, Mappable, Codable {
     public var availablePlaces: Int32?
     public var availableBikes: Int32?
     public var totalStands: Int32?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        status = try container.decode(Status.self, forKey: .status)
-        availablePlaces = try container.decode(Int32.self, forKey: .availablePlaces)
-        availableBikes = try container.decode(Int32.self, forKey: .availableBikes)
-        totalStands = try container.decode(Int32.self, forKey: .totalStands)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(status, forKey: .status)
-        try container.encode(availablePlaces, forKey: .availablePlaces)
-        try container.encode(availableBikes, forKey: .availableBikes)
-        try container.encode(totalStands, forKey: .totalStands)
-    }
 
     public init() {}
     required public init?(map: Map) {

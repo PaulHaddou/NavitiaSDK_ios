@@ -7,34 +7,13 @@
 
 import Foundation
 
-open class RidesharingInformation: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case _operator, driver, network, seats, unknown
-    }
+open class RidesharingInformation: JSONEncodable, Mappable {
 
     public var _operator: String?
     public var driver: IndividualInformation?
     public var network: String?
     public var seats: SeatsDescription?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        _operator = try container.decode(String.self, forKey: ._operator)
-        driver = try container.decode(IndividualInformation.self, forKey: .driver)
-        network = try container.decode(String.self, forKey: .network)
-        seats = try container.decode(SeatsDescription.self, forKey: .seats)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(_operator, forKey: ._operator)
-        try container.encode(driver, forKey: .driver)
-        try container.encode(network, forKey: .network)
-        try container.encode(seats, forKey: .seats)
-    }
 
     public init() {}
     required public init?(map: Map) {

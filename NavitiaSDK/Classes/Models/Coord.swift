@@ -7,28 +7,11 @@
 
 import Foundation
 
-open class Coord: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case lat, lon, unknown
-    }
+open class Coord: JSONEncodable, Mappable {
 
     public var lat: String?
     public var lon: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        lat = try container.decode(String.self, forKey: .lat)
-        lon = try container.decode(String.self, forKey: .lon)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(lat, forKey: .lat)
-        try container.encode(lon, forKey: .lon)
-    }
 
     public init() {}
     required public init?(map: Map) {

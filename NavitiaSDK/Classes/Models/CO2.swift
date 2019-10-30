@@ -7,25 +7,10 @@
 
 import Foundation
 
-open class CO2: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case co2Emission, unknown
-    }
+open class CO2: JSONEncodable, Mappable {
 
     public var co2Emission: Amount?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        co2Emission = try container.decode(Amount.self, forKey: .co2Emission)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(co2Emission, forKey: .co2Emission)
-    }
 
     public init() {}
     required public init?(map: Map) {

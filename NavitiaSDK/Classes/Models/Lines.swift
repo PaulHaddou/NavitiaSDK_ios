@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Lines: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case pagination, links, disruptions, notes, lines, feedPublishers, context, error, unknown
-    }
+open class Lines: JSONEncodable, Mappable {
 
     public var pagination: Pagination?
     public var links: [LinkSchema]?
@@ -22,31 +18,6 @@ open class Lines: JSONEncodable, Mappable, Codable {
     public var feedPublishers: [FeedPublisher]?
     public var context: Context?
     public var error: ModelError?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        pagination = try container.decode(Pagination.self, forKey: .pagination)
-        links = try container.decode([LinkSchema].self, forKey: .links)
-        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
-        notes = try container.decode([Note].self, forKey: .notes)
-        lines = try container.decode([Line].self, forKey: .lines)
-        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
-        context = try container.decode(Context.self, forKey: .context)
-        error = try container.decode(ModelError.self, forKey: .error)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pagination, forKey: .pagination)
-        try container.encode(links, forKey: .links)
-        try container.encode(disruptions, forKey: .disruptions)
-        try container.encode(notes, forKey: .notes)
-        try container.encode(lines, forKey: .lines)
-        try container.encode(feedPublishers, forKey: .feedPublishers)
-        try container.encode(context, forKey: .context)
-        try container.encode(error, forKey: .error)
-    }
 
     public init() {}
     required public init?(map: Map) {

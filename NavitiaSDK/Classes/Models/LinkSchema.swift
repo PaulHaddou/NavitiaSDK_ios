@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class LinkSchema: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case category, commentType, title, _internal, value, href, rel, templated, type, id, unknown
-    }
+open class LinkSchema: JSONEncodable, Mappable {
 
     public var category: String?
     public var commentType: String?
@@ -24,35 +20,6 @@ open class LinkSchema: JSONEncodable, Mappable, Codable {
     public var templated: Bool?
     public var type: String?
     public var id: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        category = try container.decode(String.self, forKey: .category)
-        commentType = try container.decode(String.self, forKey: .commentType)
-        title = try container.decode(String.self, forKey: .title)
-        _internal = try container.decode(Bool.self, forKey: ._internal)
-        value = try container.decode(String.self, forKey: .value)
-        href = try container.decode(String.self, forKey: .href)
-        rel = try container.decode(String.self, forKey: .rel)
-        templated = try container.decode(Bool.self, forKey: .templated)
-        type = try container.decode(String.self, forKey: .type)
-        id = try container.decode(String.self, forKey: .id)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(category, forKey: .category)
-        try container.encode(commentType, forKey: .commentType)
-        try container.encode(title, forKey: .title)
-        try container.encode(_internal, forKey: ._internal)
-        try container.encode(value, forKey: .value)
-        try container.encode(href, forKey: .href)
-        try container.encode(rel, forKey: .rel)
-        try container.encode(templated, forKey: .templated)
-        try container.encode(type, forKey: .type)
-        try container.encode(id, forKey: .id)
-    }
 
     public init() {}
     required public init?(map: Map) {

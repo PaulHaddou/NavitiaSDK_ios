@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Contributor: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case website, id, license, name, unknown
-    }
+open class Contributor: JSONEncodable, Mappable {
 
     public var website: String?
     /** Identifier of the object */
@@ -20,23 +16,6 @@ open class Contributor: JSONEncodable, Mappable, Codable {
     public var license: String?
     /** Name of the object */
     public var name: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        website = try container.decode(String.self, forKey: .website)
-        id = try container.decode(String.self, forKey: .id)
-        license = try container.decode(String.self, forKey: .license)
-        name = try container.decode(String.self, forKey: .name)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(website, forKey: .website)
-        try container.encode(id, forKey: .id)
-        try container.encode(license, forKey: .license)
-        try container.encode(name, forKey: .name)
-    }
 
     public init() {}
     required public init?(map: Map) {

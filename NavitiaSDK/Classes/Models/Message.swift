@@ -7,28 +7,11 @@
 
 import Foundation
 
-open class Message: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case text, channel, unknown
-    }
+open class Message: JSONEncodable, Mappable {
 
     public var text: String?
     public var channel: Channel?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        text = try container.decode(String.self, forKey: .text)
-        channel = try container.decode(Channel.self, forKey: .channel)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(text, forKey: .text)
-        try container.encode(channel, forKey: .channel)
-    }
 
     public init() {}
     required public init?(map: Map) {

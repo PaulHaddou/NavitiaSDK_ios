@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Distances: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case taxi, car, walking, bike, ridesharing, unknown
-    }
+open class Distances: JSONEncodable, Mappable {
 
     /** Total distance by taxi of the journey (meters) */
     public var taxi: Int32?
@@ -24,25 +20,6 @@ open class Distances: JSONEncodable, Mappable, Codable {
     public var bike: Int32?
     /** Total distance by ridesharing of the journey (meters) */
     public var ridesharing: Int32?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        taxi = try container.decode(Int32.self, forKey: .taxi)
-        car = try container.decode(Int32.self, forKey: .car)
-        walking = try container.decode(Int32.self, forKey: .walking)
-        bike = try container.decode(Int32.self, forKey: .bike)
-        ridesharing = try container.decode(Int32.self, forKey: .ridesharing)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(taxi, forKey: .taxi)
-        try container.encode(car, forKey: .car)
-        try container.encode(walking, forKey: .walking)
-        try container.encode(bike, forKey: .bike)
-        try container.encode(ridesharing, forKey: .ridesharing)
-    }
 
     public init() {}
     required public init?(map: Map) {

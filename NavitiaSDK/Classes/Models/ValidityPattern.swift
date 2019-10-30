@@ -7,28 +7,11 @@
 
 import Foundation
 
-open class ValidityPattern: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case beginningDate, days, unknown
-    }
+open class ValidityPattern: JSONEncodable, Mappable {
 
     public var beginningDate: String?
     public var days: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        beginningDate = try container.decode(String.self, forKey: .beginningDate)
-        days = try container.decode(String.self, forKey: .days)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(beginningDate, forKey: .beginningDate)
-        try container.encode(days, forKey: .days)
-    }
 
     public init() {}
     required public init?(map: Map) {

@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class Coverage: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case status, datasetCreatedAt, name, startProductionDate, shape, endProductionDate, error, lastLoadAt, id, unknown
-    }
+open class Coverage: JSONEncodable, Mappable {
 
     public var status: String?
     /** Creation date of the dataset */
@@ -30,33 +26,6 @@ open class Coverage: JSONEncodable, Mappable, Codable {
     public var lastLoadAt: String?
     /** Identifier of the coverage */
     public var id: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        status = try container.decode(String.self, forKey: .status)
-        datasetCreatedAt = try container.decode(String.self, forKey: .datasetCreatedAt)
-        name = try container.decode(String.self, forKey: .name)
-        startProductionDate = try container.decode(String.self, forKey: .startProductionDate)
-        shape = try container.decode(String.self, forKey: .shape)
-        endProductionDate = try container.decode(String.self, forKey: .endProductionDate)
-        error = try container.decode(CoverageError.self, forKey: .error)
-        lastLoadAt = try container.decode(String.self, forKey: .lastLoadAt)
-        id = try container.decode(String.self, forKey: .id)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(status, forKey: .status)
-        try container.encode(datasetCreatedAt, forKey: .datasetCreatedAt)
-        try container.encode(name, forKey: .name)
-        try container.encode(startProductionDate, forKey: .startProductionDate)
-        try container.encode(shape, forKey: .shape)
-        try container.encode(endProductionDate, forKey: .endProductionDate)
-        try container.encode(error, forKey: .error)
-        try container.encode(lastLoadAt, forKey: .lastLoadAt)
-        try container.encode(id, forKey: .id)
-    }
 
     public init() {}
     required public init?(map: Map) {

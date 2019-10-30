@@ -7,12 +7,8 @@
 
 import Foundation
 
-open class StopArea: JSONEncodable, Mappable, Codable {
 
-/** Coding keys for Codable protocol */
-    enum CodingKeys: CodingKey {
-        case comment, codes, name, links, physicalModes, comments, label, commercialModes, coord, administrativeRegions, timezone, stopPoints, id, unknown
-    }
+open class StopArea: JSONEncodable, Mappable {
 
     public var comment: String?
     public var codes: [Code]?
@@ -30,41 +26,6 @@ open class StopArea: JSONEncodable, Mappable, Codable {
     public var stopPoints: [StopPoint]?
     /** Identifier of the object */
     public var id: String?
-
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        comment = try container.decode(String.self, forKey: .comment)
-        codes = try container.decode([Code].self, forKey: .codes)
-        name = try container.decode(String.self, forKey: .name)
-        links = try container.decode([LinkSchema].self, forKey: .links)
-        physicalModes = try container.decode([PhysicalMode].self, forKey: .physicalModes)
-        comments = try container.decode([Comment].self, forKey: .comments)
-        label = try container.decode(String.self, forKey: .label)
-        commercialModes = try container.decode([CommercialMode].self, forKey: .commercialModes)
-        coord = try container.decode(Coord.self, forKey: .coord)
-        administrativeRegions = try container.decode([Admin].self, forKey: .administrativeRegions)
-        timezone = try container.decode(String.self, forKey: .timezone)
-        stopPoints = try container.decode([StopPoint].self, forKey: .stopPoints)
-        id = try container.decode(String.self, forKey: .id)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(comment, forKey: .comment)
-        try container.encode(codes, forKey: .codes)
-        try container.encode(name, forKey: .name)
-        try container.encode(links, forKey: .links)
-        try container.encode(physicalModes, forKey: .physicalModes)
-        try container.encode(comments, forKey: .comments)
-        try container.encode(label, forKey: .label)
-        try container.encode(commercialModes, forKey: .commercialModes)
-        try container.encode(coord, forKey: .coord)
-        try container.encode(administrativeRegions, forKey: .administrativeRegions)
-        try container.encode(timezone, forKey: .timezone)
-        try container.encode(stopPoints, forKey: .stopPoints)
-        try container.encode(id, forKey: .id)
-    }
 
     public init() {}
     required public init?(map: Map) {
