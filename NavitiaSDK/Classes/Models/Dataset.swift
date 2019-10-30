@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class Dataset: JSONEncodable, Mappable {
+open class Dataset: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case realtimeLevel, description, system, startValidationDate, endValidationDate, contributor, id, unknown
+    }
 
     public var realtimeLevel: String?
     public var description: String?
@@ -22,6 +27,29 @@ open class Dataset: JSONEncodable, Mappable {
     public var contributor: Contributor?
     /** Identifier of the object */
     public var id: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        realtimeLevel = try container.decode(String.self, forKey: .realtimeLevel)
+        description = try container.decode(String.self, forKey: .description)
+        system = try container.decode(String.self, forKey: .system)
+        startValidationDate = try container.decode(String.self, forKey: .startValidationDate)
+        endValidationDate = try container.decode(String.self, forKey: .endValidationDate)
+        contributor = try container.decode(Contributor.self, forKey: .contributor)
+        id = try container.decode(String.self, forKey: .id)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(realtimeLevel, forKey: .realtimeLevel)
+        try container.encode(description, forKey: .description)
+        try container.encode(system, forKey: .system)
+        try container.encode(startValidationDate, forKey: .startValidationDate)
+        try container.encode(endValidationDate, forKey: .endValidationDate)
+        try container.encode(contributor, forKey: .contributor)
+        try container.encode(id, forKey: .id)
+    }
 
     public init() {}
     required public init?(map: Map) {

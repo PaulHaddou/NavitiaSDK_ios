@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
+public class CoverageLonLatCommercialModesRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -53,97 +53,97 @@ open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.tags = tags
         
         return self
@@ -151,12 +151,12 @@ open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatCommercialModesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatCommercialModesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/commercial_modes"
 
         if let lat = lat {
@@ -199,7 +199,7 @@ open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -220,7 +220,7 @@ open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -242,7 +242,7 @@ open class CoverageLonLatCommercialModesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
+public class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -287,97 +287,97 @@ open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -385,12 +385,12 @@ open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatCommercialModesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/commercial_modes/{id}"
 
         if let lat = lat {
@@ -438,7 +438,7 @@ open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -462,7 +462,7 @@ open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -487,7 +487,7 @@ open class CoverageLonLatCommercialModesIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
+public class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -533,102 +533,102 @@ open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.tags = tags
         
         return self
@@ -636,12 +636,12 @@ open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCommercialModesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/commercial_modes"
 
         if let lat = lat {
@@ -690,7 +690,7 @@ open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -714,7 +714,7 @@ open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -739,7 +739,7 @@ open class CoverageLonLatUriCommercialModesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
+public class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -785,102 +785,102 @@ open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -888,12 +888,12 @@ open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCommercialModesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/commercial_modes/{id}"
 
         if let lat = lat {
@@ -947,7 +947,7 @@ open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -974,7 +974,7 @@ open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -1002,7 +1002,7 @@ open class CoverageLonLatUriCommercialModesIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionCommercialModesRequestBuilder: NSObject {
+public class CoverageRegionCommercialModesRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -1046,92 +1046,92 @@ open class CoverageRegionCommercialModesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionCommercialModesRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionCommercialModesRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionCommercialModesRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionCommercialModesRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionCommercialModesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionCommercialModesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionCommercialModesRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionCommercialModesRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionCommercialModesRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionCommercialModesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionCommercialModesRequestBuilder {
         self.tags = tags
         
         return self
@@ -1139,12 +1139,12 @@ open class CoverageRegionCommercialModesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionCommercialModesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionCommercialModesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/commercial_modes"
 
         if let region = region {
@@ -1181,7 +1181,7 @@ open class CoverageRegionCommercialModesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1199,7 +1199,7 @@ open class CoverageRegionCommercialModesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1218,7 +1218,7 @@ open class CoverageRegionCommercialModesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
+public class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -1262,92 +1262,92 @@ open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -1355,12 +1355,12 @@ open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionCommercialModesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/commercial_modes/{id}"
 
         if let region = region {
@@ -1402,7 +1402,7 @@ open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1423,7 +1423,7 @@ open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1445,7 +1445,7 @@ open class CoverageRegionCommercialModesIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
+public class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -1490,97 +1490,97 @@ open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.tags = tags
         
         return self
@@ -1588,12 +1588,12 @@ open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCommercialModesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/commercial_modes"
 
         if let region = region {
@@ -1636,7 +1636,7 @@ open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1657,7 +1657,7 @@ open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1679,7 +1679,7 @@ open class CoverageRegionUriCommercialModesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
+public class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
     let currentApi: CommercialModesApi
 
     /**
@@ -1724,97 +1724,97 @@ open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -1822,12 +1822,12 @@ open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCommercialModesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/commercial_modes/{id}"
 
         if let region = region {
@@ -1875,7 +1875,7 @@ open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: CommercialModes?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1899,7 +1899,7 @@ open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1926,7 +1926,7 @@ open class CoverageRegionUriCommercialModesIdRequestBuilder: NSObject {
 
 
 
-open class CommercialModesApi: APIBase {
+public class CommercialModesApi: APIBase {
     let token: String
 
     public init(token: String) {

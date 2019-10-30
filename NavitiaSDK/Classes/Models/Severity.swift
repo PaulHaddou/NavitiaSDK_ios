@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class Severity: JSONEncodable, Mappable {
+open class Severity: JSONEncodable, Mappable, Codable {
 
-    public enum Effect: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case color, priority, name, effect, unknown
+    }
+
+    public enum Effect: String, Codable { 
         case noService = "NO_SERVICE"
         case reducedService = "REDUCED_SERVICE"
         case significantDelays = "SIGNIFICANT_DELAYS"
@@ -25,6 +30,23 @@ open class Severity: JSONEncodable, Mappable {
     public var priority: Int32?
     public var name: String?
     public var effect: Effect?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        color = try container.decode(String.self, forKey: .color)
+        priority = try container.decode(Int32.self, forKey: .priority)
+        name = try container.decode(String.self, forKey: .name)
+        effect = try container.decode(Effect.self, forKey: .effect)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(color, forKey: .color)
+        try container.encode(priority, forKey: .priority)
+        try container.encode(name, forKey: .name)
+        try container.encode(effect, forKey: .effect)
+    }
 
     public init() {}
     required public init?(map: Map) {

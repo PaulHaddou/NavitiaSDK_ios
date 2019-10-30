@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class ImpactedStop: JSONEncodable, Mappable {
+open class ImpactedStop: JSONEncodable, Mappable, Codable {
 
-    public enum StopTimeEffect: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case amendedArrivalTime, stopPoint, stopTimeEffect, departureStatus, isDetour, amendedDepartureTime, baseArrivalTime, cause, baseDepartureTime, arrivalStatus, unknown
+    }
+
+    public enum StopTimeEffect: String, Codable { 
         case delayed = "delayed"
         case added = "added"
         case deleted = "deleted"
@@ -26,6 +31,35 @@ open class ImpactedStop: JSONEncodable, Mappable {
     public var cause: String?
     public var baseDepartureTime: String?
     public var arrivalStatus: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        amendedArrivalTime = try container.decode(String.self, forKey: .amendedArrivalTime)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        stopTimeEffect = try container.decode(StopTimeEffect.self, forKey: .stopTimeEffect)
+        departureStatus = try container.decode(String.self, forKey: .departureStatus)
+        isDetour = try container.decode(Bool.self, forKey: .isDetour)
+        amendedDepartureTime = try container.decode(String.self, forKey: .amendedDepartureTime)
+        baseArrivalTime = try container.decode(String.self, forKey: .baseArrivalTime)
+        cause = try container.decode(String.self, forKey: .cause)
+        baseDepartureTime = try container.decode(String.self, forKey: .baseDepartureTime)
+        arrivalStatus = try container.decode(String.self, forKey: .arrivalStatus)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(amendedArrivalTime, forKey: .amendedArrivalTime)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(stopTimeEffect, forKey: .stopTimeEffect)
+        try container.encode(departureStatus, forKey: .departureStatus)
+        try container.encode(isDetour, forKey: .isDetour)
+        try container.encode(amendedDepartureTime, forKey: .amendedDepartureTime)
+        try container.encode(baseArrivalTime, forKey: .baseArrivalTime)
+        try container.encode(cause, forKey: .cause)
+        try container.encode(baseDepartureTime, forKey: .baseDepartureTime)
+        try container.encode(arrivalStatus, forKey: .arrivalStatus)
+    }
 
     public init() {}
     required public init?(map: Map) {

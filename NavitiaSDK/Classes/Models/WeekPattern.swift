@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class WeekPattern: JSONEncodable, Mappable {
+open class WeekPattern: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case monday, tuesday, friday, wednesday, thursday, sunday, saturday, unknown
+    }
 
     public var monday: Bool?
     public var tuesday: Bool?
@@ -17,6 +22,29 @@ open class WeekPattern: JSONEncodable, Mappable {
     public var thursday: Bool?
     public var sunday: Bool?
     public var saturday: Bool?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        monday = try container.decode(Bool.self, forKey: .monday)
+        tuesday = try container.decode(Bool.self, forKey: .tuesday)
+        friday = try container.decode(Bool.self, forKey: .friday)
+        wednesday = try container.decode(Bool.self, forKey: .wednesday)
+        thursday = try container.decode(Bool.self, forKey: .thursday)
+        sunday = try container.decode(Bool.self, forKey: .sunday)
+        saturday = try container.decode(Bool.self, forKey: .saturday)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(monday, forKey: .monday)
+        try container.encode(tuesday, forKey: .tuesday)
+        try container.encode(friday, forKey: .friday)
+        try container.encode(wednesday, forKey: .wednesday)
+        try container.encode(thursday, forKey: .thursday)
+        try container.encode(sunday, forKey: .sunday)
+        try container.encode(saturday, forKey: .saturday)
+    }
 
     public init() {}
     required public init?(map: Map) {

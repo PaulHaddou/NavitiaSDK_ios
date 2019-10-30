@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class LineReports: JSONEncodable, Mappable {
+open class LineReports: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case pagination, links, warnings, disruptions, notes, lineReports, feedPublishers, context, error, unknown
+    }
 
     public var pagination: Pagination?
     public var links: [LinkSchema]?
@@ -19,6 +24,33 @@ open class LineReports: JSONEncodable, Mappable {
     public var feedPublishers: [FeedPublisher]?
     public var context: Context?
     public var error: ModelError?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        pagination = try container.decode(Pagination.self, forKey: .pagination)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        warnings = try container.decode([BetaEndpoints].self, forKey: .warnings)
+        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
+        notes = try container.decode([Note].self, forKey: .notes)
+        lineReports = try container.decode([LineReport].self, forKey: .lineReports)
+        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
+        context = try container.decode(Context.self, forKey: .context)
+        error = try container.decode(ModelError.self, forKey: .error)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pagination, forKey: .pagination)
+        try container.encode(links, forKey: .links)
+        try container.encode(warnings, forKey: .warnings)
+        try container.encode(disruptions, forKey: .disruptions)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(lineReports, forKey: .lineReports)
+        try container.encode(feedPublishers, forKey: .feedPublishers)
+        try container.encode(context, forKey: .context)
+        try container.encode(error, forKey: .error)
+    }
 
     public init() {}
     required public init?(map: Map) {

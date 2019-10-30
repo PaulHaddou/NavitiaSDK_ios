@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class Ticket: JSONEncodable, Mappable {
+open class Ticket: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case comment, name, links, cost, sourceId, found, id, unknown
+    }
 
     public var comment: String?
     /** Name of the ticket */
@@ -20,6 +25,29 @@ open class Ticket: JSONEncodable, Mappable {
     public var found: Bool?
     /** Identifier of the ticket */
     public var id: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        comment = try container.decode(String.self, forKey: .comment)
+        name = try container.decode(String.self, forKey: .name)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        cost = try container.decode(Cost.self, forKey: .cost)
+        sourceId = try container.decode(String.self, forKey: .sourceId)
+        found = try container.decode(Bool.self, forKey: .found)
+        id = try container.decode(String.self, forKey: .id)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(comment, forKey: .comment)
+        try container.encode(name, forKey: .name)
+        try container.encode(links, forKey: .links)
+        try container.encode(cost, forKey: .cost)
+        try container.encode(sourceId, forKey: .sourceId)
+        try container.encode(found, forKey: .found)
+        try container.encode(id, forKey: .id)
+    }
 
     public init() {}
     required public init?(map: Map) {

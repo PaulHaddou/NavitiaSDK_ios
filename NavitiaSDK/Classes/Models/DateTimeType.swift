@@ -8,13 +8,37 @@
 import Foundation
 
 
-open class DateTimeType: JSONEncodable, Mappable {
+open class DateTimeType: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case dateTime, additionalInformations, baseDateTime, dataFreshness, links, unknown
+    }
 
     public var dateTime: String?
     public var additionalInformations: [String]?
     public var baseDateTime: String?
     public var dataFreshness: String?
     public var links: [LinkSchema]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        dateTime = try container.decode(String.self, forKey: .dateTime)
+        additionalInformations = try container.decode([String].self, forKey: .additionalInformations)
+        baseDateTime = try container.decode(String.self, forKey: .baseDateTime)
+        dataFreshness = try container.decode(String.self, forKey: .dataFreshness)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(dateTime, forKey: .dateTime)
+        try container.encode(additionalInformations, forKey: .additionalInformations)
+        try container.encode(baseDateTime, forKey: .baseDateTime)
+        try container.encode(dataFreshness, forKey: .dataFreshness)
+        try container.encode(links, forKey: .links)
+    }
 
     public init() {}
     required public init?(map: Map) {

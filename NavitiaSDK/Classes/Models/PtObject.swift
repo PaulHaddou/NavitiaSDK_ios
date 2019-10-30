@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class PtObject: JSONEncodable, Mappable {
+open class PtObject: JSONEncodable, Mappable, Codable {
 
-    public enum EmbeddedType: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case embeddedType, stopPoint, name, route, stopArea, commercialMode, id, line, quality, trip, network, unknown
+    }
+
+    public enum EmbeddedType: String, Codable { 
         case line = "line"
         case journeyPattern = "journey_pattern"
         case vehicleJourney = "vehicle_journey"
@@ -47,6 +52,37 @@ open class PtObject: JSONEncodable, Mappable {
     public var quality: Int32?
     public var trip: Trip?
     public var network: Network?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        embeddedType = try container.decode(EmbeddedType.self, forKey: .embeddedType)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        name = try container.decode(String.self, forKey: .name)
+        route = try container.decode(Route.self, forKey: .route)
+        stopArea = try container.decode(StopArea.self, forKey: .stopArea)
+        commercialMode = try container.decode(CommercialMode.self, forKey: .commercialMode)
+        id = try container.decode(String.self, forKey: .id)
+        line = try container.decode(Line.self, forKey: .line)
+        quality = try container.decode(Int32.self, forKey: .quality)
+        trip = try container.decode(Trip.self, forKey: .trip)
+        network = try container.decode(Network.self, forKey: .network)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(embeddedType, forKey: .embeddedType)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(name, forKey: .name)
+        try container.encode(route, forKey: .route)
+        try container.encode(stopArea, forKey: .stopArea)
+        try container.encode(commercialMode, forKey: .commercialMode)
+        try container.encode(id, forKey: .id)
+        try container.encode(line, forKey: .line)
+        try container.encode(quality, forKey: .quality)
+        try container.encode(trip, forKey: .trip)
+        try container.encode(network, forKey: .network)
+    }
 
     public init() {}
     required public init?(map: Map) {

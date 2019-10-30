@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatCalendarsRequestBuilder: NSObject {
+public class CoverageLonLatCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var lat:Double? = nil
@@ -27,52 +27,52 @@ open class CoverageLonLatCalendarsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatCalendarsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatCalendarsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageLonLatCalendarsRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageLonLatCalendarsRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCalendarsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCalendarsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatCalendarsRequestBuilder {
         self.distance = distance
         
         return self
@@ -80,12 +80,12 @@ open class CoverageLonLatCalendarsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatCalendarsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatCalendarsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/calendars"
 
         if let lat = lat {
@@ -119,7 +119,7 @@ open class CoverageLonLatCalendarsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -140,7 +140,7 @@ open class CoverageLonLatCalendarsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -162,7 +162,7 @@ open class CoverageLonLatCalendarsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
+public class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var lat:Double? = nil
@@ -182,57 +182,57 @@ open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.distance = distance
         
         return self
@@ -240,12 +240,12 @@ open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatCalendarsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/calendars/{id}"
 
         if let lat = lat {
@@ -285,7 +285,7 @@ open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -309,7 +309,7 @@ open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -334,7 +334,7 @@ open class CoverageLonLatCalendarsIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
+public class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var lat:Double? = nil
@@ -354,57 +354,57 @@ open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.distance = distance
         
         return self
@@ -412,12 +412,12 @@ open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriCalendarsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/calendars"
 
         if let lat = lat {
@@ -457,7 +457,7 @@ open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -481,7 +481,7 @@ open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -506,7 +506,7 @@ open class CoverageLonLatUriCalendarsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionCalendarsRequestBuilder: NSObject {
+public class CoverageRegionCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var region:String? = nil
@@ -524,47 +524,47 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionCalendarsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionCalendarsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionCalendarsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionCalendarsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageRegionCalendarsRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageRegionCalendarsRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCalendarsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCalendarsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionCalendarsRequestBuilder {
         self.distance = distance
         
         return self
@@ -572,12 +572,12 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionCalendarsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionCalendarsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/calendars"
 
         if let region = region {
@@ -605,7 +605,7 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -623,7 +623,7 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -642,7 +642,7 @@ open class CoverageRegionCalendarsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
+public class CoverageRegionCalendarsIdRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var region:String? = nil
@@ -661,52 +661,52 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.distance = distance
         
         return self
@@ -714,12 +714,12 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionCalendarsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionCalendarsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/calendars/{id}"
 
         if let region = region {
@@ -753,7 +753,7 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -774,7 +774,7 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -796,7 +796,7 @@ open class CoverageRegionCalendarsIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
+public class CoverageRegionUriCalendarsRequestBuilder: NSObject {
     let currentApi: CalendarsApi
 
     var region:String? = nil
@@ -815,52 +815,52 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withStartDate(_ startDate: String?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withStartDate(_ startDate: String?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.startDate = startDate
         
         return self
     }
-    open func withEndDate(_ endDate: String?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withEndDate(_ endDate: String?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.endDate = endDate
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.distance = distance
         
         return self
@@ -868,12 +868,12 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCalendarsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriCalendarsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/calendars"
 
         if let region = region {
@@ -907,7 +907,7 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Calendars?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -928,7 +928,7 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -952,7 +952,7 @@ open class CoverageRegionUriCalendarsRequestBuilder: NSObject {
 
 
 
-open class CalendarsApi: APIBase {
+public class CalendarsApi: APIBase {
     let token: String
 
     public init(token: String) {

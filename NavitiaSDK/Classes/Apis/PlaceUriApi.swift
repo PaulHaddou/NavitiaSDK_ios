@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
+public class CoverageLonLatPlacesIdRequestBuilder: NSObject {
     let currentApi: PlaceUriApi
 
     /**
@@ -33,27 +33,27 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatPlacesIdRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -66,12 +66,12 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -79,12 +79,12 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/places/{id}"
 
         if let lat = lat {
@@ -120,7 +120,7 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -144,7 +144,7 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -169,7 +169,7 @@ open class CoverageLonLatPlacesIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionPlacesIdRequestBuilder: NSObject {
+public class CoverageRegionPlacesIdRequestBuilder: NSObject {
     let currentApi: PlaceUriApi
 
     /**
@@ -193,22 +193,22 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionPlacesIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionPlacesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionPlacesIdRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -221,12 +221,12 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPlacesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -234,12 +234,12 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/places/{id}"
 
         if let region = region {
@@ -269,7 +269,7 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -290,7 +290,7 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -312,7 +312,7 @@ open class CoverageRegionPlacesIdRequestBuilder: NSObject {
     }
 }
 
-open class PlacesIdRequestBuilder: NSObject {
+public class PlacesIdRequestBuilder: NSObject {
     let currentApi: PlaceUriApi
 
     /**
@@ -335,17 +335,17 @@ open class PlacesIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withId(_ id: String?) -> PlacesIdRequestBuilder {
+    public func withId(_ id: String?) -> PlacesIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> PlacesIdRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> PlacesIdRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> PlacesIdRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> PlacesIdRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -358,12 +358,12 @@ open class PlacesIdRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> PlacesIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> PlacesIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> PlacesIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> PlacesIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -371,12 +371,12 @@ open class PlacesIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> PlacesIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> PlacesIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/places/{id}"
 
         if let id = id {
@@ -400,7 +400,7 @@ open class PlacesIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.id == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : id"])))
         }
@@ -418,7 +418,7 @@ open class PlacesIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.id == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : id"])))
     }
@@ -439,7 +439,7 @@ open class PlacesIdRequestBuilder: NSObject {
 
 
 
-open class PlaceUriApi: APIBase {
+public class PlaceUriApi: APIBase {
     let token: String
 
     public init(token: String) {

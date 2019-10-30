@@ -8,10 +8,28 @@
 import Foundation
 
 
-open class LinesSchema: JSONEncodable, Mappable {
+open class LinesSchema: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case duration, cellLon, unknown
+    }
 
     public var duration: [Int32]?
     public var cellLon: CellLonSchema?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        duration = try container.decode([Int32].self, forKey: .duration)
+        cellLon = try container.decode(CellLonSchema.self, forKey: .cellLon)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(duration, forKey: .duration)
+        try container.encode(cellLon, forKey: .cellLon)
+    }
 
     public init() {}
     required public init?(map: Map) {

@@ -8,10 +8,28 @@
 import Foundation
 
 
-open class JourneyPatternPoint: JSONEncodable, Mappable {
+open class JourneyPatternPoint: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case stopPoint, id, unknown
+    }
 
     public var stopPoint: StopPoint?
     public var id: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        id = try container.decode(String.self, forKey: .id)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(id, forKey: .id)
+    }
 
     public init() {}
     required public init?(map: Map) {

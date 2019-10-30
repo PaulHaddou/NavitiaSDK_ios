@@ -8,11 +8,31 @@
 import Foundation
 
 
-open class ImpactedSection: JSONEncodable, Mappable {
+open class ImpactedSection: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case routes, to, from, unknown
+    }
 
     public var routes: [Route]?
     public var to: PtObject?
     public var from: PtObject?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        routes = try container.decode([Route].self, forKey: .routes)
+        to = try container.decode(PtObject.self, forKey: .to)
+        from = try container.decode(PtObject.self, forKey: .from)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(routes, forKey: .routes)
+        try container.encode(to, forKey: .to)
+        try container.encode(from, forKey: .from)
+    }
 
     public init() {}
     required public init?(map: Map) {

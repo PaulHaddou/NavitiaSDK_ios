@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class EquipmentDetails: JSONEncodable, Mappable {
+open class EquipmentDetails: JSONEncodable, Mappable, Codable {
 
-    public enum EmbeddedType: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case embeddedType, id, name, currentAvailability, unknown
+    }
+
+    public enum EmbeddedType: String, Codable { 
         case escalator = "escalator"
         case elevator = "elevator"
     }
@@ -18,6 +23,23 @@ open class EquipmentDetails: JSONEncodable, Mappable {
     public var id: String?
     public var name: String?
     public var currentAvailability: CurrentAvailability?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        embeddedType = try container.decode(EmbeddedType.self, forKey: .embeddedType)
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        currentAvailability = try container.decode(CurrentAvailability.self, forKey: .currentAvailability)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(embeddedType, forKey: .embeddedType)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(currentAvailability, forKey: .currentAvailability)
+    }
 
     public init() {}
     required public init?(map: Map) {

@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
+public class CoverageLonLatHeatMapsRequestBuilder: NSObject {
     let currentApi: HeatMapApi
 
     /**
@@ -119,47 +119,47 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withFrom(_ from: String?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withFrom(_ from: String?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.from = from
         
         return self
     }
-    open func withTo(_ to: String?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withTo(_ to: String?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.to = to
         
         return self
     }
-    open func withDatetime(_ datetime: Date?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDatetime(_ datetime: Date?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.datetime = datetime
         
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
 
         return self
     }
-    open func withMaxNbTransfers(_ maxNbTransfers: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxNbTransfers(_ maxNbTransfers: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
         
         return self
     }
-    open func withMinNbTransfers(_ minNbTransfers: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMinNbTransfers(_ minNbTransfers: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.minNbTransfers = minNbTransfers
         
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
         guard let firstSectionMode = firstSectionMode else {
             return self
         }
@@ -172,7 +172,7 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withLastSectionMode(_ lastSectionMode: [LastSectionMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
         guard let lastSectionMode = lastSectionMode else {
             return self
         }
@@ -185,117 +185,117 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withMaxDurationToPt(_ maxDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxDurationToPt(_ maxDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
         
         return self
     }
-    open func withMaxWalkingDurationToPt(_ maxWalkingDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxWalkingDurationToPt(_ maxWalkingDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxWalkingDurationToPt = maxWalkingDurationToPt
         
         return self
     }
-    open func withMaxBikeDurationToPt(_ maxBikeDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxBikeDurationToPt(_ maxBikeDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxBikeDurationToPt = maxBikeDurationToPt
         
         return self
     }
-    open func withMaxBssDurationToPt(_ maxBssDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxBssDurationToPt(_ maxBssDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxBssDurationToPt = maxBssDurationToPt
         
         return self
     }
-    open func withMaxCarDurationToPt(_ maxCarDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxCarDurationToPt(_ maxCarDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxCarDurationToPt = maxCarDurationToPt
         
         return self
     }
-    open func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxRidesharingDurationToPt = maxRidesharingDurationToPt
         
         return self
     }
-    open func withWalkingSpeed(_ walkingSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withWalkingSpeed(_ walkingSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.walkingSpeed = walkingSpeed
         
         return self
     }
-    open func withBikeSpeed(_ bikeSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withBikeSpeed(_ bikeSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.bikeSpeed = bikeSpeed
         
         return self
     }
-    open func withBssSpeed(_ bssSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withBssSpeed(_ bssSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.bssSpeed = bssSpeed
         
         return self
     }
-    open func withCarSpeed(_ carSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withCarSpeed(_ carSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.carSpeed = carSpeed
         
         return self
     }
-    open func withRidesharingSpeed(_ ridesharingSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withRidesharingSpeed(_ ridesharingSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.ridesharingSpeed = ridesharingSpeed
         
         return self
     }
-    open func withTaxiSpeed(_ taxiSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withTaxiSpeed(_ taxiSpeed: Float?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.taxiSpeed = taxiSpeed
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withAllowedId(_ allowedId: [String]?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withAllowedId(_ allowedId: [String]?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.allowedId = allowedId
         
         return self
     }
-    open func withDisruptionActive(_ disruptionActive: Bool?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDisruptionActive(_ disruptionActive: Bool?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.disruptionActive = disruptionActive
         
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withMaxDuration(_ maxDuration: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withMaxDuration(_ maxDuration: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.maxDuration = maxDuration
         
         return self
     }
-    open func withWheelchair(_ wheelchair: Bool?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withWheelchair(_ wheelchair: Bool?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.wheelchair = wheelchair
         
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withTravelerType(_ travelerType: TravelerType?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.travelerType = travelerType
 
         return self
     }
-    open func withDirectPath(_ directPath: DirectPath?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDirectPath(_ directPath: DirectPath?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.directPath = directPath
 
         return self
     }
-    open func withFreeRadiusFrom(_ freeRadiusFrom: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withFreeRadiusFrom(_ freeRadiusFrom: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.freeRadiusFrom = freeRadiusFrom
         
         return self
     }
-    open func withFreeRadiusTo(_ freeRadiusTo: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withFreeRadiusTo(_ freeRadiusTo: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.freeRadiusTo = freeRadiusTo
         
         return self
     }
-    open func withDirectPathMode(_ directPathMode: [DirectPathMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDirectPathMode(_ directPathMode: [DirectPathMode]?) -> CoverageLonLatHeatMapsRequestBuilder {
         guard let directPathMode = directPathMode else {
             return self
         }
@@ -308,7 +308,7 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withResolution(_ resolution: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withResolution(_ resolution: Int32?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.resolution = resolution
         
         return self
@@ -316,12 +316,12 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatHeatMapsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatHeatMapsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/heat_maps"
 
         if let lat = lat {
@@ -379,7 +379,7 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: HeatMap1?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: HeatMap1?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -400,7 +400,7 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -422,7 +422,7 @@ open class CoverageLonLatHeatMapsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionHeatMapsRequestBuilder: NSObject {
+public class CoverageRegionHeatMapsRequestBuilder: NSObject {
     let currentApi: HeatMapApi
 
     /**
@@ -532,42 +532,42 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionHeatMapsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withFrom(_ from: String?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withFrom(_ from: String?) -> CoverageRegionHeatMapsRequestBuilder {
         self.from = from
         
         return self
     }
-    open func withTo(_ to: String?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withTo(_ to: String?) -> CoverageRegionHeatMapsRequestBuilder {
         self.to = to
         
         return self
     }
-    open func withDatetime(_ datetime: Date?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDatetime(_ datetime: Date?) -> CoverageRegionHeatMapsRequestBuilder {
         self.datetime = datetime
         
         return self
     }
-    open func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDatetimeRepresents(_ datetimeRepresents: DatetimeRepresents?) -> CoverageRegionHeatMapsRequestBuilder {
         self.datetimeRepresents = datetimeRepresents
 
         return self
     }
-    open func withMaxNbTransfers(_ maxNbTransfers: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxNbTransfers(_ maxNbTransfers: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxNbTransfers = maxNbTransfers
         
         return self
     }
-    open func withMinNbTransfers(_ minNbTransfers: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMinNbTransfers(_ minNbTransfers: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.minNbTransfers = minNbTransfers
         
         return self
     }
-    open func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withFirstSectionMode(_ firstSectionMode: [FirstSectionMode]?) -> CoverageRegionHeatMapsRequestBuilder {
         guard let firstSectionMode = firstSectionMode else {
             return self
         }
@@ -580,7 +580,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withLastSectionMode(_ lastSectionMode: [LastSectionMode]?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withLastSectionMode(_ lastSectionMode: [LastSectionMode]?) -> CoverageRegionHeatMapsRequestBuilder {
         guard let lastSectionMode = lastSectionMode else {
             return self
         }
@@ -593,117 +593,117 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withMaxDurationToPt(_ maxDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxDurationToPt(_ maxDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxDurationToPt = maxDurationToPt
         
         return self
     }
-    open func withMaxWalkingDurationToPt(_ maxWalkingDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxWalkingDurationToPt(_ maxWalkingDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxWalkingDurationToPt = maxWalkingDurationToPt
         
         return self
     }
-    open func withMaxBikeDurationToPt(_ maxBikeDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxBikeDurationToPt(_ maxBikeDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxBikeDurationToPt = maxBikeDurationToPt
         
         return self
     }
-    open func withMaxBssDurationToPt(_ maxBssDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxBssDurationToPt(_ maxBssDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxBssDurationToPt = maxBssDurationToPt
         
         return self
     }
-    open func withMaxCarDurationToPt(_ maxCarDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxCarDurationToPt(_ maxCarDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxCarDurationToPt = maxCarDurationToPt
         
         return self
     }
-    open func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxRidesharingDurationToPt(_ maxRidesharingDurationToPt: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxRidesharingDurationToPt = maxRidesharingDurationToPt
         
         return self
     }
-    open func withWalkingSpeed(_ walkingSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withWalkingSpeed(_ walkingSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.walkingSpeed = walkingSpeed
         
         return self
     }
-    open func withBikeSpeed(_ bikeSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withBikeSpeed(_ bikeSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.bikeSpeed = bikeSpeed
         
         return self
     }
-    open func withBssSpeed(_ bssSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withBssSpeed(_ bssSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.bssSpeed = bssSpeed
         
         return self
     }
-    open func withCarSpeed(_ carSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withCarSpeed(_ carSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.carSpeed = carSpeed
         
         return self
     }
-    open func withRidesharingSpeed(_ ridesharingSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withRidesharingSpeed(_ ridesharingSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.ridesharingSpeed = ridesharingSpeed
         
         return self
     }
-    open func withTaxiSpeed(_ taxiSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withTaxiSpeed(_ taxiSpeed: Float?) -> CoverageRegionHeatMapsRequestBuilder {
         self.taxiSpeed = taxiSpeed
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionHeatMapsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withAllowedId(_ allowedId: [String]?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withAllowedId(_ allowedId: [String]?) -> CoverageRegionHeatMapsRequestBuilder {
         self.allowedId = allowedId
         
         return self
     }
-    open func withDisruptionActive(_ disruptionActive: Bool?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDisruptionActive(_ disruptionActive: Bool?) -> CoverageRegionHeatMapsRequestBuilder {
         self.disruptionActive = disruptionActive
         
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionHeatMapsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withMaxDuration(_ maxDuration: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withMaxDuration(_ maxDuration: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.maxDuration = maxDuration
         
         return self
     }
-    open func withWheelchair(_ wheelchair: Bool?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withWheelchair(_ wheelchair: Bool?) -> CoverageRegionHeatMapsRequestBuilder {
         self.wheelchair = wheelchair
         
         return self
     }
-    open func withTravelerType(_ travelerType: TravelerType?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withTravelerType(_ travelerType: TravelerType?) -> CoverageRegionHeatMapsRequestBuilder {
         self.travelerType = travelerType
 
         return self
     }
-    open func withDirectPath(_ directPath: DirectPath?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDirectPath(_ directPath: DirectPath?) -> CoverageRegionHeatMapsRequestBuilder {
         self.directPath = directPath
 
         return self
     }
-    open func withFreeRadiusFrom(_ freeRadiusFrom: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withFreeRadiusFrom(_ freeRadiusFrom: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.freeRadiusFrom = freeRadiusFrom
         
         return self
     }
-    open func withFreeRadiusTo(_ freeRadiusTo: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withFreeRadiusTo(_ freeRadiusTo: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.freeRadiusTo = freeRadiusTo
         
         return self
     }
-    open func withDirectPathMode(_ directPathMode: [DirectPathMode]?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDirectPathMode(_ directPathMode: [DirectPathMode]?) -> CoverageRegionHeatMapsRequestBuilder {
         guard let directPathMode = directPathMode else {
             return self
         }
@@ -716,7 +716,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
 
         return self
     }
-    open func withResolution(_ resolution: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withResolution(_ resolution: Int32?) -> CoverageRegionHeatMapsRequestBuilder {
         self.resolution = resolution
         
         return self
@@ -724,12 +724,12 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionHeatMapsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionHeatMapsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/heat_maps"
 
         if let region = region {
@@ -781,7 +781,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: HeatMap1?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: HeatMap1?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -799,7 +799,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -820,7 +820,7 @@ open class CoverageRegionHeatMapsRequestBuilder: NSObject {
 
 
 
-open class HeatMapApi: APIBase {
+public class HeatMapApi: APIBase {
     let token: String
 
     public init(token: String) {

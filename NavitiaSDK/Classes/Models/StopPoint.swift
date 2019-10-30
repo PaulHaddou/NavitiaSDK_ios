@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class StopPoint: JSONEncodable, Mappable {
+open class StopPoint: JSONEncodable, Mappable, Codable {
 
-    public enum Equipments: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case comment, commercialModes, stopArea, links, administrativeRegions, physicalModes, comments, label, equipments, codes, coord, equipmentDetails, address, fareZone, id, name, unknown
+    }
+
+    public enum Equipments: String, Codable { 
         case wheelchairAccessibility = "has_wheelchair_accessibility"
         case bikeAccepted = "has_bike_accepted"
         case airConditioned = "has_air_conditioned"
@@ -43,6 +48,47 @@ open class StopPoint: JSONEncodable, Mappable {
     public var id: String?
     /** Name of the object */
     public var name: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        comment = try container.decode(String.self, forKey: .comment)
+        commercialModes = try container.decode([CommercialMode].self, forKey: .commercialModes)
+        stopArea = try container.decode(StopArea.self, forKey: .stopArea)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        administrativeRegions = try container.decode([Admin].self, forKey: .administrativeRegions)
+        physicalModes = try container.decode([PhysicalMode].self, forKey: .physicalModes)
+        comments = try container.decode([Comment].self, forKey: .comments)
+        label = try container.decode(String.self, forKey: .label)
+        equipments = try container.decode([Equipments].self, forKey: .equipments)
+        codes = try container.decode([Code].self, forKey: .codes)
+        coord = try container.decode(Coord.self, forKey: .coord)
+        equipmentDetails = try container.decode([EquipmentDetails].self, forKey: .equipmentDetails)
+        address = try container.decode(Address.self, forKey: .address)
+        fareZone = try container.decode(FareZone.self, forKey: .fareZone)
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(comment, forKey: .comment)
+        try container.encode(commercialModes, forKey: .commercialModes)
+        try container.encode(stopArea, forKey: .stopArea)
+        try container.encode(links, forKey: .links)
+        try container.encode(administrativeRegions, forKey: .administrativeRegions)
+        try container.encode(physicalModes, forKey: .physicalModes)
+        try container.encode(comments, forKey: .comments)
+        try container.encode(label, forKey: .label)
+        try container.encode(equipments, forKey: .equipments)
+        try container.encode(codes, forKey: .codes)
+        try container.encode(coord, forKey: .coord)
+        try container.encode(equipmentDetails, forKey: .equipmentDetails)
+        try container.encode(address, forKey: .address)
+        try container.encode(fareZone, forKey: .fareZone)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+    }
 
     public init() {}
     required public init?(map: Map) {

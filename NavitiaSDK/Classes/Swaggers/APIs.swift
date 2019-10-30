@@ -6,14 +6,14 @@
 
 import Foundation
 
-open class NavitiaSDKAPI {
+public class NavitiaSDKAPI {
     public static var basePath = "https://api.navitia.io/v1"
     public static var credential: URLCredential?
     public static var customHeaders: [String:String] = [:]
     public static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
 }
 
-open class APIBase: NSObject {
+public class APIBase: NSObject {
     func toParameters(_ encodable: JSONEncodable?) -> [String: Any]? {
         let encoded: Any? = encodable?.encodeToJSON()
 
@@ -29,7 +29,7 @@ open class APIBase: NSObject {
     }
 }
 
-open class RequestBuilder<T> {
+public class RequestBuilder<T> {
     var credential: URLCredential?
     var headers: [String:String]
     let parameters: [String:Any]?
@@ -50,13 +50,13 @@ open class RequestBuilder<T> {
         addHeaders(NavitiaSDKAPI.customHeaders)
     }
     
-    open func addHeaders(_ aHeaders:[String:String]) {
+    public func addHeaders(_ aHeaders:[String:String]) {
         for (header, value) in aHeaders {
             headers[header] = value
         }
     }
     
-    open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) { }
+    public func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) { }
 
     public func addHeader(name: String, value: String) -> Self {
         if !value.isEmpty {
@@ -65,7 +65,7 @@ open class RequestBuilder<T> {
         return self
     }
     
-    open func addCredential() -> Self {
+    public func addCredential() -> Self {
         self.credential = NavitiaSDKAPI.credential
         return self
     }

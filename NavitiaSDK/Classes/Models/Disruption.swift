@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class Disruption: JSONEncodable, Mappable {
+open class Disruption: JSONEncodable, Mappable, Codable {
 
-    public enum Status: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case status, category, severity, tags, messages, applicationPeriods, impactId, disruptionId, updatedAt, uri, impactedObjects, id, disruptionUri, contributor, cause, properties, unknown
+    }
+
+    public enum Status: String, Codable { 
         case past = "past"
         case active = "active"
         case future = "future"
@@ -31,6 +36,47 @@ open class Disruption: JSONEncodable, Mappable {
     public var contributor: String?
     public var cause: String?
     public var properties: [DisruptionProperty]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        status = try container.decode(Status.self, forKey: .status)
+        category = try container.decode(String.self, forKey: .category)
+        severity = try container.decode(Severity.self, forKey: .severity)
+        tags = try container.decode([String].self, forKey: .tags)
+        messages = try container.decode([Message].self, forKey: .messages)
+        applicationPeriods = try container.decode([Period].self, forKey: .applicationPeriods)
+        impactId = try container.decode(String.self, forKey: .impactId)
+        disruptionId = try container.decode(String.self, forKey: .disruptionId)
+        updatedAt = try container.decode(String.self, forKey: .updatedAt)
+        uri = try container.decode(String.self, forKey: .uri)
+        impactedObjects = try container.decode([Impacted].self, forKey: .impactedObjects)
+        id = try container.decode(String.self, forKey: .id)
+        disruptionUri = try container.decode(String.self, forKey: .disruptionUri)
+        contributor = try container.decode(String.self, forKey: .contributor)
+        cause = try container.decode(String.self, forKey: .cause)
+        properties = try container.decode([DisruptionProperty].self, forKey: .properties)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(status, forKey: .status)
+        try container.encode(category, forKey: .category)
+        try container.encode(severity, forKey: .severity)
+        try container.encode(tags, forKey: .tags)
+        try container.encode(messages, forKey: .messages)
+        try container.encode(applicationPeriods, forKey: .applicationPeriods)
+        try container.encode(impactId, forKey: .impactId)
+        try container.encode(disruptionId, forKey: .disruptionId)
+        try container.encode(updatedAt, forKey: .updatedAt)
+        try container.encode(uri, forKey: .uri)
+        try container.encode(impactedObjects, forKey: .impactedObjects)
+        try container.encode(id, forKey: .id)
+        try container.encode(disruptionUri, forKey: .disruptionUri)
+        try container.encode(contributor, forKey: .contributor)
+        try container.encode(cause, forKey: .cause)
+        try container.encode(properties, forKey: .properties)
+    }
 
     public init() {}
     required public init?(map: Map) {

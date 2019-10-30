@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
+public class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -53,97 +53,97 @@ open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.tags = tags
         
         return self
@@ -151,12 +151,12 @@ open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatJourneyPatternsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/journey_patterns"
 
         if let lat = lat {
@@ -199,7 +199,7 @@ open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -220,7 +220,7 @@ open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -242,7 +242,7 @@ open class CoverageLonLatJourneyPatternsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
+public class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -287,97 +287,97 @@ open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -385,12 +385,12 @@ open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatJourneyPatternsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/journey_patterns/{id}"
 
         if let lat = lat {
@@ -438,7 +438,7 @@ open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -462,7 +462,7 @@ open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -487,7 +487,7 @@ open class CoverageLonLatJourneyPatternsIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
+public class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -533,102 +533,102 @@ open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.tags = tags
         
         return self
@@ -636,12 +636,12 @@ open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriJourneyPatternsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/journey_patterns"
 
         if let lat = lat {
@@ -690,7 +690,7 @@ open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -714,7 +714,7 @@ open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -739,7 +739,7 @@ open class CoverageLonLatUriJourneyPatternsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
+public class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -785,102 +785,102 @@ open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -888,12 +888,12 @@ open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriJourneyPatternsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/journey_patterns/{id}"
 
         if let lat = lat {
@@ -947,7 +947,7 @@ open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -974,7 +974,7 @@ open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -1002,7 +1002,7 @@ open class CoverageLonLatUriJourneyPatternsIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
+public class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -1046,92 +1046,92 @@ open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.tags = tags
         
         return self
@@ -1139,12 +1139,12 @@ open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionJourneyPatternsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/journey_patterns"
 
         if let region = region {
@@ -1181,7 +1181,7 @@ open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1199,7 +1199,7 @@ open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1218,7 +1218,7 @@ open class CoverageRegionJourneyPatternsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
+public class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -1262,92 +1262,92 @@ open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -1355,12 +1355,12 @@ open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionJourneyPatternsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/journey_patterns/{id}"
 
         if let region = region {
@@ -1402,7 +1402,7 @@ open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1423,7 +1423,7 @@ open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1445,7 +1445,7 @@ open class CoverageRegionJourneyPatternsIdRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
+public class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -1490,97 +1490,97 @@ open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.tags = tags
         
         return self
@@ -1588,12 +1588,12 @@ open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriJourneyPatternsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/journey_patterns"
 
         if let region = region {
@@ -1636,7 +1636,7 @@ open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1657,7 +1657,7 @@ open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1679,7 +1679,7 @@ open class CoverageRegionUriJourneyPatternsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
+public class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
     let currentApi: JourneyPatternsApi
 
     /**
@@ -1724,97 +1724,97 @@ open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withId(_ id: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withId(_ id: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.id = id
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withExternalCode(_ externalCode: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withExternalCode(_ externalCode: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.externalCode = externalCode
         
         return self
     }
-    open func withHeadsign(_ headsign: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withHeadsign(_ headsign: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.headsign = headsign
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withOdtLevel(_ odtLevel: OdtLevel?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.odtLevel = odtLevel
 
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withSince(_ since: Date?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withSince(_ since: Date?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.since = since
         
         return self
     }
-    open func withUntil(_ until: Date?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withUntil(_ until: Date?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.until = until
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
     }
-    open func withTags(_ tags: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withTags(_ tags: [String]?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.tags = tags
         
         return self
@@ -1822,12 +1822,12 @@ open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriJourneyPatternsIdRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/journey_patterns/{id}"
 
         if let region = region {
@@ -1875,7 +1875,7 @@ open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: JourneyPatterns?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1899,7 +1899,7 @@ open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1926,7 +1926,7 @@ open class CoverageRegionUriJourneyPatternsIdRequestBuilder: NSObject {
 
 
 
-open class JourneyPatternsApi: APIBase {
+public class JourneyPatternsApi: APIBase {
     let token: String
 
     public init(token: String) {

@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
+public class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var lat:Double? = nil
@@ -24,37 +24,37 @@ open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -62,12 +62,12 @@ open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordLonLatEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordLonLatEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coord/{lon};{lat}/equipment_reports"
 
         if let lat = lat {
@@ -98,7 +98,7 @@ open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -119,7 +119,7 @@ open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -141,7 +141,7 @@ open class CoordLonLatEquipmentReportsRequestBuilder: NSObject {
     }
 }
 
-open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
+public class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var lat:Double? = nil
@@ -157,37 +157,37 @@ open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -195,12 +195,12 @@ open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordsLonLatEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordsLonLatEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coords/{lon};{lat}/equipment_reports"
 
         if let lat = lat {
@@ -231,7 +231,7 @@ open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -252,7 +252,7 @@ open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -274,7 +274,7 @@ open class CoordsLonLatEquipmentReportsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
+public class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var lat:Double? = nil
@@ -290,37 +290,37 @@ open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -328,12 +328,12 @@ open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/equipment_reports"
 
         if let lat = lat {
@@ -364,7 +364,7 @@ open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -385,7 +385,7 @@ open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -407,7 +407,7 @@ open class CoverageLonLatEquipmentReportsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
+public class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var lat:Double? = nil
@@ -424,42 +424,42 @@ open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -467,12 +467,12 @@ open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/equipment_reports"
 
         if let lat = lat {
@@ -509,7 +509,7 @@ open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -533,7 +533,7 @@ open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -558,7 +558,7 @@ open class CoverageLonLatUriEquipmentReportsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
+public class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var region:String? = nil
@@ -573,32 +573,32 @@ open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -606,12 +606,12 @@ open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/equipment_reports"
 
         if let region = region {
@@ -636,7 +636,7 @@ open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -654,7 +654,7 @@ open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -673,7 +673,7 @@ open class CoverageRegionEquipmentReportsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
+public class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
     let currentApi: EquipmentReportsApi
 
     var region:String? = nil
@@ -689,37 +689,37 @@ open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
@@ -727,12 +727,12 @@ open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriEquipmentReportsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/equipment_reports"
 
         if let region = region {
@@ -763,7 +763,7 @@ open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: EquipmentReports?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -784,7 +784,7 @@ open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -808,7 +808,7 @@ open class CoverageRegionUriEquipmentReportsRequestBuilder: NSObject {
 
 
 
-open class EquipmentReportsApi: APIBase {
+public class EquipmentReportsApi: APIBase {
     let token: String
 
     public init(token: String) {

@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoordLonLatRequestBuilder: NSObject {
+public class CoordLonLatRequestBuilder: NSObject {
     let currentApi: CoordApi
 
     var lat:Double? = nil
@@ -19,12 +19,12 @@ open class CoordLonLatRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordLonLatRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordLonLatRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordLonLatRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordLonLatRequestBuilder {
         self.lon = lon
         
         return self
@@ -32,12 +32,12 @@ open class CoordLonLatRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordLonLatRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordLonLatRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coord/{lon};{lat}/"
 
         if let lat = lat {
@@ -59,7 +59,7 @@ open class CoordLonLatRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: DictAddresses?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: DictAddresses?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -80,7 +80,7 @@ open class CoordLonLatRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -102,7 +102,7 @@ open class CoordLonLatRequestBuilder: NSObject {
     }
 }
 
-open class CoordsLonLatRequestBuilder: NSObject {
+public class CoordsLonLatRequestBuilder: NSObject {
     let currentApi: CoordApi
 
     var lat:Double? = nil
@@ -113,12 +113,12 @@ open class CoordsLonLatRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordsLonLatRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordsLonLatRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordsLonLatRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordsLonLatRequestBuilder {
         self.lon = lon
         
         return self
@@ -126,12 +126,12 @@ open class CoordsLonLatRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordsLonLatRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordsLonLatRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coords/{lon};{lat}/"
 
         if let lat = lat {
@@ -153,7 +153,7 @@ open class CoordsLonLatRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: DictAddresses?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: DictAddresses?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -174,7 +174,7 @@ open class CoordsLonLatRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -198,7 +198,7 @@ open class CoordsLonLatRequestBuilder: NSObject {
 
 
 
-open class CoordApi: APIBase {
+public class CoordApi: APIBase {
     let token: String
 
     public init(token: String) {

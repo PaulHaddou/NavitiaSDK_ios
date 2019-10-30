@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
+public class CoverageLonLatPtObjectsRequestBuilder: NSObject {
     let currentApi: PtobjectsApi
 
     /**
@@ -38,22 +38,22 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withQ(_ q: String?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withQ(_ q: String?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.q = q
         
         return self
     }
-    open func withLat(_ lat: Double?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageLonLatPtObjectsRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -66,27 +66,27 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
 
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withAdminUri(_ adminUri: [String]?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withAdminUri(_ adminUri: [String]?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.adminUri = adminUri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -94,12 +94,12 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatPtObjectsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatPtObjectsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/pt_objects"
 
         if let lat = lat {
@@ -132,7 +132,7 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PtObjects?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PtObjects?,_ error: Error?) -> Void)) {
         if (self.q == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
@@ -156,7 +156,7 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.q == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
@@ -181,7 +181,7 @@ open class CoverageLonLatPtObjectsRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionPtObjectsRequestBuilder: NSObject {
+public class CoverageRegionPtObjectsRequestBuilder: NSObject {
     let currentApi: PtobjectsApi
 
     /**
@@ -210,17 +210,17 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withQ(_ q: String?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withQ(_ q: String?) -> CoverageRegionPtObjectsRequestBuilder {
         self.q = q
         
         return self
     }
-    open func withRegion(_ region: String?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionPtObjectsRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageRegionPtObjectsRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -233,27 +233,27 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
 
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionPtObjectsRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withAdminUri(_ adminUri: [String]?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withAdminUri(_ adminUri: [String]?) -> CoverageRegionPtObjectsRequestBuilder {
         self.adminUri = adminUri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionPtObjectsRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPtObjectsRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPtObjectsRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -261,12 +261,12 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionPtObjectsRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionPtObjectsRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/pt_objects"
 
         if let region = region {
@@ -293,7 +293,7 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PtObjects?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PtObjects?,_ error: Error?) -> Void)) {
         if (self.q == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
@@ -314,7 +314,7 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.q == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
@@ -338,7 +338,7 @@ open class CoverageRegionPtObjectsRequestBuilder: NSObject {
 
 
 
-open class PtobjectsApi: APIBase {
+public class PtobjectsApi: APIBase {
     let token: String
 
     public init(token: String) {

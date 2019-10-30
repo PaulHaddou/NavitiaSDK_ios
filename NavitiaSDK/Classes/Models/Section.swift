@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class Section: JSONEncodable, Mappable {
+open class Section: JSONEncodable, Mappable, Codable {
 
-    public enum AdditionalInformations: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case links, departureDateTime, baseDepartureDateTime, duration, id, from, arrivalDateTime, additionalInformations, geojson, ridesharingInformations, to, baseArrivalDateTime, transferType, type, dataFreshness, co2Emission, path, cycleLaneLength, displayInformations, mode, ridesharingJourneys, stopDateTimes, unknown
+    }
+
+    public enum AdditionalInformations: String, Codable { 
         case odtWithZone = "odt_with_zone"
         case odtWithStopPoint = "odt_with_stop_point"
         case odtWithStopTime = "odt_with_stop_time"
@@ -18,11 +23,11 @@ open class Section: JSONEncodable, Mappable {
         case regular = "regular"
         case stayIn = "stay_in"
     }
-    public enum TransferType: String { 
+    public enum TransferType: String, Codable { 
         case walking = "walking"
         case stayIn = "stay_in"
     }
-    public enum ModelType: String { 
+    public enum ModelType: String, Codable { 
         case publicTransport = "public_transport"
         case streetNetwork = "street_network"
         case waiting = "waiting"
@@ -38,12 +43,12 @@ open class Section: JSONEncodable, Mappable {
         case ridesharing = "ridesharing"
         case onDemandTransport = "on_demand_transport"
     }
-    public enum DataFreshness: String { 
+    public enum DataFreshness: String, Codable { 
         case baseSchedule = "base_schedule"
         case adaptedSchedule = "adapted_schedule"
         case realtime = "realtime"
     }
-    public enum Mode: String { 
+    public enum Mode: String, Codable { 
         case walking = "walking"
         case bike = "bike"
         case car = "car"
@@ -80,6 +85,59 @@ open class Section: JSONEncodable, Mappable {
     public var mode: Mode?
     public var ridesharingJourneys: [Journey]?
     public var stopDateTimes: [StopDateTime]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        departureDateTime = try container.decode(String.self, forKey: .departureDateTime)
+        baseDepartureDateTime = try container.decode(String.self, forKey: .baseDepartureDateTime)
+        duration = try container.decode(Int32.self, forKey: .duration)
+        id = try container.decode(String.self, forKey: .id)
+        from = try container.decode(Place.self, forKey: .from)
+        arrivalDateTime = try container.decode(String.self, forKey: .arrivalDateTime)
+        additionalInformations = try container.decode([AdditionalInformations].self, forKey: .additionalInformations)
+        geojson = try container.decode(SectionGeoJsonSchema.self, forKey: .geojson)
+        ridesharingInformations = try container.decode(RidesharingInformation.self, forKey: .ridesharingInformations)
+        to = try container.decode(Place.self, forKey: .to)
+        baseArrivalDateTime = try container.decode(String.self, forKey: .baseArrivalDateTime)
+        transferType = try container.decode(TransferType.self, forKey: .transferType)
+        type = try container.decode(ModelType.self, forKey: .type)
+        dataFreshness = try container.decode(DataFreshness.self, forKey: .dataFreshness)
+        co2Emission = try container.decode(Amount.self, forKey: .co2Emission)
+        path = try container.decode([Path].self, forKey: .path)
+        cycleLaneLength = try container.decode(Int32.self, forKey: .cycleLaneLength)
+        displayInformations = try container.decode(VJDisplayInformation.self, forKey: .displayInformations)
+        mode = try container.decode(Mode.self, forKey: .mode)
+        ridesharingJourneys = try container.decode([Journey].self, forKey: .ridesharingJourneys)
+        stopDateTimes = try container.decode([StopDateTime].self, forKey: .stopDateTimes)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(links, forKey: .links)
+        try container.encode(departureDateTime, forKey: .departureDateTime)
+        try container.encode(baseDepartureDateTime, forKey: .baseDepartureDateTime)
+        try container.encode(duration, forKey: .duration)
+        try container.encode(id, forKey: .id)
+        try container.encode(from, forKey: .from)
+        try container.encode(arrivalDateTime, forKey: .arrivalDateTime)
+        try container.encode(additionalInformations, forKey: .additionalInformations)
+        try container.encode(geojson, forKey: .geojson)
+        try container.encode(ridesharingInformations, forKey: .ridesharingInformations)
+        try container.encode(to, forKey: .to)
+        try container.encode(baseArrivalDateTime, forKey: .baseArrivalDateTime)
+        try container.encode(transferType, forKey: .transferType)
+        try container.encode(type, forKey: .type)
+        try container.encode(dataFreshness, forKey: .dataFreshness)
+        try container.encode(co2Emission, forKey: .co2Emission)
+        try container.encode(path, forKey: .path)
+        try container.encode(cycleLaneLength, forKey: .cycleLaneLength)
+        try container.encode(displayInformations, forKey: .displayInformations)
+        try container.encode(mode, forKey: .mode)
+        try container.encode(ridesharingJourneys, forKey: .ridesharingJourneys)
+        try container.encode(stopDateTimes, forKey: .stopDateTimes)
+    }
 
     public init() {}
     required public init?(map: Map) {

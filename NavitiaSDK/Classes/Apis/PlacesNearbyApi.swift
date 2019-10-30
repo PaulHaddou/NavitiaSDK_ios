@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
+public class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -48,17 +48,17 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoordLonLatPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -71,37 +71,37 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoordLonLatPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -114,12 +114,12 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -127,12 +127,12 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordLonLatPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordLonLatPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coord/{lon};{lat}/places_nearby"
 
         if let lat = lat {
@@ -168,7 +168,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -189,7 +189,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -211,7 +211,7 @@ open class CoordLonLatPlacesNearbyRequestBuilder: NSObject {
     }
 }
 
-open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
+public class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -251,17 +251,17 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -274,37 +274,37 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -317,12 +317,12 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -330,12 +330,12 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoordsLonLatPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoordsLonLatPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coords/{lon};{lat}/places_nearby"
 
         if let lat = lat {
@@ -371,7 +371,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -392,7 +392,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -414,7 +414,7 @@ open class CoordsLonLatPlacesNearbyRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
+public class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -454,17 +454,17 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -477,37 +477,37 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -520,12 +520,12 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -533,12 +533,12 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/places_nearby"
 
         if let lat = lat {
@@ -574,7 +574,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -595,7 +595,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -617,7 +617,7 @@ open class CoverageLonLatPlacesNearbyRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
+public class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -658,22 +658,22 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -686,37 +686,37 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -729,12 +729,12 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -742,12 +742,12 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/places_nearby"
 
         if let lat = lat {
@@ -789,7 +789,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -813,7 +813,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -838,7 +838,7 @@ open class CoverageLonLatUriPlacesNearbyRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
+public class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -877,12 +877,12 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageRegionPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -895,37 +895,37 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -938,12 +938,12 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -951,12 +951,12 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/places_nearby"
 
         if let region = region {
@@ -986,7 +986,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1004,7 +1004,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1023,7 +1023,7 @@ open class CoverageRegionPlacesNearbyRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
+public class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
     let currentApi: PlacesNearbyApi
 
     /**
@@ -1063,17 +1063,17 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -1086,37 +1086,37 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withBssStands(_ bssStands: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withBssStands(_ bssStands: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.bssStands = bssStands
         
         return self
     }
-    open func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withAddPoiInfos(_ addPoiInfos: [AddPoiInfos]?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         guard let addPoiInfos = addPoiInfos else {
             return self
         }
@@ -1129,12 +1129,12 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
 
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withDisableDisruption(_ disableDisruption: Bool?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.disableDisruption = disableDisruption
         
         return self
@@ -1142,12 +1142,12 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriPlacesNearbyRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/places_nearby"
 
         if let region = region {
@@ -1183,7 +1183,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: PlacesNearby?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -1204,7 +1204,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -1228,7 +1228,7 @@ open class CoverageRegionUriPlacesNearbyRequestBuilder: NSObject {
 
 
 
-open class PlacesNearbyApi: APIBase {
+public class PlacesNearbyApi: APIBase {
     let token: String
 
     public init(token: String) {

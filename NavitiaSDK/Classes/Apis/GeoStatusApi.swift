@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
+public class CoverageLonLatGeoStatusRequestBuilder: NSObject {
     let currentApi: GeoStatusApi
 
     var lat:Double? = nil
@@ -19,12 +19,12 @@ open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatGeoStatusRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatGeoStatusRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatGeoStatusRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatGeoStatusRequestBuilder {
         self.lon = lon
         
         return self
@@ -32,12 +32,12 @@ open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatGeoStatusRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatGeoStatusRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/_geo_status"
 
         if let lat = lat {
@@ -59,7 +59,7 @@ open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: GeoStatus1?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: GeoStatus1?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -80,7 +80,7 @@ open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -102,7 +102,7 @@ open class CoverageLonLatGeoStatusRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionGeoStatusRequestBuilder: NSObject {
+public class CoverageRegionGeoStatusRequestBuilder: NSObject {
     let currentApi: GeoStatusApi
 
     var region:String? = nil
@@ -112,7 +112,7 @@ open class CoverageRegionGeoStatusRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionGeoStatusRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionGeoStatusRequestBuilder {
         self.region = region
         
         return self
@@ -120,12 +120,12 @@ open class CoverageRegionGeoStatusRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionGeoStatusRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionGeoStatusRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/_geo_status"
 
         if let region = region {
@@ -141,7 +141,7 @@ open class CoverageRegionGeoStatusRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: GeoStatus1?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: GeoStatus1?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -159,7 +159,7 @@ open class CoverageRegionGeoStatusRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -180,7 +180,7 @@ open class CoverageRegionGeoStatusRequestBuilder: NSObject {
 
 
 
-open class GeoStatusApi: APIBase {
+public class GeoStatusApi: APIBase {
     let token: String
 
     public init(token: String) {

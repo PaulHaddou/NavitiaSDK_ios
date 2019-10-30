@@ -8,10 +8,28 @@
 import Foundation
 
 
-open class EquipmentReport: JSONEncodable, Mappable {
+open class EquipmentReport: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case line, stopAreaEquipments, unknown
+    }
 
     public var line: Line?
     public var stopAreaEquipments: [StopAreaEquipments]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        line = try container.decode(Line.self, forKey: .line)
+        stopAreaEquipments = try container.decode([StopAreaEquipments].self, forKey: .stopAreaEquipments)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(line, forKey: .line)
+        try container.encode(stopAreaEquipments, forKey: .stopAreaEquipments)
+    }
 
     public init() {}
     required public init?(map: Map) {

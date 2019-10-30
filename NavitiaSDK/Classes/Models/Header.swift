@@ -8,11 +8,31 @@
 import Foundation
 
 
-open class Header: JSONEncodable, Mappable {
+open class Header: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case displayInformations, additionalInformations, links, unknown
+    }
 
     public var displayInformations: VJDisplayInformation?
     public var additionalInformations: [String]?
     public var links: [LinkSchema]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        displayInformations = try container.decode(VJDisplayInformation.self, forKey: .displayInformations)
+        additionalInformations = try container.decode([String].self, forKey: .additionalInformations)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(displayInformations, forKey: .displayInformations)
+        try container.encode(additionalInformations, forKey: .additionalInformations)
+        try container.encode(links, forKey: .links)
+    }
 
     public init() {}
     required public init?(map: Map) {

@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatPlacesRequestBuilder: NSObject {
+public class CoverageLonLatPlacesRequestBuilder: NSObject {
     let currentApi: PlacesApi
 
     /**
@@ -37,22 +37,22 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withQ(_ q: String?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withQ(_ q: String?) -> CoverageLonLatPlacesRequestBuilder {
         self.q = q
         
         return self
     }
-    open func withLat(_ lat: Double?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatPlacesRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatPlacesRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageLonLatPlacesRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -65,32 +65,32 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
 
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatPlacesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withAdminUri(_ adminUri: [String]?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withAdminUri(_ adminUri: [String]?) -> CoverageLonLatPlacesRequestBuilder {
         self.adminUri = adminUri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatPlacesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatPlacesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withFrom(_ from: String?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withFrom(_ from: String?) -> CoverageLonLatPlacesRequestBuilder {
         self.from = from
         
         return self
     }
-    open func withShape(_ shape: String?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withShape(_ shape: String?) -> CoverageLonLatPlacesRequestBuilder {
         self.shape = shape
         
         return self
@@ -98,12 +98,12 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatPlacesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/places"
 
         if let lat = lat {
@@ -137,7 +137,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.q == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
@@ -161,7 +161,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.q == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
@@ -186,7 +186,7 @@ open class CoverageLonLatPlacesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionPlacesRequestBuilder: NSObject {
+public class CoverageRegionPlacesRequestBuilder: NSObject {
     let currentApi: PlacesApi
 
     /**
@@ -214,17 +214,17 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withQ(_ q: String?) -> CoverageRegionPlacesRequestBuilder {
+    public func withQ(_ q: String?) -> CoverageRegionPlacesRequestBuilder {
         self.q = q
         
         return self
     }
-    open func withRegion(_ region: String?) -> CoverageRegionPlacesRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionPlacesRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> CoverageRegionPlacesRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> CoverageRegionPlacesRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -237,32 +237,32 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
 
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionPlacesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionPlacesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withAdminUri(_ adminUri: [String]?) -> CoverageRegionPlacesRequestBuilder {
+    public func withAdminUri(_ adminUri: [String]?) -> CoverageRegionPlacesRequestBuilder {
         self.adminUri = adminUri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionPlacesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionPlacesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionPlacesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withFrom(_ from: String?) -> CoverageRegionPlacesRequestBuilder {
+    public func withFrom(_ from: String?) -> CoverageRegionPlacesRequestBuilder {
         self.from = from
         
         return self
     }
-    open func withShape(_ shape: String?) -> CoverageRegionPlacesRequestBuilder {
+    public func withShape(_ shape: String?) -> CoverageRegionPlacesRequestBuilder {
         self.shape = shape
         
         return self
@@ -270,12 +270,12 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionPlacesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/places"
 
         if let region = region {
@@ -303,7 +303,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.q == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
@@ -324,7 +324,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.q == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
@@ -346,7 +346,7 @@ open class CoverageRegionPlacesRequestBuilder: NSObject {
     }
 }
 
-open class PlacesRequestBuilder: NSObject {
+public class PlacesRequestBuilder: NSObject {
     let currentApi: PlacesApi
 
     /**
@@ -373,12 +373,12 @@ open class PlacesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withQ(_ q: String?) -> PlacesRequestBuilder {
+    public func withQ(_ q: String?) -> PlacesRequestBuilder {
         self.q = q
         
         return self
     }
-    open func withType(_ type: [ModelType]?) -> PlacesRequestBuilder {
+    public func withType(_ type: [ModelType]?) -> PlacesRequestBuilder {
         guard let type = type else {
             return self
         }
@@ -391,32 +391,32 @@ open class PlacesRequestBuilder: NSObject {
 
         return self
     }
-    open func withCount(_ count: Int32?) -> PlacesRequestBuilder {
+    public func withCount(_ count: Int32?) -> PlacesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withAdminUri(_ adminUri: [String]?) -> PlacesRequestBuilder {
+    public func withAdminUri(_ adminUri: [String]?) -> PlacesRequestBuilder {
         self.adminUri = adminUri
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> PlacesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> PlacesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> PlacesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> PlacesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withFrom(_ from: String?) -> PlacesRequestBuilder {
+    public func withFrom(_ from: String?) -> PlacesRequestBuilder {
         self.from = from
         
         return self
     }
-    open func withShape(_ shape: String?) -> PlacesRequestBuilder {
+    public func withShape(_ shape: String?) -> PlacesRequestBuilder {
         self.shape = shape
         
         return self
@@ -424,12 +424,12 @@ open class PlacesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> PlacesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> PlacesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         let path = "/places"
 
         let URLString = String(format: "%@%@", NavitiaSDKAPI.basePath, path)
@@ -451,7 +451,7 @@ open class PlacesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Places?,_ error: Error?) -> Void)) {
         if (self.q == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
         }
@@ -469,7 +469,7 @@ open class PlacesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.q == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : q"])))
     }
@@ -490,7 +490,7 @@ open class PlacesRequestBuilder: NSObject {
 
 
 
-open class PlacesApi: APIBase {
+public class PlacesApi: APIBase {
     let token: String
 
     public init(token: String) {

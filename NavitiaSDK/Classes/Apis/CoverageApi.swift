@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageRequestBuilder: NSObject {
+public class CoverageRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
     var disableGeojson:Bool? = nil
@@ -18,7 +18,7 @@ open class CoverageRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
@@ -26,12 +26,12 @@ open class CoverageRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         let path = "/coverage/"
 
         let URLString = String(format: "%@%@", NavitiaSDKAPI.basePath, path)
@@ -46,7 +46,7 @@ open class CoverageRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
 
         request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
@@ -61,7 +61,7 @@ open class CoverageRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
 
     request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
@@ -77,7 +77,7 @@ open class CoverageRequestBuilder: NSObject {
     }
 }
 
-open class CoverageLonLatRequestBuilder: NSObject {
+public class CoverageLonLatRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
     var lat:Double? = nil
@@ -89,17 +89,17 @@ open class CoverageLonLatRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
@@ -107,12 +107,12 @@ open class CoverageLonLatRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/"
 
         if let lat = lat {
@@ -139,7 +139,7 @@ open class CoverageLonLatRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -160,7 +160,7 @@ open class CoverageLonLatRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -182,7 +182,7 @@ open class CoverageLonLatRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionRequestBuilder: NSObject {
+public class CoverageRegionRequestBuilder: NSObject {
     let currentApi: CoverageApi
 
     var region:String? = nil
@@ -193,12 +193,12 @@ open class CoverageRegionRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
@@ -206,12 +206,12 @@ open class CoverageRegionRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/"
 
         if let region = region {
@@ -232,7 +232,7 @@ open class CoverageRegionRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: Coverages?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -250,7 +250,7 @@ open class CoverageRegionRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -271,7 +271,7 @@ open class CoverageRegionRequestBuilder: NSObject {
 
 
 
-open class CoverageApi: APIBase {
+public class CoverageApi: APIBase {
     let token: String
 
     public init(token: String) {

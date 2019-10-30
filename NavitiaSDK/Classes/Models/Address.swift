@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class Address: JSONEncodable, Mappable {
+open class Address: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case name, houseNumber, coord, label, administrativeRegions, id, unknown
+    }
 
     /** Name of the object */
     public var name: String?
@@ -18,6 +23,27 @@ open class Address: JSONEncodable, Mappable {
     public var administrativeRegions: [Admin]?
     /** Identifier of the object */
     public var id: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        houseNumber = try container.decode(Int32.self, forKey: .houseNumber)
+        coord = try container.decode(Coord.self, forKey: .coord)
+        label = try container.decode(String.self, forKey: .label)
+        administrativeRegions = try container.decode([Admin].self, forKey: .administrativeRegions)
+        id = try container.decode(String.self, forKey: .id)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(houseNumber, forKey: .houseNumber)
+        try container.encode(coord, forKey: .coord)
+        try container.encode(label, forKey: .label)
+        try container.encode(administrativeRegions, forKey: .administrativeRegions)
+        try container.encode(id, forKey: .id)
+    }
 
     public init() {}
     required public init?(map: Map) {

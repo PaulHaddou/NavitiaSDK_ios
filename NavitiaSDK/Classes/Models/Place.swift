@@ -8,9 +8,14 @@
 import Foundation
 
 
-open class Place: JSONEncodable, Mappable {
+open class Place: JSONEncodable, Mappable, Codable {
 
-    public enum EmbeddedType: String { 
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case embeddedType, stopPoint, administrativeRegion, name, distance, address, poi, quality, id, stopArea, unknown
+    }
+
+    public enum EmbeddedType: String, Codable { 
         case line = "line"
         case journeyPattern = "journey_pattern"
         case vehicleJourney = "vehicle_journey"
@@ -47,6 +52,35 @@ open class Place: JSONEncodable, Mappable {
     /** Identifier of the object */
     public var id: String?
     public var stopArea: StopArea?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        embeddedType = try container.decode(EmbeddedType.self, forKey: .embeddedType)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        administrativeRegion = try container.decode(Admin.self, forKey: .administrativeRegion)
+        name = try container.decode(String.self, forKey: .name)
+        distance = try container.decode(String.self, forKey: .distance)
+        address = try container.decode(Address.self, forKey: .address)
+        poi = try container.decode(Poi.self, forKey: .poi)
+        quality = try container.decode(Int32.self, forKey: .quality)
+        id = try container.decode(String.self, forKey: .id)
+        stopArea = try container.decode(StopArea.self, forKey: .stopArea)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(embeddedType, forKey: .embeddedType)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(administrativeRegion, forKey: .administrativeRegion)
+        try container.encode(name, forKey: .name)
+        try container.encode(distance, forKey: .distance)
+        try container.encode(address, forKey: .address)
+        try container.encode(poi, forKey: .poi)
+        try container.encode(quality, forKey: .quality)
+        try container.encode(id, forKey: .id)
+        try container.encode(stopArea, forKey: .stopArea)
+    }
 
     public init() {}
     required public init?(map: Map) {

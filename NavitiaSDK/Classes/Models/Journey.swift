@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class Journey: JSONEncodable, Mappable {
+open class Journey: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case status, distances, from, links, tags, nbTransfers, durations, arrivalDateTime, calendars, departureDateTime, to, requestedDateTime, fare, co2Emission, type, duration, sections, debug, unknown
+    }
 
     /** Status from the whole journey taking into account the most disturbing information retrieved on every object used (can be \&quot;NO_SERVICE\&quot;, \&quot;SIGNIFICANT_DELAYS\&quot;, ... */
     public var status: String?
@@ -34,6 +39,51 @@ open class Journey: JSONEncodable, Mappable {
     public var duration: Int32?
     public var sections: [Section]?
     public var debug: JourneyDebug?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        status = try container.decode(String.self, forKey: .status)
+        distances = try container.decode(Distances.self, forKey: .distances)
+        from = try container.decode(Place.self, forKey: .from)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        tags = try container.decode([String].self, forKey: .tags)
+        nbTransfers = try container.decode(Int32.self, forKey: .nbTransfers)
+        durations = try container.decode(Durations.self, forKey: .durations)
+        arrivalDateTime = try container.decode(String.self, forKey: .arrivalDateTime)
+        calendars = try container.decode([Calendar].self, forKey: .calendars)
+        departureDateTime = try container.decode(String.self, forKey: .departureDateTime)
+        to = try container.decode(Place.self, forKey: .to)
+        requestedDateTime = try container.decode(String.self, forKey: .requestedDateTime)
+        fare = try container.decode(Fare.self, forKey: .fare)
+        co2Emission = try container.decode(Amount.self, forKey: .co2Emission)
+        type = try container.decode(String.self, forKey: .type)
+        duration = try container.decode(Int32.self, forKey: .duration)
+        sections = try container.decode([Section].self, forKey: .sections)
+        debug = try container.decode(JourneyDebug.self, forKey: .debug)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(status, forKey: .status)
+        try container.encode(distances, forKey: .distances)
+        try container.encode(from, forKey: .from)
+        try container.encode(links, forKey: .links)
+        try container.encode(tags, forKey: .tags)
+        try container.encode(nbTransfers, forKey: .nbTransfers)
+        try container.encode(durations, forKey: .durations)
+        try container.encode(arrivalDateTime, forKey: .arrivalDateTime)
+        try container.encode(calendars, forKey: .calendars)
+        try container.encode(departureDateTime, forKey: .departureDateTime)
+        try container.encode(to, forKey: .to)
+        try container.encode(requestedDateTime, forKey: .requestedDateTime)
+        try container.encode(fare, forKey: .fare)
+        try container.encode(co2Emission, forKey: .co2Emission)
+        try container.encode(type, forKey: .type)
+        try container.encode(duration, forKey: .duration)
+        try container.encode(sections, forKey: .sections)
+        try container.encode(debug, forKey: .debug)
+    }
 
     public init() {}
     required public init?(map: Map) {

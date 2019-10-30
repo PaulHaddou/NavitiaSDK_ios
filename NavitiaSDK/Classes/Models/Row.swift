@@ -8,10 +8,28 @@
 import Foundation
 
 
-open class Row: JSONEncodable, Mappable {
+open class Row: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case stopPoint, dateTimes, unknown
+    }
 
     public var stopPoint: StopPoint?
     public var dateTimes: [DateTimeType]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        stopPoint = try container.decode(StopPoint.self, forKey: .stopPoint)
+        dateTimes = try container.decode([DateTimeType].self, forKey: .dateTimes)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(stopPoint, forKey: .stopPoint)
+        try container.encode(dateTimes, forKey: .dateTimes)
+    }
 
     public init() {}
     required public init?(map: Map) {

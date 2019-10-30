@@ -8,13 +8,33 @@
 import Foundation
 
 
-open class Context: JSONEncodable, Mappable {
+open class Context: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case timezone, currentDatetime, carDirectPath, unknown
+    }
 
     /** Timezone of any datetime in the response, default value Africa/Abidjan (UTC) */
     public var timezone: String?
     /** The datetime of the request (considered as \&quot;now\&quot;) */
     public var currentDatetime: String?
     public var carDirectPath: CO2?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        timezone = try container.decode(String.self, forKey: .timezone)
+        currentDatetime = try container.decode(String.self, forKey: .currentDatetime)
+        carDirectPath = try container.decode(CO2.self, forKey: .carDirectPath)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(timezone, forKey: .timezone)
+        try container.encode(currentDatetime, forKey: .currentDatetime)
+        try container.encode(carDirectPath, forKey: .carDirectPath)
+    }
 
     public init() {}
     required public init?(map: Map) {

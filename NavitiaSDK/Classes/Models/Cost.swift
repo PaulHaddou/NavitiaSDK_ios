@@ -8,10 +8,28 @@
 import Foundation
 
 
-open class Cost: JSONEncodable, Mappable {
+open class Cost: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case currency, value, unknown
+    }
 
     public var currency: String?
     public var value: String?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        currency = try container.decode(String.self, forKey: .currency)
+        value = try container.decode(String.self, forKey: .value)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(currency, forKey: .currency)
+        try container.encode(value, forKey: .value)
+    }
 
     public init() {}
     required public init?(map: Map) {

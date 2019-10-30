@@ -8,7 +8,7 @@
 import Foundation
 
 
-open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
+public class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
     let currentApi: StopSchedulesApi
 
     /**
@@ -53,102 +53,102 @@ open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withLat(_ lat: Double?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withLat(_ lat: Double?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.lat = lat
         
         return self
     }
-    open func withLon(_ lon: Double?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withLon(_ lon: Double?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.lon = lon
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withFromDatetime(_ fromDatetime: Date?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withFromDatetime(_ fromDatetime: Date?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.fromDatetime = fromDatetime
         
         return self
     }
-    open func withUntilDatetime(_ untilDatetime: Date?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withUntilDatetime(_ untilDatetime: Date?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.untilDatetime = untilDatetime
         
         return self
     }
-    open func withDuration(_ duration: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDuration(_ duration: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.duration = duration
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withMaxDateTimes(_ maxDateTimes: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withMaxDateTimes(_ maxDateTimes: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.maxDateTimes = maxDateTimes
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withCalendar(_ calendar: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withCalendar(_ calendar: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.calendar = calendar
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDirectionType(_ directionType: DirectionType?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDirectionType(_ directionType: DirectionType?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.directionType = directionType
 
         return self
@@ -156,12 +156,12 @@ open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageLonLatUriStopSchedulesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{lon};{lat}/{uri}/stop_schedules"
 
         if let lat = lat {
@@ -210,7 +210,7 @@ open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
         if (self.lat == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
         }
@@ -234,7 +234,7 @@ open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.lat == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : lat"])))
     }
@@ -259,7 +259,7 @@ open class CoverageLonLatUriStopSchedulesRequestBuilder: NSObject {
     }
 }
 
-open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
+public class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
     let currentApi: StopSchedulesApi
 
     /**
@@ -303,97 +303,97 @@ open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withRegion(_ region: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withRegion(_ region: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.region = region
         
         return self
     }
-    open func withUri(_ uri: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withUri(_ uri: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.uri = uri
         
         return self
     }
-    open func withFilter(_ filter: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withFilter(_ filter: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withFromDatetime(_ fromDatetime: Date?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withFromDatetime(_ fromDatetime: Date?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.fromDatetime = fromDatetime
         
         return self
     }
-    open func withUntilDatetime(_ untilDatetime: Date?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withUntilDatetime(_ untilDatetime: Date?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.untilDatetime = untilDatetime
         
         return self
     }
-    open func withDuration(_ duration: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDuration(_ duration: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.duration = duration
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withCount(_ count: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withMaxDateTimes(_ maxDateTimes: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withMaxDateTimes(_ maxDateTimes: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.maxDateTimes = maxDateTimes
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withCalendar(_ calendar: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withCalendar(_ calendar: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.calendar = calendar
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDirectionType(_ directionType: DirectionType?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDirectionType(_ directionType: DirectionType?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.directionType = directionType
 
         return self
@@ -401,12 +401,12 @@ open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> CoverageRegionUriStopSchedulesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         var path = "/coverage/{region}/{uri}/stop_schedules"
 
         if let region = region {
@@ -449,7 +449,7 @@ open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
         if (self.region == nil) {
             completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
         }
@@ -470,7 +470,7 @@ open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
     if (self.region == nil) {
         completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "Missing mandatory argument : region"])))
     }
@@ -492,7 +492,7 @@ open class CoverageRegionUriStopSchedulesRequestBuilder: NSObject {
     }
 }
 
-open class StopSchedulesRequestBuilder: NSObject {
+public class StopSchedulesRequestBuilder: NSObject {
     let currentApi: StopSchedulesApi
 
     /**
@@ -534,87 +534,87 @@ open class StopSchedulesRequestBuilder: NSObject {
         self.currentApi = currentApi
     }
 
-    open func withFilter(_ filter: String?) -> StopSchedulesRequestBuilder {
+    public func withFilter(_ filter: String?) -> StopSchedulesRequestBuilder {
         self.filter = filter
         
         return self
     }
-    open func withFromDatetime(_ fromDatetime: Date?) -> StopSchedulesRequestBuilder {
+    public func withFromDatetime(_ fromDatetime: Date?) -> StopSchedulesRequestBuilder {
         self.fromDatetime = fromDatetime
         
         return self
     }
-    open func withUntilDatetime(_ untilDatetime: Date?) -> StopSchedulesRequestBuilder {
+    public func withUntilDatetime(_ untilDatetime: Date?) -> StopSchedulesRequestBuilder {
         self.untilDatetime = untilDatetime
         
         return self
     }
-    open func withDuration(_ duration: Int32?) -> StopSchedulesRequestBuilder {
+    public func withDuration(_ duration: Int32?) -> StopSchedulesRequestBuilder {
         self.duration = duration
         
         return self
     }
-    open func withDepth(_ depth: Int32?) -> StopSchedulesRequestBuilder {
+    public func withDepth(_ depth: Int32?) -> StopSchedulesRequestBuilder {
         self.depth = depth
         
         return self
     }
-    open func withCount(_ count: Int32?) -> StopSchedulesRequestBuilder {
+    public func withCount(_ count: Int32?) -> StopSchedulesRequestBuilder {
         self.count = count
         
         return self
     }
-    open func withStartPage(_ startPage: Int32?) -> StopSchedulesRequestBuilder {
+    public func withStartPage(_ startPage: Int32?) -> StopSchedulesRequestBuilder {
         self.startPage = startPage
         
         return self
     }
-    open func withMaxDateTimes(_ maxDateTimes: Int32?) -> StopSchedulesRequestBuilder {
+    public func withMaxDateTimes(_ maxDateTimes: Int32?) -> StopSchedulesRequestBuilder {
         self.maxDateTimes = maxDateTimes
         
         return self
     }
-    open func withForbiddenId(_ forbiddenId: [String]?) -> StopSchedulesRequestBuilder {
+    public func withForbiddenId(_ forbiddenId: [String]?) -> StopSchedulesRequestBuilder {
         self.forbiddenId = forbiddenId
         
         return self
     }
-    open func withForbiddenUris(_ forbiddenUris: [String]?) -> StopSchedulesRequestBuilder {
+    public func withForbiddenUris(_ forbiddenUris: [String]?) -> StopSchedulesRequestBuilder {
         self.forbiddenUris = forbiddenUris
         
         return self
     }
-    open func withCalendar(_ calendar: String?) -> StopSchedulesRequestBuilder {
+    public func withCalendar(_ calendar: String?) -> StopSchedulesRequestBuilder {
         self.calendar = calendar
         
         return self
     }
-    open func withDistance(_ distance: Int32?) -> StopSchedulesRequestBuilder {
+    public func withDistance(_ distance: Int32?) -> StopSchedulesRequestBuilder {
         self.distance = distance
         
         return self
     }
-    open func withShowCodes(_ showCodes: Bool?) -> StopSchedulesRequestBuilder {
+    public func withShowCodes(_ showCodes: Bool?) -> StopSchedulesRequestBuilder {
         self.showCodes = showCodes
         
         return self
     }
-    open func withDataFreshness(_ dataFreshness: DataFreshness?) -> StopSchedulesRequestBuilder {
+    public func withDataFreshness(_ dataFreshness: DataFreshness?) -> StopSchedulesRequestBuilder {
         self.dataFreshness = dataFreshness
 
         return self
     }
-    open func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> StopSchedulesRequestBuilder {
+    public func withItemsPerSchedule(_ itemsPerSchedule: Int32?) -> StopSchedulesRequestBuilder {
         self.itemsPerSchedule = itemsPerSchedule
         
         return self
     }
-    open func withDisableGeojson(_ disableGeojson: Bool?) -> StopSchedulesRequestBuilder {
+    public func withDisableGeojson(_ disableGeojson: Bool?) -> StopSchedulesRequestBuilder {
         self.disableGeojson = disableGeojson
         
         return self
     }
-    open func withDirectionType(_ directionType: DirectionType?) -> StopSchedulesRequestBuilder {
+    public func withDirectionType(_ directionType: DirectionType?) -> StopSchedulesRequestBuilder {
         self.directionType = directionType
 
         return self
@@ -622,12 +622,12 @@ open class StopSchedulesRequestBuilder: NSObject {
 
 
 
-    open func withDebugURL(_ debugURL: String?) -> StopSchedulesRequestBuilder {
+    public func withDebugURL(_ debugURL: String?) -> StopSchedulesRequestBuilder {
         self.debugURL = debugURL
         return self
     }
 
-    open func makeUrl() -> String {
+    public func makeUrl() -> String {
         let path = "/stop_schedules"
 
         let URLString = String(format: "%@%@", NavitiaSDKAPI.basePath, path)
@@ -658,7 +658,7 @@ open class StopSchedulesRequestBuilder: NSObject {
         return (debugURL ?? url?.string ?? URLString)
     }
 
-    open func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
+    public func get(completion: @escaping ((_ data: StopSchedules?,_ error: Error?) -> Void)) {
 
         request(self.makeUrl())
             .authenticate(user: currentApi.token, password: "")
@@ -673,7 +673,7 @@ open class StopSchedulesRequestBuilder: NSObject {
             }
     }
 
-    open func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+    public func rawGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
 
     request(self.makeUrl())
         .authenticate(user: currentApi.token, password: "")
@@ -691,7 +691,7 @@ open class StopSchedulesRequestBuilder: NSObject {
 
 
 
-open class StopSchedulesApi: APIBase {
+public class StopSchedulesApi: APIBase {
     let token: String
 
     public init(token: String) {

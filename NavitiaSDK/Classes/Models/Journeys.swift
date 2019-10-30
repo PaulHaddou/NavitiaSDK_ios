@@ -8,7 +8,12 @@
 import Foundation
 
 
-open class Journeys: JSONEncodable, Mappable {
+open class Journeys: JSONEncodable, Mappable, Codable {
+
+/** Coding keys for Codable protocol */
+    enum CodingKeys: CodingKey {
+        case tickets, links, journeys, disruptions, notes, feedPublishers, context, error, exceptions, unknown
+    }
 
     public var tickets: [Ticket]?
     public var links: [LinkSchema]?
@@ -19,6 +24,33 @@ open class Journeys: JSONEncodable, Mappable {
     public var context: Context?
     public var error: ModelError?
     public var exceptions: [Exception]?
+
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        tickets = try container.decode([Ticket].self, forKey: .tickets)
+        links = try container.decode([LinkSchema].self, forKey: .links)
+        journeys = try container.decode([Journey].self, forKey: .journeys)
+        disruptions = try container.decode([Disruption].self, forKey: .disruptions)
+        notes = try container.decode([Note].self, forKey: .notes)
+        feedPublishers = try container.decode([FeedPublisher].self, forKey: .feedPublishers)
+        context = try container.decode(Context.self, forKey: .context)
+        error = try container.decode(ModelError.self, forKey: .error)
+        exceptions = try container.decode([Exception].self, forKey: .exceptions)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(tickets, forKey: .tickets)
+        try container.encode(links, forKey: .links)
+        try container.encode(journeys, forKey: .journeys)
+        try container.encode(disruptions, forKey: .disruptions)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(feedPublishers, forKey: .feedPublishers)
+        try container.encode(context, forKey: .context)
+        try container.encode(error, forKey: .error)
+        try container.encode(exceptions, forKey: .exceptions)
+    }
 
     public init() {}
     required public init?(map: Map) {
